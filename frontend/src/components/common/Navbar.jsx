@@ -9,18 +9,18 @@ import {
 } from 'lucide-react';
 
 export const WEBPAGES = [
-  { id: 'overview', icon: '🌧️', label_en: 'Overview & Telemetry', label_hi: 'होम (टेलीमेट्री)', stage: 'OBSERVE', color: '#0284c7' },
-  { id: 'hydromap', icon: '🗺️', label_en: '6-Mode Hydro-GIS', label_hi: 'जल मानचित्र (6-मोड)', stage: 'OBSERVE', color: '#0284c7' },
-  { id: 'monsoon', icon: '🌊', label_en: 'Monsoon Phase', label_hi: 'मानसून चरण', stage: 'UNDERSTAND', color: '#059669' },
-  { id: 'analytics', icon: '🔬', label_en: 'Analytics Lab', label_hi: 'विश्लेषण लैब', stage: 'UNDERSTAND', color: '#059669' },
-  { id: 'agriculture', icon: '🌾', label_en: 'Smart Crops & Cultivars', label_hi: 'फसल व किस्म चयन', stage: 'PREDICT', color: '#10b981' },
-  { id: 'xai', icon: '🧠', label_en: 'Explainable AI (SHAP)', label_hi: 'व्याख्यात्मक AI', stage: 'EXPLAIN', color: '#a855f7' },
-  { id: 'knowledge_graph', icon: '🕸️', label_en: 'Knowledge Graph', label_hi: 'ज्ञान नेटवर्क', stage: 'EXPLAIN', color: '#a855f7' },
-  { id: 'scenario', icon: '⚡', label_en: 'What-If Scenario Lab', label_hi: 'सिमुलेशन लैब', stage: 'SIMULATE', color: '#ec4899' },
-  { id: 'planner', icon: '📋', label_en: 'Farm Action Planner', label_hi: 'कार्य योजना', stage: 'ACT', color: '#ef4444' },
-  { id: 'alerts', icon: '🚨', label_en: 'Alerts Center', label_hi: 'आपातकालीन चेतावनी', stage: 'ACT', color: '#ef4444' },
-  { id: 'satellite', icon: '🛰️', label_en: 'Satellite NDVI', label_hi: 'उपग्रह डेटा', stage: 'OBSERVE', color: '#0284c7' },
-  { id: 'system', icon: '⚙️', label_en: 'System & Data Health', label_hi: 'डेटा स्वास्थ्य', stage: 'TRUST', color: '#6366f1' },
+  { id: 'overview', icon: '🌧️', label_en: 'Overview & Telemetry', label_hi: 'होम (टेलीमेट्री)', stage: 'OBSERVE', color: '#1E8A78' },
+  { id: 'hydromap', icon: '🗺️', label_en: '6-Mode Hydro-GIS', label_hi: 'जल मानचित्र (6-मोड)', stage: 'OBSERVE', color: '#1E8A78' },
+  { id: 'monsoon', icon: '🌊', label_en: 'Monsoon Phase', label_hi: 'मानसून चरण', stage: 'UNDERSTAND', color: '#59C7B1' },
+  { id: 'analytics', icon: '🔬', label_en: 'Analytics Lab', label_hi: 'विश्लेषण लैब', stage: 'UNDERSTAND', color: '#59C7B1' },
+  { id: 'agriculture', icon: '🌾', label_en: 'Smart Crops & Cultivars', label_hi: 'फसल व किस्म चयन', stage: 'PREDICT', color: '#E2A83B' },
+  { id: 'xai', icon: '🧠', label_en: 'Explainable AI (SHAP)', label_hi: 'व्याख्यात्मक AI', stage: 'EXPLAIN', color: '#8067B7' },
+  { id: 'knowledge_graph', icon: '🕸️', label_en: 'Knowledge Graph', label_hi: 'ज्ञान नेटवर्क', stage: 'EXPLAIN', color: '#8067B7' },
+  { id: 'scenario', icon: '⚡', label_en: 'What-If Scenario Lab', label_hi: 'सिमुलेशन लैब', stage: 'SIMULATE', color: '#B85C38' },
+  { id: 'planner', icon: '📋', label_en: 'Farm Action Planner', label_hi: 'कार्य योजना', stage: 'ACT', color: '#C95A4A' },
+  { id: 'alerts', icon: '🚨', label_en: 'Alerts Center', label_hi: 'आपातकालीन चेतावनी', stage: 'ACT', color: '#C95A4A' },
+  { id: 'satellite', icon: '🛰️', label_en: 'Satellite NDVI', label_hi: 'उपग्रह डेटा', stage: 'OBSERVE', color: '#1E8A78' },
+  { id: 'system', icon: '⚙️', label_en: 'System & Data Health', label_hi: 'डेटा स्वास्थ्य', stage: 'TRUST', color: '#B9C6BB' },
 ];
 
 export default function Navbar() {
@@ -71,10 +71,10 @@ export default function Navbar() {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      background: 'rgba(8, 10, 24, 0.94)',
+      background: 'rgba(16, 37, 30, 0.96)',
       backdropFilter: 'blur(20px)',
       WebkitBackdropFilter: 'blur(20px)',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.09)',
+      borderBottom: '1px solid rgba(89, 199, 177, 0.18)',
       boxShadow: '0 6px 28px rgba(0, 0, 0, 0.55)',
       display: 'flex',
       flexDirection: 'column',
@@ -88,7 +88,7 @@ export default function Navbar() {
         alignItems: 'center',
         justifyContent: 'space-between',
         gap: '0.6rem',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+        borderBottom: '1px solid rgba(89, 199, 177, 0.12)',
         width: '100%'
       }}>
         
@@ -108,14 +108,14 @@ export default function Navbar() {
         >
           <span style={{
             fontSize: '1.55rem',
-            filter: 'drop-shadow(0 0 12px rgba(255, 119, 34, 0.75))'
+            filter: 'drop-shadow(0 0 12px rgba(226, 168, 59, 0.75))'
           }}>⚡</span>
           <div>
             <div style={{
               fontSize: '1.2rem',
               fontWeight: 800,
               fontFamily: 'var(--font-heading)',
-              background: 'linear-gradient(135deg, #FF7722 0%, #F59E0B 40%, #00F0FF 80%, #10B981 100%)',
+              background: 'linear-gradient(135deg, #F7F1E3 0%, #E2A83B 45%, #59C7B1 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               letterSpacing: '-0.025em',
@@ -125,7 +125,7 @@ export default function Navbar() {
             </div>
             <div style={{
               fontSize: '0.62rem',
-              color: 'var(--neon-cyan)',
+              color: 'var(--color-rain-glow)',
               letterSpacing: '0.04em',
               textTransform: 'uppercase',
               display: 'flex',
@@ -135,8 +135,8 @@ export default function Navbar() {
               fontFamily: 'var(--font-heading)'
             }}>
               <span>Climate-to-Crop</span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
-              <span style={{ color: 'var(--neon-saffron)' }}>Lenovo 2026</span>
+              <span style={{ color: 'rgba(247, 241, 227, 0.3)' }}>•</span>
+              <span style={{ color: 'var(--color-harvest)' }}>Lenovo 2026</span>
             </div>
           </div>
         </div>
@@ -178,8 +178,8 @@ export default function Navbar() {
               top: 'calc(100% + 6px)',
               left: 0,
               width: '260px',
-              background: '#0d111e',
-              border: '1px solid rgba(56, 189, 248, 0.35)',
+              background: '#183A2D',
+              border: '1px solid rgba(89, 199, 177, 0.35)',
               borderRadius: '12px',
               padding: '0.4rem',
               boxShadow: '0 16px 36px rgba(0, 0, 0, 0.85)',
@@ -190,9 +190,9 @@ export default function Navbar() {
               <div style={{
                 fontSize: '0.66rem',
                 fontWeight: 800,
-                color: '#94a3b8',
+                color: '#B9C6BB',
                 padding: '0.3rem 0.5rem',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                borderBottom: '1px solid rgba(89, 199, 177, 0.15)',
                 letterSpacing: '0.04em',
                 textTransform: 'uppercase'
               }}>
@@ -214,9 +214,9 @@ export default function Navbar() {
                         justifyContent: 'space-between',
                         padding: '0.45rem 0.6rem',
                         borderRadius: '8px',
-                        background: isCur ? 'rgba(56, 189, 248, 0.15)' : 'transparent',
-                        border: isCur ? '1px solid #38bdf8' : '1px solid transparent',
-                        color: isCur ? '#38bdf8' : '#cbd5e1',
+                        background: isCur ? 'rgba(89, 199, 177, 0.2)' : 'transparent',
+                        border: isCur ? '1px solid #59C7B1' : '1px solid transparent',
+                        color: isCur ? '#F7F1E3' : '#B9C6BB',
                         cursor: 'pointer',
                         fontSize: '0.78rem',
                         fontWeight: isCur ? 800 : 500,
@@ -262,10 +262,10 @@ export default function Navbar() {
               alignItems: 'center',
               gap: '0.3rem',
               padding: '0.3rem 0.65rem',
-              background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(239, 68, 68, 0.18) 100%)',
-              border: '1px solid rgba(245, 158, 11, 0.45)',
+              background: 'rgba(226, 168, 59, 0.18)',
+              border: '1px solid rgba(226, 168, 59, 0.45)',
               borderRadius: '999px',
-              color: '#fbbf24',
+              color: '#E2A83B',
               fontSize: '0.72rem',
               fontWeight: 800,
               cursor: 'pointer',
@@ -286,10 +286,10 @@ export default function Navbar() {
               alignItems: 'center',
               gap: '0.3rem',
               padding: '0.3rem 0.6rem',
-              background: 'rgba(56, 189, 248, 0.08)',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
+              background: 'rgba(89, 199, 177, 0.12)',
+              border: '1px solid rgba(89, 199, 177, 0.35)',
               borderRadius: '999px',
-              color: '#38bdf8',
+              color: '#59C7B1',
               fontSize: '0.72rem',
               fontWeight: 700,
               cursor: 'pointer',
@@ -311,16 +311,16 @@ export default function Navbar() {
               gap: '0.35rem',
               padding: '0.32rem 0.75rem',
               background: isAssistantOpen 
-                ? 'linear-gradient(135deg, #0284c7 0%, #059669 100%)' 
-                : 'linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(5, 150, 105, 0.25) 100%)',
-              color: '#ffffff',
-              border: isAssistantOpen ? '1px solid #38bdf8' : '1px solid rgba(56, 189, 248, 0.4)',
+                ? 'linear-gradient(135deg, #1E8A78 0%, #8067B7 100%)' 
+                : 'rgba(128, 103, 183, 0.22)',
+              color: '#F7F1E3',
+              border: isAssistantOpen ? '1px solid #59C7B1' : '1px solid rgba(128, 103, 183, 0.45)',
               borderRadius: '999px',
               fontSize: '0.74rem',
               fontWeight: 800,
               cursor: 'pointer',
               transition: 'all 0.18s',
-              boxShadow: isAssistantOpen ? '0 0 14px rgba(56, 189, 248, 0.5)' : '0 2px 8px rgba(0, 0, 0, 0.3)',
+              boxShadow: isAssistantOpen ? '0 0 14px rgba(89, 199, 177, 0.5)' : '0 2px 8px rgba(0, 0, 0, 0.3)',
               whiteSpace: 'nowrap'
             }}
             title={lang === 'hi' ? 'नोवावर्षा AI कृषि सलाहकार खोलें' : 'Open NovaVarsha AI Agriculture Assistant'}
@@ -345,9 +345,9 @@ export default function Navbar() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.35rem',
-                border: '1px solid rgba(255, 255, 255, 0.16)',
-                background: 'rgba(255, 255, 255, 0.07)',
-                color: '#ffffff',
+                border: '1px solid rgba(89, 199, 177, 0.25)',
+                background: 'rgba(24, 58, 45, 0.8)',
+                color: '#F7F1E3',
                 cursor: 'pointer',
                 flexShrink: 0,
                 transition: 'all 0.15s',
@@ -355,7 +355,7 @@ export default function Navbar() {
               }}
               title="Select Language / भाषा चुनें (11 Indian Languages)"
             >
-              <Languages className="w-3.5 h-3.5 text-sky-400" />
+              <Languages className="w-3.5 h-3.5 text-emerald-400" />
               <span>{activeLangObj.native}</span>
               <ChevronDown className="w-3 h-3 text-slate-400" />
             </button>
@@ -366,8 +366,8 @@ export default function Navbar() {
                 top: 'calc(100% + 6px)',
                 right: 0,
                 width: '210px',
-                background: '#0d111e',
-                border: '1px solid rgba(255, 255, 255, 0.18)',
+                background: '#183A2D',
+                border: '1px solid rgba(89, 199, 177, 0.35)',
                 borderRadius: '12px',
                 padding: '0.45rem',
                 boxShadow: '0 16px 36px rgba(0, 0, 0, 0.85)',
@@ -378,9 +378,9 @@ export default function Navbar() {
                 <div style={{
                   fontSize: '0.66rem',
                   fontWeight: 800,
-                  color: '#94a3b8',
+                  color: '#B9C6BB',
                   padding: '0.3rem 0.6rem 0.45rem',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderBottom: '1px solid rgba(89, 199, 177, 0.15)',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase'
                 }}>
@@ -403,9 +403,9 @@ export default function Navbar() {
                           justifyContent: 'space-between',
                           padding: '0.45rem 0.65rem',
                           borderRadius: '8px',
-                          background: isSelected ? 'rgba(56, 189, 248, 0.16)' : 'transparent',
-                          border: isSelected ? '1px solid #38bdf8' : '1px solid transparent',
-                          color: isSelected ? '#38bdf8' : '#e2e8f0',
+                          background: isSelected ? 'rgba(89, 199, 177, 0.22)' : 'transparent',
+                          border: isSelected ? '1px solid #59C7B1' : '1px solid transparent',
+                          color: isSelected ? '#F7F1E3' : '#B9C6BB',
                           cursor: 'pointer',
                           fontSize: '0.78rem',
                           fontWeight: isSelected ? 800 : 500,
@@ -417,7 +417,7 @@ export default function Navbar() {
                           <span>{item.flag}</span>
                           <span>{item.native}</span>
                         </div>
-                        <span style={{ fontSize: '0.66rem', color: '#94a3b8' }}>{item.name}</span>
+                        <span style={{ fontSize: '0.66rem', color: '#B9C6BB' }}>{item.name}</span>
                       </button>
                     );
                   })}

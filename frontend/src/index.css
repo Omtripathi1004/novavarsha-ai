@@ -1,57 +1,66 @@
 /* ==========================================================================
    NovaVarsha AI — Hyperlocal Climate-to-Crop Intelligence (Lenovo Hackathon 2026)
-   Story: Observe → Understand → Predict → Explain → Recommend → Simulate → Act
-   Theme: High-Density Futuristic Cyberpunk HUD Glassmorphism
-   Typography: Space Grotesk (700-800) + Plus Jakarta Sans (500-700) + System Monospace
+   Visual Identity: "Monsoon Earth Intelligence"
+   Palette: Deep Forest Soil, Warm Harvest Light, Monsoon Water, Terracotta Earth, AI Violet
+   Typography: Space Grotesk (Headings) + Plus Jakarta Sans (Body)
    ========================================================================== */
 
 :root {
-  /* 1. BACKGROUND & PANELS */
-  --primary-navy: #050811; /* Deep Space Cyber Dark */
-  --secondary-navy: #0E1626; /* Midnight HUD Glass Panel */
-  --bg-card: rgba(14, 22, 38, 0.85); /* with backdrop-filter: blur(20px) */
-  --bg-card-hover: rgba(20, 32, 54, 0.92);
-  --bg-glass: rgba(14, 22, 38, 0.75);
+  /* 1. MONSOON EARTH INTELLIGENCE PALETTE (PDF SPECIFICATION)
+     Ratio: ~60% forest/earth neutrals, 20% ivory/sage text, 10% teal, 7% amber/terracotta, 3% violet/risk */
+  --bg-canvas: #10251E;          /* Deep forest-charcoal; global canvas */
+  --bg-surface: #183A2D;         /* Translucent forest glass cards/panels */
+  --bg-surface-elevated: #224C3C;/* Elevated / active panel */
+  --bg-card: rgba(24, 58, 45, 0.88);
+  --bg-card-hover: rgba(34, 76, 60, 0.95);
+  --bg-glass: rgba(24, 58, 45, 0.78);
 
-  /* 2. BRAND & ACCENT NEONS */
-  --neon-saffron: #FF7722; /* Primary Brand Saffron */
-  --neon-saffron-hover: #E05D00;
-  --neon-cyan: #00F0FF; /* HUD Vector & Technical Accent */
-  --neon-emerald: #10B981; /* SDG & Clean Energy Green */
-  --neon-blue: #3B82F6; /* Digital Inclusion & Data */
-  --neon-purple: #A855F7; /* Youth Capability & Milestones */
-  --neon-gold: #F59E0B; /* Skill Gap Warnings & Feasibility Score */
-  --neon-rose: #F43F5E; /* Risk Factors & Red Highlights */
+  --text-primary: #F7F1E3;       /* Warm ivory; headings and key values */
+  --text-main: #F7F1E3;
+  --text-secondary: #B9C6BB;     /* Sage mist; metadata */
+  --text-muted: #B9C6BB;
+  --text-dim: #7D8D81;           /* Low-emphasis muted forest sage */
 
-  /* Legacy & Semantic Mappings */
-  --bg-main: var(--primary-navy);
-  --bg-surface: var(--secondary-navy);
-  --accent-cyan: var(--neon-cyan);
-  --accent-emerald: var(--neon-emerald);
-  --accent-blue: var(--neon-blue);
-  --accent-amber: var(--neon-gold);
-  --accent-rose: var(--neon-rose);
-  --accent-purple: var(--neon-purple);
+  --color-harvest: #E2A83B;      /* Warm harvest amber: crop scores, CTAs, highlights */
+  --color-monsoon: #1E8A78;      /* Monsoon teal: rainfall, water, hydro, positive signals */
+  --color-rain-glow: #59C7B1;    /* Teal glow: live telemetry, chart highlights, focus */
+  --color-soil: #B85C38;         /* Terracotta: terrain, soil, temperature */
+  --color-earth: #7A4E35;        /* Earth brown: soil/terrain secondary visual */
+  --color-ai: #8067B7;           /* Restrained indigo-violet: SHAP, model intelligence, AI explanations */
+  --color-risk: #C95A4A;         /* Rust red: hazards only; never decorative */
 
-  /* 3. TYPOGRAPHY & TEXT COLOURS */
-  --text-main: #F8FAFC; /* Pure High-Contrast White */
-  --text-primary: #F8FAFC;
-  --text-muted: #94A3B8; /* Slate Muted Grey */
-  --text-secondary: #94A3B8;
-  --text-dim: #64748B; /* Low-Emphasis Slate */
+  /* Legacy & Semantic Mappings for backward compatibility */
+  --primary-navy: var(--bg-canvas);
+  --secondary-navy: var(--bg-surface);
+  --neon-saffron: var(--color-harvest);
+  --neon-saffron-hover: #D0932B;
+  --neon-cyan: var(--color-rain-glow);
+  --neon-emerald: var(--color-monsoon);
+  --neon-blue: #3E8B99;
+  --neon-purple: var(--color-ai);
+  --neon-gold: var(--color-harvest);
+  --neon-rose: var(--color-risk);
 
-  /* 4. BORDERS, GLOWS & SHADOWS */
-  --border-cyan: rgba(0, 240, 255, 0.25);
-  --border-saffron: rgba(255, 119, 34, 0.35);
-  --border-emerald: rgba(16, 185, 129, 0.35);
-  --border-subtle: rgba(0, 240, 255, 0.14);
+  --bg-main: var(--bg-canvas);
+  --accent-cyan: var(--color-rain-glow);
+  --accent-emerald: var(--color-monsoon);
+  --accent-blue: #3E8B99;
+  --accent-amber: var(--color-harvest);
+  --accent-rose: var(--color-risk);
+  --accent-purple: var(--color-ai);
+
+  /* 2. BORDERS, GLOWS & SHADOWS */
+  --border-cyan: rgba(89, 199, 177, 0.22);
+  --border-saffron: rgba(226, 168, 59, 0.35);
+  --border-emerald: rgba(30, 138, 120, 0.35);
+  --border-subtle: rgba(89, 199, 177, 0.14);
   --border-glow: var(--border-cyan);
 
-  --glow-saffron: 0 0 25px rgba(255, 119, 34, 0.35), inset 0 0 15px rgba(255, 119, 34, 0.1);
-  --glow-cyan: 0 0 25px rgba(0, 240, 255, 0.35), inset 0 0 15px rgba(0, 240, 255, 0.1);
-  --glow-emerald: 0 0 25px rgba(16, 185, 129, 0.35), inset 0 0 15px rgba(16, 185, 129, 0.1);
+  --glow-saffron: 0 0 25px rgba(226, 168, 59, 0.35), inset 0 0 15px rgba(226, 168, 59, 0.1);
+  --glow-cyan: 0 0 25px rgba(89, 199, 177, 0.35), inset 0 0 15px rgba(89, 199, 177, 0.1);
+  --glow-emerald: 0 0 25px rgba(30, 138, 120, 0.35), inset 0 0 15px rgba(30, 138, 120, 0.1);
 
-  /* 5. TYPOGRAPHY SPECIFICATION */
+  /* 3. TYPOGRAPHY SPECIFICATION */
   --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -63,49 +72,49 @@
   box-sizing: border-box;
 }
 
-/* 5. CUSTOM NEON SCROLLBAR */
+/* 4. CUSTOM HARVEST-MONSOON SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--primary-navy);
+  background: var(--bg-canvas);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--neon-saffron) 0%, var(--neon-cyan) 100%);
+  background: linear-gradient(180deg, var(--color-harvest) 0%, var(--color-monsoon) 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--neon-saffron-hover) 0%, #00d0de 100%);
+  background: linear-gradient(180deg, #F0B74B 0%, var(--color-rain-glow) 100%);
 }
 
-/* 1. BACKGROUND MESH & CORNER RADIAL GLOWS */
+/* 5. BACKGROUND MESH: SUBTLE FOREST GLOW & TERRACOTTA / TOPOGRAPHIC CONTOUR */
 body {
   font-family: var(--font-body);
-  background-color: var(--primary-navy);
-  color: var(--text-main);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   background-image: 
-    radial-gradient(circle at 10% 12%, rgba(255, 119, 34, 0.12) 0%, transparent 42%),
-    radial-gradient(circle at 90% 88%, rgba(0, 240, 255, 0.12) 0%, transparent 42%),
-    radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.08) 0%, transparent 35%),
-    repeating-linear-gradient(0deg, rgba(0, 240, 255, 0.02) 0px, rgba(0, 240, 255, 0.02) 1px, transparent 1px, transparent 40px),
-    repeating-linear-gradient(90deg, rgba(0, 240, 255, 0.02) 0px, rgba(0, 240, 255, 0.02) 1px, transparent 1px, transparent 40px);
+    radial-gradient(circle at 10% 12%, rgba(30, 138, 120, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 90% 88%, rgba(184, 92, 56, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(24, 58, 45, 0.25) 0%, transparent 65%),
+    repeating-linear-gradient(0deg, rgba(89, 199, 177, 0.02) 0px, rgba(89, 199, 177, 0.02) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(89, 199, 177, 0.02) 0px, rgba(89, 199, 177, 0.02) 1px, transparent 1px, transparent 40px);
   background-attachment: fixed;
 }
 
-/* Headings with Geometric Space Grotesk */
+/* Headings with Warm Ivory */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -0.025em;
-  color: var(--text-main);
+  color: var(--text-primary);
 }
 
 /* Monospace Data / Coordinates */
@@ -115,19 +124,19 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.04em;
 }
 
-/* 2. GLASS CARDS */
+/* 6. TRANSLUCENT FOREST GLASS CARDS */
 .glass-card {
   background: var(--bg-card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-cyan);
   border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(0, 240, 255, 0.04);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(89, 199, 177, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: var(--neon-cyan);
+  border-color: rgba(89, 199, 177, 0.45);
   transform: translateY(-3px);
   box-shadow: 0 14px 44px 0 rgba(0, 0, 0, 0.7), var(--glow-cyan);
 }
@@ -138,12 +147,12 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-saffron);
   border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(255, 119, 34, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(226, 168, 59, 0.06);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-saffron:hover {
-  border-color: var(--neon-saffron);
+  border-color: var(--color-harvest);
   transform: translateY(-3px);
   box-shadow: 0 14px 44px 0 rgba(0, 0, 0, 0.7), var(--glow-saffron);
 }
@@ -261,56 +270,58 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--neon-saffron) 0%, #e05d00 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 119, 34, 0.4);
-  box-shadow: 0 4px 18px rgba(255, 119, 34, 0.35);
+  background: linear-gradient(135deg, var(--color-harvest) 0%, #C48722 100%);
+  color: #10251E;
+  font-weight: 800;
+  border: 1px solid rgba(226, 168, 59, 0.5);
+  box-shadow: 0 4px 18px rgba(226, 168, 59, 0.35);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #ff8833 0%, var(--neon-saffron) 100%);
+  background: linear-gradient(135deg, #F0B74B 0%, var(--color-harvest) 100%);
+  color: #0A1713;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 119, 34, 0.55), var(--glow-saffron);
+  box-shadow: 0 6px 24px rgba(226, 168, 59, 0.55), var(--glow-saffron);
 }
 
 .btn-cyan {
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
-  color: var(--neon-cyan);
+  background: linear-gradient(135deg, rgba(30, 138, 120, 0.25) 0%, rgba(89, 199, 177, 0.25) 100%);
+  color: var(--color-rain-glow);
   border: 1px solid var(--border-cyan);
-  box-shadow: 0 4px 18px rgba(0, 240, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(30, 138, 120, 0.25);
 }
 
 .btn-cyan:hover {
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.35) 0%, rgba(59, 130, 246, 0.35) 100%);
+  background: linear-gradient(135deg, rgba(30, 138, 120, 0.4) 0%, rgba(89, 199, 177, 0.4) 100%);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: var(--glow-cyan);
 }
 
 .btn-secondary {
-  background: rgba(14, 22, 38, 0.8);
-  color: var(--text-main);
+  background: rgba(24, 58, 45, 0.85);
+  color: var(--text-primary);
   border: 1px solid var(--border-subtle);
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: rgba(22, 34, 58, 0.95);
-  border-color: var(--neon-cyan);
+  background: rgba(34, 76, 60, 0.95);
+  border-color: var(--color-rain-glow);
   color: #ffffff;
   transform: translateY(-1px);
 }
 
 .btn-danger {
-  background: rgba(244, 63, 94, 0.16);
-  color: #fda4af;
-  border: 1px solid rgba(244, 63, 94, 0.4);
+  background: rgba(201, 90, 74, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(201, 90, 74, 0.45);
 }
 
 .btn-danger:hover {
-  background: rgba(244, 63, 94, 0.3);
+  background: rgba(201, 90, 74, 0.35);
   color: #fff;
-  box-shadow: 0 0 16px rgba(244, 63, 94, 0.4);
+  box-shadow: 0 0 16px rgba(201, 90, 74, 0.45);
 }
 
 /* Legacy Badges compatibility */
@@ -328,33 +339,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .badge-cyan {
-  background: rgba(0, 240, 255, 0.15);
-  color: var(--neon-cyan);
+  background: rgba(89, 199, 177, 0.15);
+  color: var(--color-rain-glow);
   border: 1px solid var(--border-cyan);
 }
 
 .badge-emerald {
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--neon-emerald);
+  background: rgba(30, 138, 120, 0.18);
+  color: #6EE7B7;
   border: 1px solid var(--border-emerald);
 }
 
 .badge-amber {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--neon-gold);
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: rgba(226, 168, 59, 0.18);
+  color: var(--color-harvest);
+  border: 1px solid rgba(226, 168, 59, 0.4);
 }
 
 .badge-saffron {
-  background: rgba(255, 119, 34, 0.15);
-  color: var(--neon-saffron);
+  background: rgba(226, 168, 59, 0.18);
+  color: var(--color-harvest);
   border: 1px solid var(--border-saffron);
 }
 
 .badge-rose {
-  background: rgba(244, 63, 94, 0.15);
-  color: var(--neon-rose);
-  border: 1px solid rgba(244, 63, 94, 0.35);
+  background: rgba(201, 90, 74, 0.18);
+  color: #F87171;
+  border: 1px solid rgba(201, 90, 74, 0.4);
 }
 
 /* Telemetry & Metric Cards */
@@ -363,12 +374,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.85rem;
   font-weight: 800;
   line-height: 1.1;
-  color: var(--text-main);
+  color: var(--text-primary);
 }
 
 .telemetry-sub {
   font-size: 0.76rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-top: 0.35rem;
   display: flex;
   align-items: center;
@@ -379,7 +390,7 @@ h1, h2, h3, h4, h5, h6 {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(5, 8, 17, 0.88);
+  background: rgba(10, 23, 19, 0.88);
   backdrop-filter: blur(16px);
   z-index: 1000;
   display: flex;
@@ -389,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-content {
-  background: var(--secondary-navy);
+  background: var(--bg-surface);
   border: 1px solid var(--border-cyan);
   border-radius: 20px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), var(--glow-cyan);
@@ -406,12 +417,12 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* Range Sliders */
+/* Custom Monsoon Earth Range Sliders */
 input[type=range] {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  background: rgba(0, 240, 255, 0.12);
+  background: rgba(89, 199, 177, 0.16);
   height: 6px;
   border-radius: 6px;
   outline: none;
@@ -423,15 +434,15 @@ input[type=range]::-webkit-slider-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--neon-cyan);
+  background: var(--color-harvest);
   cursor: pointer;
-  box-shadow: 0 0 12px var(--neon-cyan);
+  box-shadow: 0 0 12px rgba(226, 168, 59, 0.6);
   transition: transform 0.1s ease;
 }
 
 input[type=range]::-webkit-slider-thumb:hover {
   transform: scale(1.25);
-  box-shadow: 0 0 18px var(--neon-cyan);
+  box-shadow: 0 0 18px rgba(226, 168, 59, 0.85);
 }
 
 /* Drawer & Overlay Animations */

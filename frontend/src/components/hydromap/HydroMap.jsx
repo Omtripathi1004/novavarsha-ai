@@ -342,13 +342,13 @@ export default function HydroMap() {
         alignItems: 'center', 
         flexWrap: 'wrap', 
         gap: '0.75rem',
-        background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%)',
-        borderColor: 'rgba(56, 189, 248, 0.25)'
+        background: 'rgba(24, 58, 45, 0.85)',
+        border: '1px solid rgba(89, 199, 177, 0.25)'
       }}>
         
         {/* 6 Map Modes with distinct colors */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '0.74rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 800, marginRight: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+          <span style={{ fontSize: '0.74rem', color: '#59C7B1', textTransform: 'uppercase', fontWeight: 800, marginRight: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
             <Compass className="w-3.5 h-3.5" /> Map View:
           </span>
           {MAP_MODES.map(mode => {
@@ -363,10 +363,10 @@ export default function HydroMap() {
                   padding: '0.35rem 0.75rem',
                   fontSize: '0.76rem',
                   borderRadius: '10px',
-                  background: isActive ? 'linear-gradient(135deg, #0284c7 0%, #059669 100%)' : 'rgba(255, 255, 255, 0.06)',
-                  color: isActive ? '#ffffff' : '#cbd5e1',
-                  border: isActive ? '1px solid #38bdf8' : '1px solid var(--border-subtle)',
-                  boxShadow: isActive ? '0 4px 12px rgba(2, 132, 199, 0.3)' : 'none',
+                  background: isActive ? 'linear-gradient(135deg, #1E8A78 0%, #2F6B4F 100%)' : 'rgba(247, 241, 227, 0.05)',
+                  color: isActive ? '#F7F1E3' : '#B9C6BB',
+                  border: isActive ? '1px solid #59C7B1' : '1px solid rgba(89, 199, 177, 0.15)',
+                  boxShadow: isActive ? '0 4px 14px rgba(30, 138, 120, 0.4)' : 'none',
                   fontWeight: isActive ? 700 : 500
                 }}
               >
@@ -382,12 +382,12 @@ export default function HydroMap() {
           display: 'flex', 
           alignItems: 'center', 
           gap: '0.4rem', 
-          background: 'rgba(16, 185, 129, 0.15)', 
-          border: '1px solid rgba(16, 185, 129, 0.35)', 
+          background: 'rgba(30, 138, 120, 0.2)', 
+          border: '1px solid rgba(89, 199, 177, 0.35)', 
           borderRadius: '999px', 
           padding: '0.35rem 0.85rem', 
           fontSize: '0.74rem', 
-          color: '#34d399',
+          color: '#59C7B1',
           fontWeight: 700
         }}>
           <Shield className="w-4 h-4 text-emerald-400" />
@@ -402,7 +402,7 @@ export default function HydroMap() {
         height: '620px', 
         borderRadius: '18px', 
         overflow: 'hidden', 
-        border: '1px solid rgba(56, 189, 248, 0.3)', 
+        border: '1.5px solid rgba(89, 199, 177, 0.3)', 
         boxShadow: '0 16px 50px rgba(0, 0, 0, 0.6)' 
       }}>
         
@@ -415,9 +415,9 @@ export default function HydroMap() {
           top: '1rem',
           left: '1rem',
           zIndex: 10,
-          background: 'rgba(11, 15, 35, 0.92)',
+          background: 'rgba(16, 37, 30, 0.94)',
           backdropFilter: 'blur(16px)',
-          border: `1.5px solid ${activeHub.color || '#38bdf8'}`,
+          border: '1.5px solid rgba(89, 199, 177, 0.35)',
           borderRadius: '16px',
           padding: '1.1rem',
           maxWidth: '310px',
@@ -426,32 +426,32 @@ export default function HydroMap() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
             <span style={{ fontSize: '1.25rem' }}>{activeHub.icon}</span>
             <div>
-              <strong style={{ fontSize: '0.98rem', color: '#fff', display: 'block', lineHeight: 1.2 }}>{activeHub.name}</strong>
-              <span style={{ fontSize: '0.72rem', color: activeHub.color, fontWeight: 700 }}>{activeHub.belt}</span>
+              <strong style={{ fontSize: '0.98rem', color: '#F7F1E3', display: 'block', lineHeight: 1.2 }}>{activeHub.name}</strong>
+              <span style={{ fontSize: '0.72rem', color: '#E2A83B', fontWeight: 700 }}>{activeHub.belt}</span>
             </div>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', margin: '0.75rem 0', fontSize: '0.75rem' }}>
-            <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <div style={{ color: '#94a3b8', fontSize: '0.68rem' }}>Geo Coordinate</div>
-              <div style={{ color: '#f8fafc', fontWeight: 700 }}>{activeHub.lat}°N, {activeHub.lng}°E</div>
+            <div style={{ background: 'rgba(24, 58, 45, 0.7)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(89, 199, 177, 0.15)' }}>
+              <div style={{ color: '#B9C6BB', fontSize: '0.68rem' }}>Geo Coordinate</div>
+              <div style={{ color: '#F7F1E3', fontWeight: 700 }}>{activeHub.lat}°N, {activeHub.lng}°E</div>
             </div>
-            <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(16, 185, 129, 0.25)' }}>
-              <div style={{ color: '#94a3b8', fontSize: '0.68rem' }}>Rain Anomaly</div>
-              <div style={{ color: '#34d399', fontWeight: 800 }}>{telemetry.rainAnomaly} vs Norm</div>
+            <div style={{ background: 'rgba(30, 138, 120, 0.2)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(89, 199, 177, 0.25)' }}>
+              <div style={{ color: '#B9C6BB', fontSize: '0.68rem' }}>Rain Anomaly</div>
+              <div style={{ color: '#59C7B1', fontWeight: 800 }}>{telemetry.rainAnomaly} vs Norm</div>
             </div>
           </div>
 
           <div style={{ 
             fontSize: '0.74rem', 
-            color: '#cbd5e1', 
-            background: 'rgba(2, 132, 199, 0.12)', 
-            border: '1px solid rgba(56, 189, 248, 0.25)', 
+            color: '#B9C6BB', 
+            background: 'rgba(30, 138, 120, 0.15)', 
+            border: '1px solid rgba(89, 199, 177, 0.25)', 
             padding: '0.45rem 0.65rem', 
             borderRadius: '8px', 
             marginBottom: '0.85rem' 
           }}>
-            Status: <strong style={{ color: '#38bdf8' }}>{activeHub.status}</strong>
+            Status: <strong style={{ color: '#F7F1E3' }}>{activeHub.status}</strong>
           </div>
 
           <button 
@@ -460,8 +460,7 @@ export default function HydroMap() {
             style={{ 
               width: '100%', 
               padding: '0.45rem', 
-              fontSize: '0.78rem',
-              background: `linear-gradient(135deg, ${activeHub.color || '#0284c7'} 0%, #059669 100%)` 
+              fontSize: '0.78rem' 
             }}
           >
             <RefreshCw className="w-3.5 h-3.5" /> Sync Dashboard Telemetry
@@ -474,23 +473,23 @@ export default function HydroMap() {
           top: '3.5rem',
           right: '1rem',
           zIndex: 10,
-          background: 'rgba(11, 15, 35, 0.92)',
+          background: 'rgba(16, 37, 30, 0.94)',
           backdropFilter: 'blur(16px)',
-          border: '1px solid rgba(255,255,255,0.12)',
+          border: '1px solid rgba(89, 199, 177, 0.25)',
           borderRadius: '14px',
           padding: '0.85rem',
           fontSize: '0.76rem',
           boxShadow: '0 10px 30px rgba(0,0,0,0.65)'
         }}>
-          <div style={{ fontWeight: 800, color: '#fff', marginBottom: '0.55rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-            <Layers className="w-3.5 h-3.5 text-sky-400" /> Real-Time Agro Layers
+          <div style={{ fontWeight: 800, color: '#F7F1E3', marginBottom: '0.55rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            <Layers className="w-3.5 h-3.5" style={{ color: '#59C7B1' }} /> Real-Time Agro Layers
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             {[
-              { id: 'rainfall_anomaly', label: 'Rainfall Anomaly Heatmap', color: '#0284c7' },
-              { id: 'crop_suitability', label: 'ICAR Cultivar Zones', color: '#10b981' },
-              { id: 'water_stress', label: 'Root-Zone Moisture Stress', color: '#f59e0b' },
-              { id: 'drought_risk', label: 'Severe Weather Hazard', color: '#ef4444' }
+              { id: 'rainfall_anomaly', label: 'Rainfall Anomaly Heatmap', color: '#1E8A78' },
+              { id: 'crop_suitability', label: 'ICAR Cultivar Zones', color: '#2F6B4F' },
+              { id: 'water_stress', label: 'Root-Zone Moisture Stress', color: '#E2A83B' },
+              { id: 'drought_risk', label: 'Severe Weather Hazard', color: '#C95A4A' }
             ].map(l => (
               <label 
                 key={l.id} 
@@ -499,7 +498,7 @@ export default function HydroMap() {
                   alignItems: 'center', 
                   gap: '0.45rem', 
                   cursor: 'pointer', 
-                  color: activeLayers[l.id] ? '#fff' : '#94a3b8',
+                  color: activeLayers[l.id] ? '#F7F1E3' : '#B9C6BB',
                   fontWeight: activeLayers[l.id] ? 600 : 400
                 }}
               >
@@ -522,33 +521,33 @@ export default function HydroMap() {
           bottom: '4.8rem',
           right: '1rem',
           zIndex: 10,
-          background: 'rgba(11, 15, 35, 0.92)',
+          background: 'rgba(16, 37, 30, 0.94)',
           backdropFilter: 'blur(16px)',
-          border: '1px solid rgba(255,255,255,0.12)',
+          border: '1px solid rgba(89, 199, 177, 0.25)',
           borderRadius: '12px',
           padding: '0.65rem 0.85rem',
           fontSize: '0.72rem',
-          color: '#cbd5e1',
+          color: '#B9C6BB',
           boxShadow: '0 8px 25px rgba(0,0,0,0.6)'
         }}>
-          <div style={{ fontWeight: 700, color: '#f8fafc', marginBottom: '0.35rem', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+          <div style={{ fontWeight: 700, color: '#F7F1E3', marginBottom: '0.35rem', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             🌧️ IMD Rainfall Anomaly Scale
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.3rem 0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#0284c7' }} />
+              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#1E8A78' }} />
               <span>Excess (+20%+)</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#10b981' }} />
+              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#2F6B4F' }} />
               <span>Normal (±19%)</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#f59e0b' }} />
+              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#E2A83B' }} />
               <span>Deficit (-20% to -59%)</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#ef4444' }} />
+              <span style={{ width: '10px', height: '10px', borderRadius: '3px', background: '#C95A4A' }} />
               <span>Scanty (-60%+)</span>
             </div>
           </div>
