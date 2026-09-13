@@ -78,36 +78,36 @@ export default function AlertsTab() {
           width: '100%',
           padding: '2.5rem 2rem',
           textAlign: 'center',
-          border: '1px solid rgba(244, 63, 94, 0.45)',
-          background: 'rgba(14, 22, 38, 0.95)',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(244, 63, 94, 0.2)'
+          border: '1px solid rgba(201, 90, 74, 0.45)',
+          background: 'rgba(16, 37, 30, 0.97)',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(201, 90, 74, 0.2)'
         }}>
           <div style={{
             width: '64px',
             height: '64px',
             borderRadius: '50%',
-            background: 'rgba(244, 63, 94, 0.15)',
-            border: '2px solid var(--neon-rose)',
+            background: 'rgba(201, 90, 74, 0.15)',
+            border: '2px solid #C95A4A',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 1.25rem',
-            color: 'var(--neon-rose)',
-            boxShadow: '0 0 20px rgba(244, 63, 94, 0.4)'
+            color: '#C95A4A',
+            boxShadow: '0 0 20px rgba(201, 90, 74, 0.4)'
           }}>
             <Lock className="w-8 h-8" />
           </div>
 
-          <span className="neon-badge neon-badge-rose" style={{ marginBottom: '0.75rem', fontSize: '0.74rem' }}>
-            <span className="neon-dot neon-dot-rose"></span>
-            <span>{tr('Restricted Operational Portal') || 'Restricted Operational Portal'}</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.74rem', fontWeight: 700, color: '#C95A4A', background: 'rgba(201, 90, 74, 0.12)', border: '1px solid rgba(201, 90, 74, 0.3)', borderRadius: '999px', padding: '0.2rem 0.65rem', marginBottom: '0.75rem' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#C95A4A', display: 'inline-block' }}></span>
+            {tr('Restricted Operational Portal') || 'Restricted Operational Portal'}
           </span>
 
-          <h2 style={{ fontSize: '1.4rem', color: '#fff', marginBottom: '0.5rem', fontFamily: 'var(--font-heading)' }}>
+          <h2 style={{ fontSize: '1.4rem', color: '#F7F1E3', marginBottom: '0.5rem', fontFamily: 'var(--font-heading)' }}>
             {tr('Restricted Access: District Disaster Officer & Admin Only')}
           </h2>
 
-          <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+          <p style={{ fontSize: '0.86rem', color: '#B9C6BB', lineHeight: 1.6, marginBottom: '1.5rem' }}>
             Under NDMA & Government Early-Warning safety guidelines, sending regional emergency siren alarms, mass cellular broadcasts, and configuring disaster thresholds is restricted strictly to <strong>Agriculture Officers (DAO)</strong> and <strong>System Administrators / Developers</strong>. General users and farmers cannot trigger emergency alarms.
           </p>
 
@@ -119,7 +119,7 @@ export default function AlertsTab() {
               borderRadius: '12px',
               fontSize: '0.9rem',
               fontWeight: 800,
-              background: 'linear-gradient(135deg, #0284c7 0%, #059669 100%)',
+              background: 'linear-gradient(135deg, #1E8A78 0%, #E2A83B 100%)',
               margin: '0 auto',
               gap: '0.5rem'
             }}
@@ -162,22 +162,22 @@ export default function AlertsTab() {
         alignItems: 'center', 
         flexWrap: 'wrap', 
         gap: '1rem',
-        background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.16) 0%, rgba(245, 158, 11, 0.1) 100%)',
-        borderColor: 'rgba(239, 68, 68, 0.35)'
+        background: 'linear-gradient(135deg, rgba(201, 90, 74, 0.16) 0%, rgba(226, 168, 59, 0.08) 100%)',
+        borderColor: 'rgba(201, 90, 74, 0.35)'
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.2rem' }}>
-            <span className="badge badge-rose" style={{ fontSize: '0.72rem' }}>
-              🏛️ Official Government Early Warning Console
+            <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#C95A4A', background: 'rgba(201, 90, 74, 0.15)', border: '1px solid rgba(201, 90, 74, 0.35)', borderRadius: '999px', padding: '0.15rem 0.5rem' }}>
+              🏙️ Official Government Early Warning Console
             </span>
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-              Operator: <strong style={{ color: '#fff' }}>{currentUser.name} ({currentUser.roleTitle})</strong>
+            <span style={{ fontSize: '0.75rem', color: '#7D8D81' }}>
+              Operator: <strong style={{ color: '#F7F1E3' }}>{currentUser.name} ({currentUser.roleTitle})</strong>
             </span>
           </div>
-          <h2 style={{ fontSize: '1.35rem', color: '#fff', margin: 0 }}>
+          <h2 style={{ fontSize: '1.35rem', color: '#F7F1E3', margin: 0 }}>
             Disaster Early-Warning & Emergency Alarm Dispatcher
           </h2>
-          <p style={{ fontSize: '0.84rem', color: '#cbd5e1', margin: '0.2rem 0 0' }}>
+          <p style={{ fontSize: '0.84rem', color: '#B9C6BB', margin: '0.2rem 0 0' }}>
             CAP (Common Alerting Protocol) compliant emergency broadcasting for {activeLocation.district} district.
           </p>
         </div>
@@ -193,9 +193,9 @@ export default function AlertsTab() {
                 padding: '0.35rem 0.65rem',
                 fontSize: '0.74rem',
                 borderRadius: '8px',
-                background: filterSeverity === sev ? '#ef4444' : 'rgba(255, 255, 255, 0.04)',
-                color: filterSeverity === sev ? '#ffffff' : '#94a3b8',
-                border: filterSeverity === sev ? '1px solid #f87171' : '1px solid var(--border-subtle)',
+                background: filterSeverity === sev ? '#C95A4A' : 'rgba(24, 58, 45, 0.6)',
+                color: filterSeverity === sev ? '#F7F1E3' : '#7D8D81',
+                border: filterSeverity === sev ? '1px solid #C95A4A' : '1px solid rgba(89, 199, 177, 0.15)',
                 fontWeight: filterSeverity === sev ? 800 : 500
               }}
             >
@@ -208,12 +208,12 @@ export default function AlertsTab() {
       {/* GOVERNMENT WARNING ALARM BROADCAST DISPATCHER PANEL */}
       <div className="glass-card" style={{
         padding: '1.4rem',
-        border: '1.5px solid rgba(239, 68, 68, 0.35)',
-        background: 'rgba(18, 14, 40, 0.95)'
+        border: '1.5px solid rgba(201, 90, 74, 0.35)',
+        background: 'rgba(16, 37, 30, 0.97)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-          <Radio className="w-5 h-5 text-rose-400" />
-          <h3 style={{ fontSize: '1.1rem', color: '#fff', margin: 0, fontWeight: 800 }}>
+          <Radio className="w-5 h-5" style={{ color: '#C95A4A' }} />
+          <h3 style={{ fontSize: '1.1rem', color: '#F7F1E3', margin: 0, fontWeight: 800 }}>
             Dispatch Government Emergency Warning & Sirens
           </h3>
         </div>
@@ -223,7 +223,7 @@ export default function AlertsTab() {
           {/* Left: Message Editor */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div>
-              <label style={{ fontSize: '0.76rem', color: '#cbd5e1', fontWeight: 600, display: 'block', marginBottom: '0.3rem' }}>
+              <label style={{ fontSize: '0.76rem', color: '#B9C6BB', fontWeight: 600, display: 'block', marginBottom: '0.3rem' }}>
                 Emergency Broadcast Advisory Message:
               </label>
               <textarea
@@ -232,11 +232,11 @@ export default function AlertsTab() {
                 onChange={(e) => setCustomMsg(e.target.value)}
                 style={{
                   width: '100%',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  background: 'rgba(24, 58, 45, 0.7)',
+                  border: '1px solid rgba(89, 199, 177, 0.18)',
                   borderRadius: '10px',
                   padding: '0.65rem',
-                  color: '#fff',
+                  color: '#F7F1E3',
                   fontSize: '0.82rem',
                   outline: 'none',
                   resize: 'none'
@@ -245,7 +245,7 @@ export default function AlertsTab() {
             </div>
 
             <div>
-              <label style={{ fontSize: '0.76rem', color: '#cbd5e1', fontWeight: 600, display: 'block', marginBottom: '0.3rem' }}>
+              <label style={{ fontSize: '0.76rem', color: '#B9C6BB', fontWeight: 600, display: 'block', marginBottom: '0.3rem' }}>
                 Emergency Email / Gmail Recipients:
               </label>
               <input
@@ -254,11 +254,11 @@ export default function AlertsTab() {
                 onChange={(e) => setGmailRecipient(e.target.value)}
                 style={{
                   width: '100%',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  background: 'rgba(24, 58, 45, 0.7)',
+                  border: '1px solid rgba(89, 199, 177, 0.18)',
                   borderRadius: '8px',
                   padding: '0.5rem 0.75rem',
-                  color: '#38bdf8',
+                  color: '#59C7B1',
                   fontSize: '0.8rem',
                   outline: 'none'
                 }}
@@ -279,13 +279,13 @@ export default function AlertsTab() {
                 gap: '0.5rem',
                 padding: '0.75rem',
                 borderRadius: '10px',
-                background: 'linear-gradient(135deg, #dc2626 0%, #ea580c 100%)',
-                color: '#fff',
+                background: 'linear-gradient(135deg, #C95A4A 0%, #B85C38 100%)',
+                color: '#F7F1E3',
                 fontWeight: 800,
                 fontSize: '0.86rem',
                 border: 'none',
                 cursor: isSending ? 'wait' : 'pointer',
-                boxShadow: '0 4px 15px rgba(220, 38, 38, 0.4)'
+                boxShadow: '0 4px 15px rgba(201, 90, 74, 0.4)'
               }}
             >
               <PhoneCall className="w-4 h-4" />
@@ -302,8 +302,8 @@ export default function AlertsTab() {
                 gap: '0.5rem',
                 padding: '0.75rem',
                 borderRadius: '10px',
-                background: 'linear-gradient(135deg, #0284c7 0%, #059669 100%)',
-                color: '#fff',
+                background: 'linear-gradient(135deg, #1E8A78 0%, #E2A83B 100%)',
+                color: '#10251E',
                 fontWeight: 800,
                 fontSize: '0.86rem',
                 border: 'none',
@@ -316,12 +316,12 @@ export default function AlertsTab() {
 
             {dispatchStatus && (
               <div style={{
-                background: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid rgba(16, 185, 129, 0.4)',
+                background: 'rgba(30, 138, 120, 0.18)',
+                border: '1px solid rgba(89, 199, 177, 0.35)',
                 borderRadius: '10px',
                 padding: '0.65rem',
                 fontSize: '0.76rem',
-                color: '#6ee7b7'
+                color: '#59C7B1'
               }}>
                 <div>✅ <strong>Emergency Warning Dispatched Successfully!</strong></div>
                 <div>Receipt: <code>{dispatchStatus.receiptId}</code> • Time: {dispatchStatus.time}</div>
@@ -347,7 +347,7 @@ export default function AlertsTab() {
               className="glass-card" 
               style={{ 
                 padding: '1.25rem',
-                borderLeft: `4px solid ${isWarn ? '#ef4444' : isAdv ? '#f59e0b' : '#38bdf8'}`
+                borderLeft: `4px solid ${isWarn ? '#C95A4A' : isAdv ? '#E2A83B' : '#1E8A78'}`
               }}
             >
               <div 
@@ -356,26 +356,26 @@ export default function AlertsTab() {
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                    <span className={`badge ${isWarn ? 'badge-rose' : isAdv ? 'badge-amber' : 'badge-cyan'}`}>
+                    <span style={{ fontSize: '0.74rem', fontWeight: 700, padding: '0.15rem 0.5rem', borderRadius: '999px', border: '1px solid', borderColor: isWarn ? '#C95A4A' : isAdv ? '#E2A83B' : '#1E8A78', color: isWarn ? '#C95A4A' : isAdv ? '#E2A83B' : '#59C7B1', background: isWarn ? 'rgba(201, 90, 74, 0.12)' : isAdv ? 'rgba(226, 168, 59, 0.12)' : 'rgba(30, 138, 120, 0.12)' }}>
                       {alert.severity}
                     </span>
-                    <span style={{ fontSize: '0.74rem', color: '#94a3b8' }}>
+                    <span style={{ fontSize: '0.74rem', color: '#7D8D81' }}>
                       {alert.category} • {alert.timestamp}
                     </span>
                   </div>
-                  <h3 style={{ fontSize: '1.05rem', color: '#fff', margin: '0.2rem 0' }}>
+                  <h3 style={{ fontSize: '1.05rem', color: '#F7F1E3', margin: '0.2rem 0' }}>
                     {alert.title}
                   </h3>
-                  <p style={{ fontSize: '0.82rem', color: '#cbd5e1', margin: 0 }}>
+                  <p style={{ fontSize: '0.82rem', color: '#B9C6BB', margin: 0 }}>
                     {alert.summary}
                   </p>
                 </div>
 
                 <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                  <span style={{ fontSize: '0.74rem', color: '#38bdf8', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.74rem', color: '#59C7B1', fontWeight: 700 }}>
                     {alert.confidence}
                   </span>
-                  <div style={{ marginTop: '0.4rem', color: '#94a3b8' }}>
+                  <div style={{ marginTop: '0.4rem', color: '#7D8D81' }}>
                     {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
                 </div>
@@ -383,12 +383,12 @@ export default function AlertsTab() {
 
               {/* Collapsible Evidence & Action */}
               {isExpanded && (
-                <div style={{ marginTop: '1rem', paddingTop: '0.85rem', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                  <div style={{ background: 'rgba(56, 189, 248, 0.08)', padding: '0.65rem', borderRadius: '8px', fontSize: '0.78rem', color: '#cbd5e1' }}>
-                    <strong style={{ color: '#38bdf8' }}>Why Am I Seeing This?</strong> {alert.why_seeing_this}
+                <div style={{ marginTop: '1rem', paddingTop: '0.85rem', borderTop: '1px solid rgba(89, 199, 177, 0.08)', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                  <div style={{ background: 'rgba(30, 138, 120, 0.1)', padding: '0.65rem', borderRadius: '8px', fontSize: '0.78rem', color: '#B9C6BB' }}>
+                    <strong style={{ color: '#59C7B1' }}>Why Am I Seeing This?</strong> {alert.why_seeing_this}
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: '#cbd5e1' }}>
-                    <strong style={{ color: '#fff' }}>Recommended Mitigation Actions:</strong>
+                  <div style={{ fontSize: '0.78rem', color: '#B9C6BB' }}>
+                    <strong style={{ color: '#F7F1E3' }}>Recommended Mitigation Actions:</strong>
                     <ul style={{ paddingLeft: '1.25rem', marginTop: '0.3rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                       {alert.recommended_actions.map((act, aIdx) => (
                         <li key={aIdx}>{act}</li>

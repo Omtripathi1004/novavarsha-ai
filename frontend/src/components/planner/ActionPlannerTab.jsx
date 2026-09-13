@@ -102,32 +102,31 @@ export default function ActionPlannerTab() {
         alignItems: 'center', 
         flexWrap: 'wrap', 
         gap: '1rem',
-        background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(14, 22, 38, 0.95) 100%)',
-        border: '1.5px solid rgba(16, 185, 129, 0.35)',
+        background: 'linear-gradient(135deg, rgba(30, 138, 120, 0.12) 0%, rgba(24, 58, 45, 0.97) 100%)',
+        border: '1.5px solid rgba(89, 199, 177, 0.25)',
         boxShadow: '0 12px 35px rgba(0, 0, 0, 0.45)'
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
-            <span className="neon-badge neon-badge-emerald" style={{ fontSize: '0.72rem', padding: '0.2rem 0.6rem' }}>
-              <span className="neon-dot neon-dot-emerald"></span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', fontWeight: 700, color: '#C95A4A', background: 'rgba(201, 90, 74, 0.12)', border: '1px solid rgba(201, 90, 74, 0.3)', borderRadius: '999px', padding: '0.2rem 0.65rem' }}>
               {tr('6-Stage Practical Field Guide')}
             </span>
-            <span style={{ fontSize: '0.76rem', color: 'var(--neon-cyan)', fontWeight: 700 }}>
+            <span style={{ fontSize: '0.76rem', color: '#59C7B1', fontWeight: 700 }}>
               {tr('Evidence-Linked Agronomic Actions')} • {activeLocation.district || activeHub.district}, {activeLocation.state || activeHub.state}
             </span>
           </div>
-          <h2 style={{ fontSize: '1.35rem', color: '#fff', margin: 0, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
+          <h2 style={{ fontSize: '1.35rem', color: '#F7F1E3', margin: 0, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
             {tr('Farm Action Planner & Seasonal Checklist')}
           </h2>
-          <p style={{ fontSize: '0.84rem', color: '#cbd5e1', margin: '0.3rem 0 0', maxWidth: '720px', lineHeight: 1.5 }}>
+          <p style={{ fontSize: '0.84rem', color: '#B9C6BB', margin: '0.3rem 0 0', maxWidth: '720px', lineHeight: 1.5 }}>
             {tr('Converts complex meteorological predictions into concise, step-by-step field operations.')}
           </p>
         </div>
 
         {/* Progress Tracker Card */}
         <div style={{ 
-          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 8, 17, 0.8) 100%)', 
-          border: '1.5px solid rgba(16, 185, 129, 0.4)', 
+          background: 'linear-gradient(135deg, rgba(30, 138, 120, 0.15) 0%, rgba(16, 37, 30, 0.8) 100%)', 
+          border: '1.5px solid rgba(89, 199, 177, 0.35)', 
           borderRadius: '14px', 
           padding: '0.85rem 1.25rem', 
           textAlign: 'right',
@@ -135,7 +134,7 @@ export default function ActionPlannerTab() {
           boxShadow: '0 0 20px rgba(16, 185, 129, 0.2)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '0.25rem' }}>
-            <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>
+            <span style={{ fontSize: '0.72rem', color: '#7D8D81', textTransform: 'uppercase', fontWeight: 700 }}>
               {tr('Checklist Completion')}
             </span>
             <button 
@@ -146,15 +145,15 @@ export default function ActionPlannerTab() {
               <RotateCcw className="w-3.5 h-3.5 hover:text-white" />
             </button>
           </div>
-          <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#34d399', fontFamily: 'var(--font-heading)' }}>
-            {completedCount} / {totalCount} <span style={{ fontSize: '1rem', color: '#a7f3d0' }}>({progressPct}%)</span>
+          <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#E2A83B', fontFamily: 'var(--font-heading)' }}>
+            {completedCount} / {totalCount} <span style={{ fontSize: '1rem', color: '#59C7B1' }}>({progressPct}%)</span>
           </div>
           {/* Progress Bar */}
           <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '999px', marginTop: '0.4rem', overflow: 'hidden' }}>
             <div style={{ 
               width: `${progressPct}%`, 
               height: '100%', 
-              background: 'linear-gradient(90deg, #10b981 0%, #38bdf8 100%)', 
+              background: 'linear-gradient(90deg, #1E8A78 0%, #E2A83B 100%)', 
               borderRadius: '999px',
               transition: 'width 0.35s ease' 
             }} />
@@ -174,11 +173,11 @@ export default function ActionPlannerTab() {
               className="glass-card" 
               style={{ 
                 padding: '1.35rem 1.5rem',
-                border: stageDone ? '1.5px solid rgba(16, 185, 129, 0.45)' : '1px solid var(--border-subtle)',
+                border: stageDone ? '1.5px solid rgba(89, 199, 177, 0.45)' : '1px solid rgba(89, 199, 177, 0.12)',
                 background: stageDone 
-                  ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(14, 22, 38, 0.95) 100%)' 
-                  : 'rgba(14, 22, 38, 0.85)',
-                boxShadow: stageDone ? '0 8px 24px rgba(16, 185, 129, 0.15)' : 'none',
+                  ? 'linear-gradient(135deg, rgba(30, 138, 120, 0.10) 0%, rgba(24, 58, 45, 0.97) 100%)' 
+                  : 'rgba(24, 58, 45, 0.85)',
+                boxShadow: stageDone ? '0 8px 24px rgba(30, 138, 120, 0.18)' : 'none',
                 transition: 'all 0.25s ease'
               }}
             >
@@ -186,35 +185,35 @@ export default function ActionPlannerTab() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem', flexWrap: 'wrap', gap: '0.6rem' }}>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                    <span className="neon-badge neon-badge-cyan" style={{ fontSize: '0.72rem', padding: '0.15rem 0.55rem' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.72rem', fontWeight: 700, color: '#59C7B1', background: 'rgba(89, 199, 177, 0.12)', border: '1px solid rgba(89, 199, 177, 0.3)', borderRadius: '999px', padding: '0.15rem 0.55rem' }}>
                       {tr(stg.stage)}
                     </span>
                     {stageDone && (
-                      <span style={{ fontSize: '0.72rem', color: '#34d399', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#E2A83B', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                         <CheckCircle2 className="w-3.5 h-3.5" />
                         {tr('Completed')}
                       </span>
                     )}
                   </div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#fff', margin: 0, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
+                  <h3 style={{ fontSize: '1.15rem', color: '#F7F1E3', margin: 0, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
                     {tr(stg.title)}
                   </h3>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                    {tr('Evidence Confidence:')} <strong style={{ color: '#34d399', fontSize: '0.85rem' }}>{stg.confidence}</strong>
+                  <span style={{ fontSize: '0.75rem', color: '#7D8D81' }}>
+                    {tr('Evidence Confidence:')} <strong style={{ color: '#59C7B1', fontSize: '0.85rem' }}>{stg.confidence}</strong>
                   </span>
                   {!stageDone && (
                     <button
                       onClick={() => markAllStageDone(stg)}
                       style={{
-                        background: 'rgba(56, 189, 248, 0.1)',
-                        border: '1px solid rgba(56, 189, 248, 0.3)',
+                        background: 'rgba(30, 138, 120, 0.12)',
+                        border: '1px solid rgba(89, 199, 177, 0.3)',
                         borderRadius: '6px',
                         padding: '0.25rem 0.55rem',
                         fontSize: '0.72rem',
-                        color: '#38bdf8',
+                        color: '#59C7B1',
                         cursor: 'pointer',
                         fontWeight: 600
                       }}
@@ -228,15 +227,15 @@ export default function ActionPlannerTab() {
               {/* Scientific Grounding Bar */}
               <div style={{ 
                 fontSize: '0.8rem', 
-                color: '#cbd5e1', 
-                background: 'rgba(255, 255, 255, 0.035)', 
+                color: '#B9C6BB', 
+                background: 'rgba(24, 58, 45, 0.6)', 
                 padding: '0.55rem 0.85rem', 
                 borderRadius: '8px', 
                 marginBottom: '0.95rem',
-                borderLeft: '3px solid var(--neon-cyan)',
+                borderLeft: '3px solid #1E8A78',
                 lineHeight: 1.5
               }}>
-                💡 <strong style={{ color: 'var(--neon-cyan)' }}>{tr('Scientific Grounding:')}</strong> {tr(stg.evidence)}
+                💡 <strong style={{ color: '#59C7B1' }}>{tr('Scientific Grounding:')}</strong> {tr(stg.evidence)}
               </div>
 
               {/* Checklist items */}
@@ -253,8 +252,8 @@ export default function ActionPlannerTab() {
                         gap: '0.75rem',
                         padding: '0.65rem 0.95rem',
                         borderRadius: '10px',
-                        background: isDone ? 'rgba(16, 185, 129, 0.1)' : 'rgba(255, 255, 255, 0.02)',
-                        border: isDone ? '1px solid rgba(16, 185, 129, 0.35)' : '1px solid var(--border-subtle)',
+                        background: isDone ? 'rgba(30, 138, 120, 0.12)' : 'rgba(24, 58, 45, 0.5)',
+                        border: isDone ? '1px solid rgba(89, 199, 177, 0.3)' : '1px solid rgba(89, 199, 177, 0.1)',
                         cursor: 'pointer',
                         transition: 'all 0.18s ease'
                       }}
@@ -268,7 +267,7 @@ export default function ActionPlannerTab() {
                       </div>
                       <span style={{
                         fontSize: '0.84rem',
-                        color: isDone ? '#94a3b8' : '#f8fafc',
+                        color: isDone ? '#7D8D81' : '#F7F1E3',
                         textDecoration: isDone ? 'line-through' : 'none',
                         lineHeight: 1.45,
                         fontWeight: isDone ? 400 : 500

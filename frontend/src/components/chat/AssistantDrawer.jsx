@@ -402,11 +402,11 @@ export default function AssistantDrawer() {
       maxWidth: 'calc(100vw - 2rem)',
       height: '580px',
       maxHeight: 'calc(100vh - 4rem)',
-      background: 'rgba(11, 17, 32, 0.95)',
+      background: 'rgba(16, 37, 30, 0.97)',
       backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(56, 189, 248, 0.35)',
+      border: '1px solid rgba(128, 103, 183, 0.40)',
       borderRadius: '20px',
-      boxShadow: '0 20px 50px rgba(0,0,0,0.7), 0 0 25px rgba(56, 189, 248, 0.2)',
+      boxShadow: '0 20px 50px rgba(0,0,0,0.7), 0 0 25px rgba(128, 103, 183, 0.18)',
       display: 'flex',
       flexDirection: 'column',
       overflow: 'hidden',
@@ -416,21 +416,21 @@ export default function AssistantDrawer() {
       {/* Header */}
       <div style={{
         padding: '0.85rem 1.15rem',
-        background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(16, 185, 129, 0.2) 100%)',
-        borderBottom: '1px solid var(--border-subtle)',
+        background: 'linear-gradient(135deg, rgba(128, 103, 183, 0.22) 0%, rgba(30, 138, 120, 0.15) 100%)',
+        borderBottom: '1px solid rgba(89, 199, 177, 0.15)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ background: '#0284c7', padding: '0.35rem', borderRadius: '8px' }}>
+          <div style={{ background: '#8067B7', padding: '0.35rem', borderRadius: '8px' }}>
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <div>
-            <h4 style={{ fontSize: '0.94rem', color: '#fff', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
+            <h4 style={{ fontSize: '0.94rem', color: '#F7F1E3', margin: 0, fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
               {tr('Ask AI Assistant')} (RAG)
             </h4>
-            <span style={{ fontSize: '0.68rem', color: '#38bdf8' }}>
+            <span style={{ fontSize: '0.68rem', color: '#8067B7' }}>
               ICAR / IMD Grounded Agricultural Bot ({lang.toUpperCase()})
             </span>
           </div>
@@ -441,7 +441,7 @@ export default function AssistantDrawer() {
           style={{
             background: 'transparent',
             border: 'none',
-            color: '#94a3b8',
+            color: '#7D8D81',
             cursor: 'pointer',
             padding: '0.3rem',
             borderRadius: '6px'
@@ -473,12 +473,12 @@ export default function AssistantDrawer() {
           >
             <div style={{
               background: msg.sender === 'user' 
-                ? 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)' 
-                : 'rgba(255, 255, 255, 0.05)',
-              border: msg.sender === 'user' ? 'none' : '1px solid var(--border-subtle)',
+                ? 'linear-gradient(135deg, #1E8A78 0%, #E2A83B 100%)' 
+                : 'rgba(24, 58, 45, 0.8)',
+              border: msg.sender === 'user' ? 'none' : '1px solid rgba(89, 199, 177, 0.18)',
               borderRadius: msg.sender === 'user' ? '14px 14px 2px 14px' : '14px 14px 14px 2px',
               padding: '0.75rem 0.95rem',
-              color: '#f8fafc',
+              color: '#F7F1E3',
               fontSize: '0.84rem',
               lineHeight: '1.45',
               boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
@@ -496,9 +496,9 @@ export default function AssistantDrawer() {
                         key={i}
                         style={{
                           fontSize: '0.66rem',
-                          background: 'rgba(56, 189, 248, 0.1)',
-                          color: '#38bdf8',
-                          border: '1px solid rgba(56, 189, 248, 0.25)',
+                          background: 'rgba(128, 103, 183, 0.12)',
+                          color: '#8067B7',
+                          border: '1px solid rgba(128, 103, 183, 0.3)',
                           borderRadius: '4px',
                           padding: '0.15rem 0.4rem',
                           display: 'inline-flex',
@@ -518,7 +518,7 @@ export default function AssistantDrawer() {
                   style={{
                     background: 'transparent',
                     border: 'none',
-                    color: isSpeaking ? '#34d399' : '#94a3b8',
+                    color: isSpeaking ? '#59C7B1' : '#7D8D81',
                     cursor: 'pointer',
                     padding: '0.2rem',
                     marginLeft: 'auto'
@@ -539,11 +539,11 @@ export default function AssistantDrawer() {
                     onClick={() => handleActionClick(act)}
                     style={{
                       fontSize: '0.72rem',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      background: 'rgba(24, 58, 45, 0.7)',
+                      border: '1px solid rgba(89, 199, 177, 0.2)',
                       borderRadius: '999px',
                       padding: '0.25rem 0.65rem',
-                      color: '#cbd5e1',
+                      color: '#B9C6BB',
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -567,8 +567,8 @@ export default function AssistantDrawer() {
         onSubmit={(e) => { e.preventDefault(); handleSend(); }}
         style={{
           padding: '0.75rem 1rem',
-          borderTop: '1px solid var(--border-subtle)',
-          background: 'rgba(5, 8, 17, 0.95)',
+          borderTop: '1px solid rgba(89, 199, 177, 0.12)',
+          background: 'rgba(16, 37, 30, 0.97)',
           display: 'flex',
           gap: '0.5rem',
           alignItems: 'center'
@@ -581,23 +581,26 @@ export default function AssistantDrawer() {
           placeholder={tr('Ask AI Assistant') + '...'}
           style={{
             flex: 1,
-            background: 'rgba(255, 255, 255, 0.05)',
-            border: '1px solid var(--border-subtle)',
+            background: 'rgba(24, 58, 45, 0.7)',
+            border: '1px solid rgba(89, 199, 177, 0.18)',
             borderRadius: '10px',
             padding: '0.55rem 0.85rem',
-            color: '#fff',
+            color: '#F7F1E3',
             fontSize: '0.84rem',
             outline: 'none'
           }}
         />
         <button
           type="submit"
-          className="btn-cyan"
+          className="btn"
           style={{
             padding: '0.55rem 0.85rem',
             borderRadius: '10px',
             fontSize: '0.84rem',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            background: 'linear-gradient(135deg, #8067B7 0%, #1E8A78 100%)',
+            border: 'none',
+            color: '#F7F1E3'
           }}
         >
           <Send className="w-4 h-4" />
