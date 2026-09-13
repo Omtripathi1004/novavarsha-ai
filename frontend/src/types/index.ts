@@ -1,6 +1,6 @@
 /**
- * YuvaSetu / NovaVarsha - Core TypeScript Definitions
- * Facilitates high-performance coordination between React components, state, and ICAR models.
+ * NovaVarsha AI - Core TypeScript Definitions (Lenovo Hackathon 2026)
+ * Hyperlocal Climate-to-Crop Decision Intelligence Platform
  */
 
 export interface CropCultivar {

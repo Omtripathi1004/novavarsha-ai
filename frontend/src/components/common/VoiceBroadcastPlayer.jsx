@@ -50,7 +50,7 @@ export default function VoiceBroadcastPlayer() {
 
   // Dynamic Spoken Scripts for all 11 Languages using live location & synchronized crops
   const scriptTemplates = {
-    hi: `नमस्ते किसान भाइयों और बहनों। युवासेतु एआई राष्ट्रीय कृषि-मौसम ध्वनि बुलेटिन में आपका स्वागत है। 
+    hi: `नमस्ते किसान भाइयों और बहनों। नोवावर्षा एआई राष्ट्रीय कृषि-मौसम ध्वनि बुलेटिन में आपका स्वागत है। 
 स्थान: ${districtName}, ${stateName}। 
 वर्तमान मौसम पूर्वानुमान: आज का तापमान ${telemetry.tempC || 29} डिग्री सेल्सियस और सापेक्ष आर्द्रता ${telemetry.humidity || 78} प्रतिशत है। 
 वर्षा पूर्वानुमान: आज ${telemetry.rainMmToday || 14} मिलीमीटर और आगामी 7 दिनों में कुल ${telemetry.rainMm7d || 128} मिलीमीटर वर्षा का अनुमान है। वर्षा विसंगति सामान्य से ${telemetry.rainAnomaly || '+16%'} है। 
@@ -62,7 +62,7 @@ export default function VoiceBroadcastPlayer() {
 तृतीय वैकल्पिक फसल: ${tr(crop3.name)}, किस्म ${crop3.variety}। सरकारी न्यूनतम समर्थन मूल्य ${crop3.mspPerQuintal}। 
 कृषि परामर्श: आगामी 48 घंटों में खेत में जल निकासी नाली तैयार रखें एवं बुवाई कार्य पूर्ण करें। धन्यवाद। जय हिंद, जय किसान।`,
 
-    mr: `नमस्कार शेतकरी बांधवांनो. युवासेतू एआय राष्ट्रीय कृषी-हवामान ध्वनी बुलेटीनमध्ये आपले स्वागत आहे. 
+    mr: `नमस्कार शेतकरी बांधवांनो. नोवावर्षा एआय राष्ट्रीय कृषी-हवामान ध्वनी बुलेटीनमध्ये आपले स्वागत आहे. 
 ठिकाण: ${districtName}, ${stateName}. 
 हवामान अंदाज: आजचे तापमान ${telemetry.tempC || 29} अंश सेल्सिअस आणि हवेतील आर्द्रता ${telemetry.humidity || 78} टक्के आहे. 
 पावसाचा अंदाज: आज ${telemetry.rainMmToday || 14} मिमी आणि पुढील ७ दिवसांत एकूण ${telemetry.rainMm7d || 128} मिमी पावसाची शक्यता आहे. 
@@ -74,7 +74,7 @@ export default function VoiceBroadcastPlayer() {
 तिसरे पीक: ${tr(crop3.name)}, वाण ${crop3.variety}. हमीभाव ${crop3.mspPerQuintal}. 
 सल्ला: शेतात पाण्याचा निचरा होण्यासाठी चर तयार ठेवा. धन्यवाद.`,
 
-    pa: `ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਕਿਸਾਨ ਵੀਰੋ। ਯੁਵਾਸੇਤੂ ਏਆਈ ਰਾਸ਼ਟਰੀ ਖੇਤੀਬਾੜੀ-ਮੌਸਮ ਵੌਇਸ ਬੁਲੇਟਿਨ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ। 
+    pa: `ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਕਿਸਾਨ ਵੀਰੋ। ਨੋਵਾਵਰਸ਼ਾ ਏਆਈ ਰਾਸ਼ਟਰੀ ਖੇਤੀਬਾੜੀ-ਮੌਸਮ ਵੌਇਸ ਬੁਲੇਟਿਨ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ। 
 ਸਥਾਨ: ${districtName}, ${stateName}। 
 ਮੌਸਮ ਭਵਿੱਖਬਾਣੀ: ਅੱਜ ਦਾ ਤਾਪਮਾਨ ${telemetry.tempC || 29} ਡਿਗਰੀ ਸੈਲਸੀਅਸ ਅਤੇ ਨਮੀ ${telemetry.humidity || 78} ਫ਼ੀਸਦੀ ਹੈ। 
 ਮੀਂਹ ਦਾ ਅਨੁਮਾਨ: ਅੱਜ ${telemetry.rainMmToday || 14} ਮਿਲੀਮੀਟਰ ਅਤੇ ਅਗਲੇ 7 ਦਿਨਾਂ ਵਿੱਚ ਕੁੱਲ ${telemetry.rainMm7d || 128} ਮਿਲੀਮੀਟਰ ਮੀਂਹ ਦੀ ਸੰਭਾਵਨਾ ਹੈ। 
@@ -86,7 +86,7 @@ export default function VoiceBroadcastPlayer() {
 ਤੀਜੀ ਫਸਲ: ${tr(crop3.name)} (${crop3.variety}), ਘੱਟੋ-ਘੱਟ ਸਮਰਥਨ ਮੁੱਲ ${crop3.mspPerQuintal}। 
 ਸਲਾਹ: ਨਿਕਾਸੀ ਨਾਲੀਆਂ ਸਾਫ਼ ਰੱਖੋ। ਧੰਨਵਾਦ।`,
 
-    bn: `নমস্কার কৃষক ভাই ও বোনেরা। যুবসেতু এআই জাতীয় কৃষি-আবহাওয়া ভয়েস বুলেটিনে আপনাকে স্বাগতম। 
+    bn: `নমস্কার কৃষক ভাই ও বোনেরা। নোভাবার্ষা এআই জাতীয় কৃষি-আবহাওয়া ভয়েস বুলেটিনে আপনাকে স্বাগতম। 
 স্থান: ${districtName}, ${stateName}। 
 আবহাওয়ার পূর্বাভাস: আজকের তাপমাত্রা ${telemetry.tempC || 29} ডিগ্রি সেলসিয়াস এবং আর্দ্রতা ${telemetry.humidity || 78} শতাংশ। 
 বৃষ্টিপাতের পূর্বাভাস: আগামী ৭ দিনে মোট ${telemetry.rainMm7d || 128} মিলিমিটার বৃষ্টিপাতের সম্ভাবনা রয়েছে। 
@@ -97,7 +97,7 @@ export default function VoiceBroadcastPlayer() {
 ৩য় ফসল: ${tr(crop3.name)} (${crop3.variety}), সহায়ক মূল্য ${crop3.mspPerQuintal}। 
 পরামর্শ: জমিতে নিষ্কাশন নালা প্রস্তুত রাখুন। ধন্যবাদ।`,
 
-    te: `నమస్కారం రైతు సోదరులారా. యువసేతు ఏఐ జాతీయ వ్యవసాయ-వాతావరణ శ్రవ్య బులెటిన్‌కు స్వాగతం. 
+    te: `నమస్కారం రైతు సోదరులారా. నోవావర్ష ఏఐ జాతీయ వ్యవసాయ-వాతావరణ శ్రవ్య బులెటిన్‌కు స్వాగతం. 
 ప్రాంతం: ${districtName}, ${stateName}. 
 వాతావరణ సూచన: నేటి ఉష్ణోగ్రత ${telemetry.tempC || 29} డిగ్రీల సెల్సియస్, తేమ ${telemetry.humidity || 78} శాతం. 
 వర్షపాత సూచన: రాబోయే 7 రోజుల్లో మొత్తం ${telemetry.rainMm7d || 128} మి.మీ వర్షం కురిసే అవకాశం ఉంది. 
@@ -108,7 +108,7 @@ export default function VoiceBroadcastPlayer() {
 మూడవ పంట: ${tr(crop3.name)} (${crop3.variety}), కనీస మద్దతు ధర ${crop3.mspPerQuintal}. 
 సలహా: పొలంలో నీటి పారుదల కాలువలు సిద్ధం చేసుకోండి. ధన్యవాదాలు.`,
 
-    ta: `வணக்கம் விவசாய தோழர்களே. யுவசேது AI தேசிய வேளாண்-வானிலை குரல் அறிவிப்புக்கு வரவேற்கிறோம். 
+    ta: `வணக்கம் விவசாய தோழர்களே. நோவாவர்ஷா AI தேசிய வேளாண்-வானிலை குரல் அறிவிப்புக்கு வரவேற்கிறோம். 
 இடம்: ${districtName}, ${stateName}. 
 வானிலை முன்னறிவிப்பு: இன்றைய வெப்பநிலை ${telemetry.tempC || 29}°C, ஈரப்பதம் ${telemetry.humidity || 78}%. 
 மழை முன்னறிவிப்பு: அடுத்த 7 நாட்களில் மொத்தம் ${telemetry.rainMm7d || 128} மிமீ மழை பெய்ய வாய்ப்புள்ளது. 
@@ -118,7 +118,7 @@ export default function VoiceBroadcastPlayer() {
 3. ${tr(crop3.name)} (${crop3.variety}), குறைந்தபட்ச ஆதரவு விலை ${crop3.mspPerQuintal}. 
 ஆலோசனை: வடிகால் வசதியை உறுதி செய்யவும். நன்றி.`,
 
-    gu: `નમસ્તે ખેડૂત મિત્રો. યુવાસેતુ AI રાષ્ટ્રીય કૃષિ-હવામાન ઓડિયો બુલેટિનમાં આપનું સ્વાગત છે. 
+    gu: `નમસ્તે ખેડૂત મિત્રો. નોવાવર્ષા AI રાષ્ટ્રીય કૃષિ-હવામાન ઓડિયો બુલેટિનમાં આપનું સ્વાગત છે. 
 સ્થળ: ${districtName}, ${stateName}. 
 હવામાન આગાહી: આજનું તાપમાન ${telemetry.tempC || 29} ડિગ્રી સેલ્સિયસ અને ભેજ ${telemetry.humidity || 78} ટકા છે. 
 વરસાદની આગાહી: આગામી ૭ દિવસમાં કુલ ${telemetry.rainMm7d || 128} મીમી વરસાદની શક્યતા છે. 
@@ -128,7 +128,7 @@ export default function VoiceBroadcastPlayer() {
 ૩. ${tr(crop3.name)} (${crop3.variety}), ટેકાનો ભાવ ${crop3.mspPerQuintal}. 
 સલાહ: પાણી નિકાલની યોગ્ય વ્યવસ્થા રાખો. આભાર.`,
 
-    kn: `ನಮಸ್ಕಾರ ರೈತ ಬಾಂಧವರೇ. ಯುವಸೇತು AI ರಾಷ್ಟ್ರೀಯ ಕೃಷಿ-ಹವಾಮಾನ ಧ್ವನಿ ಬುಲೆಟಿನ್‌ಗೆ ಸುಸ್ವಾಗತ. 
+    kn: `ನಮಸ್ಕಾರ ರೈತ ಬಾಂಧವರೇ. ನೋವಾವರ್ಷ AI ರಾಷ್ಟ್ರೀಯ ಕೃಷಿ-ಹವಾಮಾನ ಧ್ವನಿ ಬುಲೆಟಿನ್‌ಗೆ ಸುಸ್ವಾಗತ. 
 ಸ್ಥಳ: ${districtName}, ${stateName}. 
 ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ: ಇಂದಿನ ತಾಪಮಾನ ${telemetry.tempC || 29}°C, ಆರ್ದ್ರತೆ ${telemetry.humidity || 78}%. 
 ಮಳೆ ಮುನ್ಸೂಚನೆ: ಮುಂದಿನ 7 ದಿನಗಳಲ್ಲಿ ಒಟ್ಟು ${telemetry.rainMm7d || 128} ಮಿಮೀ ಮಳೆಯಾಗುವ ಸಾಧ್ಯತೆಯಿದೆ. 
@@ -138,7 +138,7 @@ export default function VoiceBroadcastPlayer() {
 3. ${tr(crop3.name)} (${crop3.variety}), ಬೆಂಬಲ ಬೆಲೆ ${crop3.mspPerQuintal}. 
 ಸಲಹೆ: ಚರಂಡಿ ವ್ಯವಸ್ಥೆಯನ್ನು ಸುಸ್ಥಿತಿಯಲ್ಲಿಡಿ. ಧನ್ಯವಾದಗಳು.`,
 
-    ml: `നമസ്കാരം കർഷക സുഹൃത്തുക്കളെ. യുവസേതു AI ദേശീയ കാർഷിക-കാലാവസ്ഥാ വോയ്‌സ് ബുള്ളറ്റിനിലേക്ക് സ്വാഗതം. 
+    ml: `നമസ്കാരം കർഷക സുഹൃത്തുക്കളെ. നോവാവർഷ AI ദേശീയ കാർഷിക-കാലാവസ്ഥാ വോയ്‌സ് ബുള്ളറ്റിനിലേക്ക് സ്വാಗതം. 
 സ്ഥലം: ${districtName}, ${stateName}. 
 കാലാവസ്ഥാ പ്രവചനം: ഇന്നത്തെ താപനില ${telemetry.tempC || 29}°C, അന്തരീക്ഷ ഈർപ്പം ${telemetry.humidity || 78}%. 
 നിങ്ങൾക്കായി ഏറ്റവും അനുയോജ്യമായ 3 വിളകൾ: 
@@ -147,7 +147,7 @@ export default function VoiceBroadcastPlayer() {
 3. ${tr(crop3.name)} (${crop3.variety}), താങ്ങുവില ${crop3.mspPerQuintal}. 
 നിർദ്ദേശം: നീരൊഴുക്ക് ഉറപ്പാക്കുക. നന്ദി.`,
 
-    or: `ନମସ୍କାର ଚାଷୀ ଭାଇ ଓ ଭଉଣୀମାନେ। ଯୁବସେତୁ AI ଜାତୀୟ କୃଷି-ପାଣିପାଗ ଧ୍ୱନି ବୁଲେଟିନ୍‌କୁ ସ୍ୱାଗତ। 
+    or: `ନମସ୍କାର ଚାଷୀ ଭାଇ ଓ ଭଉଣୀମାନେ। ନୋଭାବର୍ଷା AI ଜାତୀୟ କୃଷି-ପାଣିପାଗ ଧ୍ୱନି ବୁଲେଟିନ୍‌କୁ ସ୍ୱାଗତ। 
 ସ୍ଥାନ: ${districtName}, ${stateName}। 
 ପାଣିପାଗ ପୂର୍ବାନୁମାନ: ଆଜିର ତାପମାତ୍ରା ${telemetry.tempC || 29}°C ଏବଂ ଆର୍ଦ୍ରତା ${telemetry.humidity || 78}%। 
 ଆପଣଙ୍କ ଅଞ୍ଚଳ ପାଇଁ ଶ୍ରେଷ୍ଠ ୩ଟି ଫସଲ: 
@@ -156,7 +156,7 @@ export default function VoiceBroadcastPlayer() {
 ୩. ${tr(crop3.name)} (${crop3.variety}), ସହାୟକ ମୂଲ୍ୟ ${crop3.mspPerQuintal}। 
 ପରାମର୍ଶ: ଜମିରେ ଜଳ ନିଷ୍କାସନ ନାଳୀ ପ୍ରସ୍ତୁତ ରଖନ୍ତୁ। ଧନ୍ୟବାଦ।`,
 
-    en: `Greetings farmers and innovators. Welcome to the YuvaSetu AI National Agro-Weather Voice Bulletin. 
+    en: `Greetings farmers and agricultural officers. Welcome to the NovaVarsha AI National Agro-Weather Voice Bulletin. 
 Location: ${districtName}, ${stateName}. 
 Current Weather Outlook: Temperature is ${telemetry.tempC || 29} degrees Celsius with relative humidity at ${telemetry.humidity || 78} percent. 
 Precipitation Forecast: Rainfall today is ${telemetry.rainMmToday || 14} millimeters with an accumulated 7-day projection of ${telemetry.rainMm7d || 128} millimeters. Rainfall anomaly is ${telemetry.rainAnomaly || '+16%'} above climatological normal. 
@@ -166,11 +166,11 @@ Top 3 Recommended Cultivars for your coordinates:
 Rank 1 Best Match: ${crop1.name} variety ${crop1.variety} with ${crop1.suitability} percent suitability and ${crop1.durationDays} days duration. 
 Rank 2 Strong Runner-Up: ${crop2.name} variety ${crop2.variety} with ${crop2.suitability} percent suitability. 
 Rank 3 Resilience Alternative: ${crop3.name} variety ${crop3.variety}, backed by government Minimum Support Price of ${crop3.mspPerQuintal}. 
-Agronomic Directive: Maintain furrow drainage channels in case of heavy downpours and complete nursery transplanting within the next 48 hours. Thank you. Turning education into action for Viksit Bharat @2047.`
+Agronomic Directive: Maintain furrow drainage channels in case of heavy downpours and complete nursery transplanting within the next 48 hours. Thank you. NovaVarsha AI — Hyperlocal Climate-to-Crop Intelligence.`
   };
 
   // Phonetic Punjabi script for Indic TTS fallback when browser/OS lacks native pa-IN Gurmukhi voice
-  const punjabiPhoneticScript = `सत श्री अकाल किसान वीरो! युवासेतू एआई राष्ट्रीय खेतीबाड़ी-मौसम वॉइस बुलेटिन विच तुहाडा स्वागत है। 
+  const punjabiPhoneticScript = `सत श्री अकाल किसान वीरो! नोवावर्षा एआई राष्ट्रीय खेतीबाड़ी-मौसम वॉइस बुलेटिन विच तुहाडा स्वागत है। 
 स्थान: ${districtName}, ${stateName}। 
 मौसम भविष्यवाणी: आज दा तापमान ${telemetry.tempC || 29} डिग्री सेल्सियस अते नमी ${telemetry.humidity || 78} फीसदी है। 
 मींह दा अनुमान: आज ${telemetry.rainMmToday || 14} मिलीमीटर अते अगले 7 दिनां विच कुल ${telemetry.rainMm7d || 128} मिलीमीटर मींह दी संभावना है। 

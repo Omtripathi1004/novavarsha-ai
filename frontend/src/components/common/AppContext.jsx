@@ -115,6 +115,8 @@ export function AppProvider({ children }) {
 
   const [isLoginPage, setIsLoginPage] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isJudgeTourOpen, setIsJudgeTourOpen] = useState(false);
+  const [isExplainSystemOpen, setIsExplainSystemOpen] = useState(false);
 
   return (
     <AppContext.Provider value={{
@@ -126,6 +128,8 @@ export function AppProvider({ children }) {
       isLoginModalOpen, setIsLoginModalOpen,
       isLoginPage, setIsLoginPage,
       isDrawerOpen, setIsDrawerOpen,
+      isJudgeTourOpen, setIsJudgeTourOpen,
+      isExplainSystemOpen, setIsExplainSystemOpen,
       activeHub, setActiveHub, switchHub,
       activeLocation, setActiveLocation,
       farmProfile, setFarmProfile,

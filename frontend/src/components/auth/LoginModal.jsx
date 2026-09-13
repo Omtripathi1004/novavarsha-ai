@@ -214,7 +214,7 @@ export default function LoginModal() {
               type="text"
               value={inputIdentifier}
               onChange={(e) => setInputIdentifier(e.target.value)}
-              placeholder="e.g. 9876543210 or farmer@yuvasetu.gov.in"
+              placeholder="e.g. 9876543210 or farmer@novavarsha.gov.in"
               style={{
                 width: '100%',
                 background: 'rgba(5, 8, 17, 0.85)',

@@ -4,8 +4,8 @@
 const translations = {
   en: {
     // Brand & Header
-    app_name: 'YuvaSetu AI',
-    app_tagline: 'Turning Education into Action for Viksit Bharat @2047',
+    app_name: 'NovaVarsha AI',
+    app_tagline: 'Hyperlocal Climate-to-Crop Intelligence • Lenovo Hackathon 2026',
     lang_en: 'EN',
     lang_hi: 'हिन्दी',
     connected: 'API Connected',
@@ -241,8 +241,8 @@ const translations = {
 
   hi: {
     // Brand & Header
-    app_name: 'युवासेतु AI',
-    app_tagline: 'विकसित भारत @2047 के लिए शिक्षा को कार्रवाई में बदलना',
+    app_name: 'नोवावर्षा AI',
+    app_tagline: 'अति-स्थानीय जलवायु-से-फसल निर्णय बुद्धिमत्ता • लेनोवो हैकथॉन 2026',
     lang_en: 'EN',
     lang_hi: 'हिन्दी',
     connected: 'API जुड़ा हुआ',

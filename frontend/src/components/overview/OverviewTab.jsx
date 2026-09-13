@@ -163,10 +163,10 @@ export default function OverviewTab() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             <span className="neon-badge neon-badge-saffron">
               <span className="neon-dot neon-dot-saffron"></span>
-              <span>{tr('YuvaSetu AI HUD Engine')}</span>
+              <span>{tr('NovaVarsha AI HUD Engine')}</span>
             </span>
             <span className="neon-badge neon-badge-cyan desktop-only">
-              <span>{tr('Viksit Bharat @2047')}</span>
+              <span>{tr('Lenovo Hackathon 2026')}</span>
             </span>
             <span style={{ fontSize: '0.78rem', color: '#cbd5e1' }}>
               📍 <strong>{activeLocation.district}</strong>, {activeLocation.state} • {tr('AWS Station Sync:')} <strong style={{ color: '#34d399' }}>{tr('Active')}</strong>

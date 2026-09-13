@@ -47,6 +47,7 @@ export default function NavDrawer() {
     activeTab, setActiveTab, 
     isDrawerOpen, setIsDrawerOpen, 
     setIsLoginPage, currentUser, 
+    setIsJudgeTourOpen, setIsExplainSystemOpen,
     lang, t 
   } = useApp();
 
@@ -136,7 +137,7 @@ export default function NavDrawer() {
               gap: '0.45rem'
             }}>
               <span>⚡</span>
-              <span>YuvaSetu AI</span>
+              <span>NovaVarsha AI</span>
             </div>
             
             {/* Current Active Persona Info */}
@@ -212,6 +213,63 @@ export default function NavDrawer() {
             </div>
             <ArrowRight className="w-4 h-4 text-purple-400" />
           </button>
+
+          {/* Quick Shortcuts: Judge Tour & System Architecture */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.45rem', marginTop: '0.45rem' }}>
+            <button
+              onClick={() => {
+                setIsDrawerOpen(false);
+                setIsJudgeTourOpen(true);
+              }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.35rem',
+                padding: '0.5rem 0.65rem',
+                borderRadius: '10px',
+                background: 'rgba(245, 158, 11, 0.12)',
+                border: '1px solid rgba(245, 158, 11, 0.35)',
+                color: '#fbbf24',
+                fontSize: '0.74rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                transition: 'all 0.15s'
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(245, 158, 11, 0.22)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(245, 158, 11, 0.12)'; }}
+            >
+              <span>⚖️</span>
+              <span>{lang === 'hi' ? 'जज टूर' : 'Judge Tour'}</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setIsDrawerOpen(false);
+                setIsExplainSystemOpen(true);
+              }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.35rem',
+                padding: '0.5rem 0.65rem',
+                borderRadius: '10px',
+                background: 'rgba(56, 189, 248, 0.1)',
+                border: '1px solid rgba(56, 189, 248, 0.3)',
+                color: '#38bdf8',
+                fontSize: '0.74rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                transition: 'all 0.15s'
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.2)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.1)'; }}
+            >
+              <span>🏛️</span>
+              <span>{lang === 'hi' ? 'आर्किटेक्चर' : 'Architecture'}</span>
+            </button>
+          </div>
         </div>
 
         {/* Categorized Navigation Items with Operations Colors */}

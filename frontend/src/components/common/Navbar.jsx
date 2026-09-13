@@ -15,7 +15,9 @@ export default function Navbar() {
     isDrawerOpen, setIsDrawerOpen, 
     isAssistantOpen, setIsAssistantOpen, 
     setIsReportModalOpen, 
-    setIsCommandPaletteOpen, 
+    setIsCommandPaletteOpen,
+    isJudgeTourOpen, setIsJudgeTourOpen,
+    isExplainSystemOpen, setIsExplainSystemOpen,
     t 
   } = useApp();
 
@@ -73,7 +75,7 @@ export default function Navbar() {
             letterSpacing: '-0.025em',
             lineHeight: 1.1
           }}>
-            YuvaSetu AI
+            NovaVarsha AI
           </div>
           <div style={{
             fontSize: '0.62rem',
@@ -86,29 +88,31 @@ export default function Navbar() {
             fontWeight: 700,
             fontFamily: 'var(--font-heading)'
           }}>
-            <span>Viksit Bharat @2047</span>
+            <span>Hyperlocal Climate-to-Crop</span>
             <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
-            <span style={{ color: 'var(--neon-saffron)' }}>Education into Action</span>
+            <span style={{ color: 'var(--neon-saffron)' }}>Lenovo Hackathon 2026</span>
           </div>
         </div>
       </div>
 
-      {/* Center: OBSERVE → PREDICT → EXPLAIN → DECIDE → ACT Pipeline Indicator (Desktop) */}
+      {/* Center: 7-Stage Climate-to-Crop Pipeline (OBSERVE → UNDERSTAND → PREDICT → EXPLAIN → RECOMMEND → SIMULATE → ACT) */}
       <div className="desktop-only" style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '0.25rem',
-        fontSize: '0.68rem',
+        gap: '0.2rem',
+        fontSize: '0.66rem',
         fontWeight: 800,
         color: '#64748b',
-        letterSpacing: '0.04em'
+        letterSpacing: '0.03em'
       }}>
         {[
           { step: 'OBSERVE', color: '#0284c7', tabs: ['overview', 'hydromap', 'satellite'] },
-          { step: 'PREDICT', color: '#059669', tabs: ['monsoon', 'agriculture'] },
-          { step: 'EXPLAIN', color: '#a855f7', tabs: ['xai', 'analytics', 'knowledge_graph'] },
-          { step: 'DECIDE', color: '#f59e0b', tabs: ['scenario', 'agriculture'] },
-          { step: 'ACT', color: '#ef4444', tabs: ['alerts', 'planner', 'system'] }
+          { step: 'UNDERSTAND', color: '#059669', tabs: ['monsoon', 'analytics'] },
+          { step: 'PREDICT', color: '#10b981', tabs: ['agriculture'] },
+          { step: 'EXPLAIN', color: '#a855f7', tabs: ['xai', 'knowledge_graph'] },
+          { step: 'RECOMMEND', color: '#f59e0b', tabs: ['agriculture'] },
+          { step: 'SIMULATE', color: '#ec4899', tabs: ['scenario'] },
+          { step: 'ACT', color: '#ef4444', tabs: ['planner', 'alerts'] }
         ].map((item, i) => {
           const isActive = item.tabs.includes(activeTab);
           return (
@@ -116,27 +120,79 @@ export default function Navbar() {
               <span 
                 onClick={() => setActiveTab(item.tabs[0])}
                 style={{
-                  padding: '0.2rem 0.55rem',
+                  padding: '0.18rem 0.45rem',
                   borderRadius: '6px',
                   background: isActive ? item.color : 'rgba(255, 255, 255, 0.04)',
                   color: isActive ? '#ffffff' : '#94a3b8',
-                  boxShadow: isActive ? `0 0 12px ${item.color}88` : 'none',
+                  boxShadow: isActive ? `0 0 10px ${item.color}88` : 'none',
                   cursor: 'pointer',
                   transition: 'all 0.2s',
-                  fontSize: '0.65rem'
+                  fontSize: '0.62rem'
                 }}
                 title={`Jump to ${item.step} module`}
               >
                 {item.step}
               </span>
-              {i < 4 && <span style={{ color: '#475569', fontSize: '0.65rem' }}>→</span>}
+              {i < 6 && <span style={{ color: '#475569', fontSize: '0.6rem' }}>→</span>}
             </React.Fragment>
           );
         })}
       </div>
 
-      {/* Right Action Container: User Role Pill, AI Chat, Lang Toggle & 3-DOT MENU BUTTON */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', flexShrink: 0 }}>
+      {/* Right Action Container: Judge Flow, Architecture, User Role Pill, AI Chat, Lang Toggle & 3-DOT MENU BUTTON */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+        
+        {/* Judge 2-3 Min Guided Flow Button */}
+        <button
+          onClick={() => setIsJudgeTourOpen(true)}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            padding: '0.32rem 0.75rem',
+            background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%)',
+            border: '1px solid rgba(245, 158, 11, 0.5)',
+            borderRadius: '999px',
+            color: '#fbbf24',
+            fontSize: '0.74rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+            boxShadow: '0 0 12px rgba(245, 158, 11, 0.2)'
+          }}
+          onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.04)'; e.currentTarget.style.boxShadow = '0 0 16px rgba(245, 158, 11, 0.4)'; }}
+          onMouseOut={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 0 12px rgba(245, 158, 11, 0.2)'; }}
+          title="Start 2-3 Minute Guided Evaluation Tour for Hackathon Judges"
+        >
+          <span>⚖️</span>
+          <span className="desktop-only">Judge Tour</span>
+        </button>
+
+        {/* Explain This System / Architecture Modal Button */}
+        <button
+          onClick={() => setIsExplainSystemOpen(true)}
+          className="desktop-only"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            padding: '0.32rem 0.7rem',
+            background: 'rgba(56, 189, 248, 0.1)',
+            border: '1px solid rgba(56, 189, 248, 0.35)',
+            borderRadius: '999px',
+            color: '#38bdf8',
+            fontSize: '0.74rem',
+            fontWeight: 700,
+            cursor: 'pointer',
+            transition: 'all 0.2s'
+          }}
+          onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.2)'; }}
+          onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.1)'; }}
+          title="View System Architecture, Data Provenance, AI Methods & Limitations"
+        >
+          <span>🏛️</span>
+          <span>Architecture</span>
+        </button>
         
         {/* User Role Pill — Click to Open Full Login Page */}
         <div

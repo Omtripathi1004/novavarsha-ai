@@ -21,6 +21,8 @@ import DecisionReportModal from './components/reports/DecisionReportModal';
 import FarmProfileModal from './components/profile/FarmProfileModal';
 import CommandPalette from './components/common/CommandPalette';
 import LoginModal from './components/auth/LoginModal';
+import JudgeTourModal from './components/common/JudgeTourModal';
+import ExplainSystemModal from './components/common/ExplainSystemModal';
 import './index.css';
 
 class ErrorBoundary extends Component {
@@ -72,7 +74,12 @@ const TABS = [
 ];
 
 function MainLayout() {
-  const { activeTab, isLoginPage } = useApp();
+  const { 
+    activeTab, isLoginPage,
+    isJudgeTourOpen, setIsJudgeTourOpen,
+    isExplainSystemOpen, setIsExplainSystemOpen,
+    lang, tr
+  } = useApp();
 
   // If user is on the dedicated Login Page, show full-screen login view
   if (isLoginPage) {
@@ -105,6 +112,8 @@ function MainLayout() {
       <FarmProfileModal />
       <CommandPalette />
       <LoginModal />
+      <JudgeTourModal isOpen={isJudgeTourOpen} onClose={() => setIsJudgeTourOpen(false)} />
+      <ExplainSystemModal isOpen={isExplainSystemOpen} onClose={() => setIsExplainSystemOpen(false)} lang={lang} tr={tr} />
     </div>
   );
 }

@@ -155,16 +155,16 @@ export default function LoginPage() {
                   WebkitTextFillColor: 'transparent',
                   margin: 0
                 }}>
-                  YuvaSetu AI
+                  NovaVarsha AI
                 </h1>
                 <span style={{ fontSize: '0.78rem', color: 'var(--neon-cyan)', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: 'var(--font-heading)' }}>
-                  Turning Education into Action for Viksit Bharat @2047
+                  Hyperlocal Climate-to-Crop Intelligence • Lenovo Hackathon 2026
                 </span>
               </div>
             </div>
             
             <p style={{ fontSize: '0.96rem', color: 'var(--text-secondary)', lineHeight: 1.65, margin: '0.5rem 0 1.25rem' }}>
-              {tr('Flagship Indian National Innovation Web Application. High-density Cyberpunk HUD Glassmorphism portal turning education into action for Viksit Bharat @2047.')}
+              {tr('India-first hyperlocal climate, agriculture, and decision-intelligence platform. Seamless decision loop: Observe → Understand → Predict → Explain → Recommend → Simulate → Act.')}
             </p>
           </div>
 
@@ -350,7 +350,7 @@ export default function LoginPage() {
                 <User className="w-4 h-4" style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--neon-cyan)' }} />
                 <input
                   type="text"
-                  placeholder="e.g. farmer@yuvasetu.gov.in"
+                  placeholder="e.g. farmer@novavarsha.gov.in"
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
                   style={{

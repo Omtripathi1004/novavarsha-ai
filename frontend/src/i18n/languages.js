@@ -1,4 +1,6 @@
-// YuvaSetu AI — Comprehensive 11-Language Indian Agro-Climatic Dictionary
+// NovaVarsha AI — Comprehensive 11-Language Indian Agro-Climatic Dictionary
+// Lenovo Hackathon 2026 • Hyperlocal Climate-to-Crop Decision Intelligence
+// Zero OSM border cuts • 100% Survey of India Sovereign Territorial Compliance
 // Covers: English, Hindi, Punjabi, Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Malayalam, Odia
 
 export const SUPPORTED_LANGUAGES = [
@@ -71,7 +73,7 @@ export const I18N_DATA = {
     compare_cultivars: 'Compare Top Cultivars',
     why_not_title: '"Why Not?" Diagnostics',
     why_not_heading: '"Why Not?" Excluded Crops & Disqualification Diagnostics',
-    why_not_sub: 'To prevent severe farmer financial loss, YuvaSetu evaluates environmental constraints and explicitly disqualifies mismatched crops:',
+    why_not_sub: 'To prevent severe farmer financial loss, NovaVarsha AI evaluates environmental constraints and explicitly disqualifies mismatched crops:',
     water_req: 'Water Requirement',
     sowing_window: 'Sowing Window',
     multi_factor_weighting: 'Multi-Factor Agronomic Weighting:',
@@ -102,7 +104,7 @@ export const I18N_DATA = {
     scientific_guardrail: 'Scientific Guardrail: Correlation vs. Causation',
 
     // Login & Profile
-    login_title: 'YuvaSetu Identity & Role Portal',
+    login_title: 'NovaVarsha Identity & Role Portal',
     login_sub: 'Select your operational persona for verified access to agro-climatic intelligence.',
     farmer_role: 'Farmer / Producer',
     officer_role: 'Agriculture Extension Officer',
@@ -1304,10 +1306,15 @@ export const VERNACULAR_DICTIONARY = {
     gu: 'બધા 42+ પાક જુઓ', bn: 'সমস্ত ৪২+ ফসল অন্বেষণ করুন', pa: 'ਸਾਰੀਆਂ 42+ ਫਸਲਾਂ ਦੇਖੋ', kn: 'ಎಲ್ಲಾ 42+ ಬೆಳೆಗಳನ್ನು ಅನ್ವೇಷಿಸಿ',
     ml: 'എല്ലാ 42+ വിളകളും കാണുക', or: 'ସମସ୍ତ ୪୨+ ଫସଲ ଦେଖନ୍ତୁ'
   },
-  'YuvaSetu AI HUD Engine': {
-    hi: 'युवासेतु एआई एचयूडी इंजन', mr: 'युवासेतू एआय एचयूडी इंजिन', te: 'యువసేతు ఏఐ హెచ్‌యుడి ఇంజిన్', ta: 'யுவாசேது ஏஐ எச்.யு.டி இயந்திரம்',
-    gu: 'યુવાસેતુ એઆઈ એચયુડી એન્જિન', bn: 'যুবসেতু এআই এইচইউডি ইঞ্জিন', pa: 'ਯੁਵਾਸੇਤੂ ਏਆਈ ਐਚਯੂਡੀ ਇੰਜਣ', kn: 'ಯುವಸೇತು ಎಐ ಎಚ್‌ಯುಡಿ ಎಂಜಿನ್',
-    ml: 'യുവസേതു എഐ എച്ച്‌യുഡി എഞ്ചിൻ', or: 'ଯୁବସେତୁ ଏଆଇ HUD ଇଞ୍ଜିନ୍'
+  'NovaVarsha AI HUD Engine': {
+    hi: 'नोवावर्षा एआई एचयूडी इंजन', mr: 'नोवावर्षा एआय एचयूडी इंजिन', te: 'నోవావర్ష ఏఐ హెచ్‌యుడి ఇంజిన్', ta: 'நோவாவர்ஷா ஏஐ எச்.யு.டி இயந்திரம்',
+    gu: 'નોવાવર્ષા એઆઈ એચયુડી એન્જિન', bn: 'নোভাবার্ষা এআই এইচইউডি ইঞ্জিন', pa: 'ਨੋਵਾਵਰਸ਼ਾ ਏਆਈ ਐਚਯੂਡੀ ਇੰਜਣ', kn: 'ನೋವಾವರ್ಷ ಎಐ ಎಚ್‌ಯುಡಿ ಎಂಜಿನ್',
+    ml: 'നോവാവർഷ എഐ എച്ച്‌യുഡി എഞ്ചിൻ', or: 'ନୋଭାବର୍ଷା ଏଆଇ HUD ଇଞ୍ଜିନ୍'
+  },
+  'Lenovo Hackathon 2026': {
+    hi: 'लेनोवो हैकथॉन 2026', mr: 'लेनोवो हॅकॅथॉन २०२६', te: 'లెనోవో హ్యాకథాన్ 2026', ta: 'லெனோவா ஹேக்கத்தான் 2026',
+    gu: 'લેનોવો હેકાથોન 2026', bn: 'লেনোভো হ্যাকাথন ২০২৬', pa: 'ਲੈਨੋਵੋ ਹੈਕਾਥਨ 2026', kn: 'ಲೆನೋವೋ ಹ್ಯಾಕಥಾನ್ 2026',
+    ml: 'ലെനോവോ ഹാക്കത്തോൺ 2026', or: 'ଲେନୋଭୋ ହ୍ୟାକାଥନ୍ ୨୦୨୬'
   },
   'Viksit Bharat @2047': {
     hi: 'विकसित भारत @2047', mr: 'विकसित भारत @२०४७', te: 'వికసిత్ భారత్ @2047', ta: 'வளர்ந்த பாரதம் @2047',
