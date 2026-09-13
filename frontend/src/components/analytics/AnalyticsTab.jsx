@@ -318,7 +318,7 @@ export default function AnalyticsTab() {
       </div>
 
       {/* 5 COMPREHENSIVE GRAPHS SUITE FOR SELECTED CROP */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '1.35rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.35rem' }}>
         
         {/* GRAPH 1: YIELD VS RAINFALL SENSITIVITY RESPONSE CURVE */}
         <div className="glass-card" style={{ padding: '1.35rem', border: '1px solid var(--border-cyan)' }}>

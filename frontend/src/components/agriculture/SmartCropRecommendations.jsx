@@ -77,7 +77,7 @@ export default function SmartCropRecommendations() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-      {/* Header Bar */}
+      {/* Header Bar with Chromatic Contrast and Multi-Font Typography */}
       <div className="glass-card" style={{ 
         padding: '1.4rem 1.6rem', 
         display: 'flex', 
@@ -85,24 +85,34 @@ export default function SmartCropRecommendations() {
         alignItems: 'center', 
         flexWrap: 'wrap', 
         gap: '1rem',
-        background: 'linear-gradient(135deg, rgba(30, 138, 120, 0.12) 0%, rgba(24, 58, 45, 0.97) 100%)',
-        border: '1px solid rgba(89, 199, 177, 0.22)'
+        background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(24, 58, 45, 0.95) 50%, rgba(251, 113, 133, 0.06) 100%)',
+        border: '1.5px solid rgba(56, 189, 248, 0.25)',
+        boxShadow: '0 12px 35px rgba(0,0,0,0.5)'
       }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', fontWeight: 700, color: '#59C7B1', background: 'rgba(89, 199, 177, 0.12)', border: '1px solid rgba(89, 199, 177, 0.3)', borderRadius: '999px', padding: '0.2rem 0.65rem' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#59C7B1', display: 'inline-block', animation: 'pulse 2s infinite' }}></span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.45rem', flexWrap: 'wrap' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', fontWeight: 800, color: '#38BDF8', background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.35)', borderRadius: '999px', padding: '0.2rem 0.65rem', fontFamily: 'var(--font-display)' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#38BDF8', display: 'inline-block', boxShadow: '0 0 8px #38BDF8' }}></span>
               ICAR Registry • 42+ Crops
             </span>
-            <span style={{ fontSize: '0.75rem', color: '#59C7B1', fontWeight: 700 }}>
-              Region: <strong style={{ color: '#F7F1E3' }}>{activeLocation.district}, {activeLocation.state}</strong>
+            <span style={{ fontSize: '0.75rem', color: '#B9C6BB', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+              <span style={{ color: '#FB7185' }}>📍</span> Region: <strong style={{ color: '#F7F1E3', fontFamily: 'var(--font-sora)' }}>{activeLocation.district}, {activeLocation.state}</strong>
             </span>
           </div>
-          <h2 style={{ fontSize: '1.45rem', margin: 0, fontFamily: 'var(--font-heading)', background: 'linear-gradient(135deg, #E2A83B 0%, #59C7B1 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            {tr('Smart Crops & Precision Cultivar Matcher') || 'Smart Crops & Precision Cultivar Matcher'}
+
+          {/* Multi-font & Multi-color Heading to show maximum contrast */}
+          <h2 style={{ fontSize: '1.6rem', margin: 0, letterSpacing: '-0.02em', display: 'flex', alignItems: 'baseline', gap: '0.45rem', flexWrap: 'wrap' }}>
+            <span style={{ color: '#38BDF8', fontFamily: 'var(--font-display)', fontWeight: 900 }}>
+              Smart Crops
+            </span>
+            <span style={{ color: '#7D8D81', fontWeight: 300, fontSize: '1.2rem' }}>&</span>
+            <span style={{ background: 'linear-gradient(135deg, #FB7185 0%, #FB923C 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: 'var(--font-sora)', fontWeight: 800 }}>
+              Precision Cultivar Matcher
+            </span>
           </h2>
-          <p style={{ fontSize: '0.84rem', color: '#B9C6BB', margin: '0.25rem 0 0' }}>
-            Multi-factor scoring: Thermal threshold, water requirements, soil texture, duration & MSP profitability.
+
+          <p style={{ fontSize: '0.84rem', color: '#B9C6BB', margin: '0.35rem 0 0', lineHeight: 1.4 }}>
+            Multi-factor scoring: <strong style={{ color: '#FB7185' }}>Thermal threshold</strong>, <strong style={{ color: '#38BDF8' }}>Water requirement</strong>, <strong style={{ color: '#FB923C' }}>Soil texture</strong>, <strong style={{ color: '#84CC16' }}>Duration</strong> & <strong style={{ color: '#FBBF24' }}>MSP profitability</strong>.
           </p>
         </div>
 
@@ -110,8 +120,8 @@ export default function SmartCropRecommendations() {
           {comparedCrops.length >= 2 && (
             <button 
               onClick={() => setIsCompareModalOpen(true)}
-              className="btn btn-primary"
-              style={{ fontSize: '0.82rem', gap: '0.4rem', background: 'linear-gradient(135deg, #E2A83B 0%, #1E8A78 100%)', border: 'none', color: '#10251E', fontWeight: 700 }}
+              className="btn"
+              style={{ fontSize: '0.82rem', gap: '0.4rem', background: 'linear-gradient(135deg, #FB923C 0%, #E11D48 100%)', border: 'none', color: '#FFFFFF', fontWeight: 800, boxShadow: '0 4px 15px rgba(251, 146, 60, 0.4)' }}
             >
               <ArrowRightLeft className="w-4 h-4" /> 
               {tr('Compare Cultivars')} ({comparedCrops.length})
@@ -123,12 +133,12 @@ export default function SmartCropRecommendations() {
             className="btn btn-secondary"
             style={{ 
               fontSize: '0.82rem', 
-              borderColor: isWhyNotOpen ? '#C95A4A' : 'rgba(89, 199, 177, 0.3)',
-              color: isWhyNotOpen ? '#C95A4A' : '#B9C6BB',
-              background: 'rgba(24, 58, 45, 0.7)'
+              borderColor: isWhyNotOpen ? '#FB7185' : 'rgba(251, 113, 133, 0.35)',
+              color: isWhyNotOpen ? '#FB7185' : '#FB7185',
+              background: 'rgba(251, 113, 133, 0.12)'
             }}
           >
-            <AlertCircle className="w-4 h-4" style={{ color: '#C95A4A' }} /> 
+            <AlertCircle className="w-4 h-4" style={{ color: '#FB7185' }} /> 
             {tr('"Why Not?" Disqualified Crops')} {isWhyNotOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
           </button>
         </div>
@@ -153,7 +163,7 @@ export default function SmartCropRecommendations() {
             To safeguard farmer livelihoods, NovaVarsha identifies environmental barriers and explicitly flags mismatched crops before sowing:
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '0.85rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.85rem' }}>
             {EXCLUDED_CROPS_DIAGNOSTICS.map((c, i) => (
               <div 
                 key={i} 
@@ -237,22 +247,26 @@ export default function SmartCropRecommendations() {
           </span>
         </div>
 
-        {/* Categories Chips */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', overflowX: 'auto', paddingBottom: '0.2rem', scrollbarWidth: 'none' }}>
-          {CROP_CATEGORIES.map(cat => {
+        {/* Categories Chips with Diverse Chromatic Accents */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', overflowX: 'auto', paddingBottom: '0.2rem', scrollbarWidth: 'none' }}>
+          {CROP_CATEGORIES.map((cat, idx) => {
             const isSelected = selectedCategory === cat;
+            const categoryColors = ['#38BDF8', '#FB923C', '#FBBF24', '#FB7185', '#84CC16', '#818CF8'];
+            const chipColor = categoryColors[idx % categoryColors.length];
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 style={{
-                  padding: '0.3rem 0.75rem',
+                  padding: '0.35rem 0.85rem',
                   borderRadius: '999px',
                   fontSize: '0.74rem',
-                  fontWeight: isSelected ? 800 : 500,
-                  background: isSelected ? 'linear-gradient(135deg, #1E8A78 0%, #E2A83B 100%)' : 'rgba(24, 58, 45, 0.6)',
-                  color: isSelected ? '#F7F1E3' : '#B9C6BB',
-                  border: isSelected ? '1px solid rgba(89, 199, 177, 0.5)' : '1px solid rgba(89, 199, 177, 0.12)',
+                  fontWeight: isSelected ? 800 : 600,
+                  fontFamily: 'var(--font-display)',
+                  background: isSelected ? `linear-gradient(135deg, ${chipColor} 0%, rgba(24, 58, 45, 0.9) 100%)` : 'rgba(24, 58, 45, 0.6)',
+                  color: isSelected ? '#FFFFFF' : '#B9C6BB',
+                  border: isSelected ? `1.5px solid ${chipColor}` : '1px solid rgba(89, 199, 177, 0.15)',
+                  boxShadow: isSelected ? `0 4px 14px ${chipColor}55` : 'none',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
                   transition: 'all 0.15s'
@@ -267,10 +281,12 @@ export default function SmartCropRecommendations() {
       </div>
 
       {/* 42+ REAL CROPS CARDS GRID */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '1.25rem' }}>
-        {filteredCrops.map(crop => {
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+        {filteredCrops.map((crop, index) => {
           const isCompared = comparedCrops.some(c => c.id === crop.id);
-          const scoreColor = crop.suitability >= 92 ? '#59C7B1' : crop.suitability >= 88 ? '#E2A83B' : '#B85C38';
+          const scoreColor = crop.suitability >= 92 ? '#84CC16' : crop.suitability >= 88 ? '#FBBF24' : '#FB923C';
+          const cardAccents = ['#38BDF8', '#FB7185', '#FB923C', '#84CC16', '#818CF8', '#FBBF24'];
+          const accentColor = cardAccents[index % cardAccents.length];
 
           return (
             <div 
@@ -281,7 +297,8 @@ export default function SmartCropRecommendations() {
                 display: 'flex', 
                 flexDirection: 'column', 
                 justifyContent: 'space-between',
-                border: isCompared ? '2px solid #E2A83B' : '1px solid rgba(89, 199, 177, 0.15)',
+                border: isCompared ? '2px solid #FB923C' : `1.5px solid ${accentColor}33`,
+                boxShadow: isCompared ? '0 8px 30px rgba(251, 146, 60, 0.25)' : '0 8px 24px rgba(0,0,0,0.3)',
                 position: 'relative'
               }}
             >
@@ -289,16 +306,29 @@ export default function SmartCropRecommendations() {
                 {/* Header */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
-                    <span style={{ fontSize: '1.8rem', lineHeight: 1 }}>{crop.icon}</span>
+                    <span style={{ fontSize: '2rem', lineHeight: 1 }}>{crop.icon}</span>
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.15rem' }}>
-                        <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#59C7B1', background: 'rgba(89, 199, 177, 0.12)', border: '1px solid rgba(89, 199, 177, 0.3)', borderRadius: '999px', padding: '0.15rem 0.5rem' }}>{tr(crop.category)}</span>
-                        <span style={{ fontSize: '0.72rem', color: '#7D8D81' }}>{tr(crop.season)}</span>
+                        <span style={{ 
+                          fontSize: '0.66rem', 
+                          fontWeight: 800, 
+                          color: accentColor, 
+                          background: `${accentColor}18`, 
+                          border: `1px solid ${accentColor}44`, 
+                          borderRadius: '999px', 
+                          padding: '0.15rem 0.55rem',
+                          fontFamily: 'var(--font-display)' 
+                        }}>
+                          {tr(crop.category)}
+                        </span>
+                        <span style={{ fontSize: '0.72rem', color: '#B9C6BB', fontWeight: 600 }}>
+                          {tr(crop.season)}
+                        </span>
                       </div>
-                      <h3 style={{ fontSize: '1.15rem', color: '#F7F1E3', margin: 0, fontWeight: 800 }}>
+                      <h3 style={{ fontSize: '1.2rem', color: '#F7F1E3', margin: 0, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
                         {tr(crop.name)}
                       </h3>
-                      <div style={{ fontSize: '0.82rem', color: '#59C7B1', fontWeight: 700 }}>
+                      <div style={{ fontSize: '0.84rem', color: '#84CC16', fontWeight: 700, fontFamily: 'var(--font-sora)' }}>
                         {tr(crop.variety)}
                       </div>
                       <div style={{ fontSize: '0.72rem', color: '#7D8D81', fontStyle: 'italic' }}>
@@ -309,47 +339,55 @@ export default function SmartCropRecommendations() {
 
                   {/* Suitability Score */}
                   <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '2rem', fontWeight: 900, color: scoreColor, lineHeight: 1 }}>
+                    <div style={{ 
+                      fontSize: '2.1rem', 
+                      fontWeight: 900, 
+                      color: scoreColor, 
+                      lineHeight: 1, 
+                      fontFamily: 'var(--font-heading)',
+                      textShadow: `0 0 16px ${scoreColor}55` 
+                    }}>
                       {crop.suitability}%
                     </div>
-                    <div style={{ fontSize: '0.65rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    <div style={{ fontSize: '0.65rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 700 }}>
                       {tr('Suitability Score')}
                     </div>
                   </div>
                 </div>
 
-                {/* Agronomic specs grid */}
+                {/* Agronomic specs grid with high contrast multi-color tokens */}
                 <div style={{ 
                   display: 'grid', 
                   gridTemplateColumns: 'repeat(2, 1fr)', 
-                  gap: '0.45rem', 
-                  background: 'rgba(24, 58, 45, 0.5)', 
-                  padding: '0.65rem', 
-                  borderRadius: '10px', 
-                  fontSize: '0.75rem',
-                  margin: '0.75rem 0'
+                  gap: '0.5rem', 
+                  background: 'rgba(16, 37, 30, 0.75)', 
+                  padding: '0.75rem', 
+                  borderRadius: '12px', 
+                  fontSize: '0.76rem',
+                  margin: '0.85rem 0',
+                  border: '1px solid rgba(255, 255, 255, 0.06)'
                 }}>
-                  <div>
-                    <span style={{ color: '#7D8D81', fontSize: '0.68rem', display: 'block' }}>{tr('Duration')}</span>
-                    <strong style={{ color: '#F7F1E3' }}>{crop.durationDays} {tr('Days')}</strong>
+                  <div style={{ background: 'rgba(56, 189, 248, 0.08)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
+                    <span style={{ color: '#94A3B8', fontSize: '0.68rem', display: 'block', fontWeight: 600 }}>{tr('Duration')}</span>
+                    <strong style={{ color: '#38BDF8', fontFamily: 'var(--font-display)', fontWeight: 800 }}>{crop.durationDays} {tr('Days')}</strong>
                   </div>
-                  <div>
-                    <span style={{ color: '#7D8D81', fontSize: '0.68rem', display: 'block' }}>{tr('Water Requirement')}</span>
-                    <strong style={{ color: '#1E8A78' }}>{crop.waterNeedMm}</strong>
+                  <div style={{ background: 'rgba(6, 182, 212, 0.08)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(6, 182, 212, 0.2)' }}>
+                    <span style={{ color: '#94A3B8', fontSize: '0.68rem', display: 'block', fontWeight: 600 }}>{tr('Water Need')}</span>
+                    <strong style={{ color: '#06B6D4', fontFamily: 'var(--font-display)', fontWeight: 800 }}>{crop.waterNeedMm}</strong>
                   </div>
-                  <div>
-                    <span style={{ color: '#7D8D81', fontSize: '0.68rem', display: 'block' }}>{tr('Sowing Window')}</span>
-                    <strong style={{ color: '#59C7B1' }}>{tr(crop.sowingWindow)}</strong>
+                  <div style={{ background: 'rgba(251, 113, 133, 0.08)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(251, 113, 133, 0.2)' }}>
+                    <span style={{ color: '#94A3B8', fontSize: '0.68rem', display: 'block', fontWeight: 600 }}>{tr('Sowing Window')}</span>
+                    <strong style={{ color: '#FB7185', fontFamily: 'var(--font-display)', fontWeight: 800 }}>{tr(crop.sowingWindow)}</strong>
                   </div>
-                  <div>
-                    <span style={{ color: '#7D8D81', fontSize: '0.68rem', display: 'block' }}>{tr('Govt. MSP Rate')}</span>
-                    <strong style={{ color: '#E2A83B' }}>{crop.mspPerQuintal}</strong>
+                  <div style={{ background: 'rgba(251, 191, 36, 0.08)', padding: '0.45rem', borderRadius: '8px', border: '1px solid rgba(251, 191, 36, 0.2)' }}>
+                    <span style={{ color: '#94A3B8', fontSize: '0.68rem', display: 'block', fontWeight: 600 }}>{tr('Govt. MSP Rate')}</span>
+                    <strong style={{ color: '#FBBF24', fontFamily: 'var(--font-display)', fontWeight: 800 }}>{crop.mspPerQuintal}</strong>
                   </div>
                 </div>
 
-                {/* Soil & Stress tolerance note */}
-                <p style={{ fontSize: '0.78rem', color: '#B9C6BB', lineHeight: '1.45', margin: '0.5rem 0' }}>
-                  <strong>{tr('Soil')}:</strong> {tr(crop.soilMatch)} • {tr(crop.stressTolerance)}
+                {/* Soil & Stress tolerance note with contrasting badges */}
+                <p style={{ fontSize: '0.78rem', color: '#B9C6BB', lineHeight: '1.45', margin: '0.55rem 0' }}>
+                  <strong style={{ color: '#FB923C' }}>{tr('Soil')}:</strong> {tr(crop.soilMatch)} • <span style={{ color: '#818CF8', fontWeight: 600 }}>{tr(crop.stressTolerance)}</span>
                 </p>
 
                 {/* Source citation */}
@@ -359,33 +397,42 @@ export default function SmartCropRecommendations() {
                 </div>
               </div>
 
-              {/* Bottom Actions */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(89, 199, 177, 0.1)', paddingTop: '0.75rem' }}>
+              {/* Bottom Actions with vibrant buttons */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '0.75rem', gap: '0.5rem' }}>
                 <button
                   onClick={() => toggleCompare(crop)}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.35rem',
-                    background: isCompared ? 'rgba(226, 168, 59, 0.2)' : 'rgba(24, 58, 45, 0.5)',
-                    border: isCompared ? '1px solid #E2A83B' : '1px solid rgba(89, 199, 177, 0.2)',
+                    background: isCompared ? 'rgba(251, 146, 60, 0.2)' : 'rgba(24, 58, 45, 0.6)',
+                    border: isCompared ? '1.5px solid #FB923C' : '1px solid rgba(89, 199, 177, 0.25)',
                     borderRadius: '8px',
-                    padding: '0.35rem 0.65rem',
+                    padding: '0.4rem 0.75rem',
                     fontSize: '0.74rem',
-                    color: isCompared ? '#E2A83B' : '#B9C6BB',
+                    color: isCompared ? '#FB923C' : '#B9C6BB',
+                    fontWeight: 700,
                     cursor: 'pointer'
                   }}
                 >
-                  {isCompared ? <Check className="w-3 h-3" /> : <ArrowRightLeft className="w-3 h-3" />}
+                  {isCompared ? <Check className="w-3.5 h-3.5 text-orange-400" /> : <ArrowRightLeft className="w-3.5 h-3.5" />}
                   <span>{isCompared ? 'Compared' : 'Add to Compare'}</span>
                 </button>
 
                 <button
                   onClick={() => setActiveTab('scenario')}
-                  className="btn btn-primary"
-                  style={{ fontSize: '0.74rem', padding: '0.35rem 0.75rem', background: 'linear-gradient(135deg, #1E8A78 0%, #E2A83B 100%)', border: 'none', color: '#10251E', fontWeight: 700 }}
+                  className="btn"
+                  style={{ 
+                    fontSize: '0.76rem', 
+                    padding: '0.4rem 0.85rem', 
+                    background: 'linear-gradient(135deg, #818CF8 0%, #38BDF8 100%)', 
+                    border: 'none', 
+                    color: '#FFFFFF', 
+                    fontWeight: 800,
+                    boxShadow: '0 4px 14px rgba(129, 140, 248, 0.4)'
+                  }}
                 >
-                  <Sparkles className="w-3 h-3" /> Simulate Crop
+                  <Sparkles className="w-3.5 h-3.5" /> Simulate Crop
                 </button>
               </div>
             </div>

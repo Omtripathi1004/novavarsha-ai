@@ -22,7 +22,7 @@ export default function XAITab() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       
-      {/* Header Banner */}
+      {/* Header Banner with Multi-Color Contrast & Multi-Font Typography */}
       <div className="glass-card" style={{ 
         padding: '1.4rem 1.6rem', 
         display: 'flex', 
@@ -30,70 +30,81 @@ export default function XAITab() {
         alignItems: 'center', 
         flexWrap: 'wrap', 
         gap: '1rem',
-        background: 'linear-gradient(135deg, rgba(128, 103, 183, 0.22) 0%, rgba(16, 37, 30, 0.95) 55%, rgba(30, 138, 120, 0.18) 100%)',
-        border: '1px solid rgba(128, 103, 183, 0.35)',
+        background: 'linear-gradient(135deg, rgba(129, 140, 248, 0.12) 0%, rgba(16, 37, 30, 0.95) 50%, rgba(56, 189, 248, 0.08) 100%)',
+        border: '1.5px solid rgba(129, 140, 248, 0.35)',
+        boxShadow: '0 12px 35px rgba(0,0,0,0.5)',
         borderRadius: '18px'
       }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
             <span style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '5px',
-              background: 'rgba(128, 103, 183, 0.25)',
-              border: '1px solid rgba(128, 103, 183, 0.5)',
-              color: '#F7F1E3',
+              background: 'rgba(129, 140, 248, 0.2)',
+              border: '1px solid rgba(129, 140, 248, 0.5)',
+              color: '#818CF8',
               borderRadius: '999px',
               padding: '0.2rem 0.65rem',
               fontSize: '0.74rem',
-              fontWeight: 800
+              fontWeight: 800,
+              fontFamily: 'var(--font-display)'
             }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#8067B7' }}></span>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#818CF8', display: 'inline-block', boxShadow: '0 0 8px #818CF8' }}></span>
               <span>{tr('Transparent Machine Learning')}</span>
             </span>
-            <span style={{ fontSize: '0.75rem', color: '#8067B7', fontWeight: 700 }}>
+            <span style={{ fontSize: '0.75rem', color: '#38BDF8', fontWeight: 700 }}>
               Stage 04: EXPLAIN • {tr('TreeSHAP Cooperative Game Formulation')}
             </span>
           </div>
-          <h2 style={{ fontSize: '1.45rem', margin: 0, fontFamily: 'var(--font-heading)', color: '#F7F1E3' }}>
-            {t('xai_title') || tr('Explainable AI (XAI) Suite & Feature Attribution')}
+
+          {/* Multi-font & Multi-color Heading */}
+          <h2 style={{ fontSize: '1.6rem', margin: 0, letterSpacing: '-0.02em', display: 'flex', alignItems: 'baseline', gap: '0.45rem', flexWrap: 'wrap' }}>
+            <span style={{ color: '#818CF8', fontFamily: 'var(--font-display)', fontWeight: 900 }}>
+              Explainable AI
+            </span>
+            <span style={{ color: '#7D8D81', fontWeight: 300, fontSize: '1.2rem' }}>&</span>
+            <span style={{ background: 'linear-gradient(135deg, #38BDF8 0%, #FB7185 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: 'var(--font-sora)', fontWeight: 800 }}>
+              Feature Attribution
+            </span>
           </h2>
+
           <p style={{ fontSize: '0.84rem', color: '#B9C6BB', margin: '0.25rem 0 0' }}>
             {t('xai_sub') || tr('Inspect exact mathematical contributions behind every climate risk score and cultivar suitability prediction.')}
           </p>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(128, 103, 183, 0.18)', border: '1px solid rgba(128, 103, 183, 0.4)', borderRadius: '10px', padding: '0.4rem 0.85rem', fontSize: '0.78rem', color: '#F7F1E3', fontWeight: 700 }}>
-          <Activity className="w-3.5 h-3.5" style={{ color: '#8067B7' }} />
-          <span>{tr('Model')}: <strong style={{ color: '#59C7B1' }}>v2.4-Hybrid (SHAP)</strong></span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(129, 140, 248, 0.18)', border: '1.5px solid rgba(129, 140, 248, 0.4)', borderRadius: '12px', padding: '0.45rem 0.95rem', fontSize: '0.8rem', color: '#F7F1E3', fontWeight: 700 }}>
+          <Activity className="w-4 h-4" style={{ color: '#818CF8' }} />
+          <span>{tr('Model')}: <strong style={{ color: '#84CC16' }}>v2.4-Hybrid (SHAP)</strong></span>
         </div>
       </div>
 
-      {/* Verification & Metrics Grid */}
+      {/* Verification & Metrics Grid with 4 High-Contrast Chromatic Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
         
-        <div className="telemetry-card" style={{ background: 'rgba(24, 58, 45, 0.75)', borderLeft: '4px solid #1E8A78' }}>
-          <div className="telemetry-label" style={{ color: '#59C7B1' }}>{tr('Monsoon Active/Break F1')}</div>
-          <div className="telemetry-value" style={{ color: '#59C7B1' }}>0.894</div>
-          <div className="telemetry-sub" style={{ color: '#B9C6BB' }}>{tr('Tested on 100% unseen 2024 test data')}</div>
+        <div className="telemetry-card" style={{ background: 'rgba(16, 37, 30, 0.85)', borderLeft: '4px solid #38BDF8', borderTop: '1px solid rgba(56, 189, 248, 0.25)', borderRight: '1px solid rgba(56, 189, 248, 0.15)', borderBottom: '1px solid rgba(56, 189, 248, 0.15)', borderRadius: '12px', padding: '1rem' }}>
+          <div className="telemetry-label" style={{ color: '#38BDF8', fontWeight: 700, fontSize: '0.74rem' }}>{tr('Monsoon Active/Break F1')}</div>
+          <div className="telemetry-value" style={{ color: '#38BDF8', fontSize: '2.1rem', fontWeight: 900, fontFamily: 'var(--font-heading)' }}>0.894</div>
+          <div className="telemetry-sub" style={{ color: '#B9C6BB', fontSize: '0.74rem' }}>{tr('Tested on 100% unseen 2024 test data')}</div>
         </div>
 
-        <div className="telemetry-card" style={{ background: 'rgba(24, 58, 45, 0.75)', borderLeft: '4px solid #59C7B1' }}>
-          <div className="telemetry-label" style={{ color: '#59C7B1' }}>{tr('Precipitation MAE')}</div>
-          <div className="telemetry-value" style={{ color: '#F7F1E3' }}>2.18 <span style={{ fontSize: '1rem', color: '#B9C6BB' }}>mm</span></div>
-          <div className="telemetry-sub" style={{ color: '#59C7B1' }}>{tr('-36.2% error reduction vs baseline')}</div>
+        <div className="telemetry-card" style={{ background: 'rgba(16, 37, 30, 0.85)', borderLeft: '4px solid #84CC16', borderTop: '1px solid rgba(132, 204, 22, 0.25)', borderRight: '1px solid rgba(132, 204, 22, 0.15)', borderBottom: '1px solid rgba(132, 204, 22, 0.15)', borderRadius: '12px', padding: '1rem' }}>
+          <div className="telemetry-label" style={{ color: '#84CC16', fontWeight: 700, fontSize: '0.74rem' }}>{tr('Precipitation MAE')}</div>
+          <div className="telemetry-value" style={{ color: '#F7F1E3', fontSize: '2.1rem', fontWeight: 900, fontFamily: 'var(--font-heading)' }}>2.18 <span style={{ fontSize: '1rem', color: '#84CC16' }}>mm</span></div>
+          <div className="telemetry-sub" style={{ color: '#84CC16', fontSize: '0.74rem', fontWeight: 700 }}>{tr('-36.2% error reduction vs baseline')}</div>
         </div>
 
-        <div className="telemetry-card" style={{ background: 'rgba(24, 58, 45, 0.75)', borderLeft: '4px solid #E2A83B' }}>
-          <div className="telemetry-label" style={{ color: '#E2A83B' }}>{tr('Brier Uncertainty Score')}</div>
-          <div className="telemetry-value" style={{ color: '#E2A83B' }}>0.082</div>
-          <div className="telemetry-sub" style={{ color: '#B9C6BB' }}>{tr('Sharp calibration; low false-onset rate')}</div>
+        <div className="telemetry-card" style={{ background: 'rgba(16, 37, 30, 0.85)', borderLeft: '4px solid #FB923C', borderTop: '1px solid rgba(251, 146, 60, 0.25)', borderRight: '1px solid rgba(251, 146, 60, 0.15)', borderBottom: '1px solid rgba(251, 146, 60, 0.15)', borderRadius: '12px', padding: '1rem' }}>
+          <div className="telemetry-label" style={{ color: '#FB923C', fontWeight: 700, fontSize: '0.74rem' }}>{tr('Brier Uncertainty Score')}</div>
+          <div className="telemetry-value" style={{ color: '#FB923C', fontSize: '2.1rem', fontWeight: 900, fontFamily: 'var(--font-heading)' }}>0.082</div>
+          <div className="telemetry-sub" style={{ color: '#B9C6BB', fontSize: '0.74rem' }}>{tr('Sharp calibration; low false-onset rate')}</div>
         </div>
 
-        <div className="telemetry-card" style={{ background: 'rgba(24, 58, 45, 0.75)', borderLeft: '4px solid #8067B7' }}>
-          <div className="telemetry-label" style={{ color: '#8067B7' }}>{tr('Attribution Methodology')}</div>
-          <div className="telemetry-value" style={{ fontSize: '1.3rem', color: '#F7F1E3' }}>TreeSHAP</div>
-          <div className="telemetry-sub" style={{ color: '#B9C6BB' }}>{tr('Cooperative Shapley marginal values')}</div>
+        <div className="telemetry-card" style={{ background: 'rgba(16, 37, 30, 0.85)', borderLeft: '4px solid #818CF8', borderTop: '1px solid rgba(129, 140, 248, 0.25)', borderRight: '1px solid rgba(129, 140, 248, 0.15)', borderBottom: '1px solid rgba(129, 140, 248, 0.15)', borderRadius: '12px', padding: '1rem' }}>
+          <div className="telemetry-label" style={{ color: '#818CF8', fontWeight: 700, fontSize: '0.74rem' }}>{tr('Attribution Methodology')}</div>
+          <div className="telemetry-value" style={{ fontSize: '1.5rem', color: '#F7F1E3', fontWeight: 900, fontFamily: 'var(--font-heading)' }}>TreeSHAP</div>
+          <div className="telemetry-sub" style={{ color: '#B9C6BB', fontSize: '0.74rem' }}>{tr('Cooperative Shapley marginal values')}</div>
         </div>
 
       </div>

@@ -142,7 +142,7 @@ export default function ScenarioLabTab() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       
-      {/* Header Banner */}
+      {/* Header Banner with Multi-Color Contrast & Multi-Font Typography */}
       <div className="glass-card" style={{ 
         padding: '1.4rem 1.6rem', 
         display: 'flex', 
@@ -150,33 +150,46 @@ export default function ScenarioLabTab() {
         alignItems: 'center', 
         flexWrap: 'wrap', 
         gap: '1rem',
-        background: 'linear-gradient(135deg, rgba(184, 92, 56, 0.2) 0%, rgba(16, 37, 30, 0.95) 55%, rgba(30, 138, 120, 0.18) 100%)',
-        border: '1px solid rgba(89, 199, 177, 0.3)',
+        background: 'linear-gradient(135deg, rgba(251, 146, 60, 0.12) 0%, rgba(16, 37, 30, 0.95) 50%, rgba(56, 189, 248, 0.08) 100%)',
+        border: '1.5px solid rgba(251, 146, 60, 0.3)',
+        boxShadow: '0 12px 35px rgba(0,0,0,0.5)',
         borderRadius: '18px'
       }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
             <span style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '5px',
-              background: 'rgba(226, 168, 59, 0.2)',
-              border: '1px solid rgba(226, 168, 59, 0.45)',
-              color: '#E2A83B',
+              background: 'rgba(251, 146, 60, 0.18)',
+              border: '1px solid rgba(251, 146, 60, 0.45)',
+              color: '#FB923C',
               borderRadius: '999px',
               padding: '0.2rem 0.65rem',
               fontSize: '0.74rem',
-              fontWeight: 800
+              fontWeight: 800,
+              fontFamily: 'var(--font-display)'
             }}>
               <span>⚡ What-If Climate Sandbox</span>
             </span>
-            <span style={{ fontSize: '0.75rem', color: '#59C7B1', fontWeight: 700 }}>
+            <span style={{ fontSize: '0.75rem', color: '#38BDF8', fontWeight: 700 }}>
               Stage 06: SIMULATE • Agronomic Recalculation Engine
             </span>
           </div>
-          <h2 style={{ fontSize: '1.45rem', margin: 0, fontFamily: 'var(--font-heading)', color: '#F7F1E3' }}>
-            {tr('What-If Agriculture Climate Stress Lab')}
+
+          {/* Multi-font & Multi-color Heading */}
+          <h2 style={{ fontSize: '1.6rem', margin: 0, letterSpacing: '-0.02em', display: 'flex', alignItems: 'baseline', gap: '0.45rem', flexWrap: 'wrap' }}>
+            <span style={{ color: '#FB923C', fontFamily: 'var(--font-display)', fontWeight: 900 }}>
+              What-If
+            </span>
+            <span style={{ color: '#F7F1E3', fontFamily: 'var(--font-heading)' }}>
+              Agriculture Climate
+            </span>
+            <span style={{ background: 'linear-gradient(135deg, #38BDF8 0%, #818CF8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: 'var(--font-sora)', fontWeight: 800 }}>
+              Stress Lab
+            </span>
           </h2>
+
           <p style={{ fontSize: '0.84rem', color: '#B9C6BB', margin: '0.25rem 0 0' }}>
             Simulate adverse climate shocks, delay in monsoons, and water distress before committing capital to inputs.
           </p>
@@ -185,38 +198,41 @@ export default function ScenarioLabTab() {
         <button
           onClick={resetToBaseline}
           className="btn btn-secondary"
-          style={{ fontSize: '0.8rem', gap: '0.35rem', borderColor: 'rgba(89, 199, 177, 0.3)' }}
+          style={{ fontSize: '0.8rem', gap: '0.35rem', borderColor: 'rgba(251, 146, 60, 0.35)', color: '#FB923C' }}
         >
-          <RotateCcw className="w-3.5 h-3.5" style={{ color: '#E2A83B' }} /> {tr('Reset Baseline')}
+          <RotateCcw className="w-3.5 h-3.5" style={{ color: '#FB923C' }} /> {tr('Reset Baseline')}
         </button>
       </div>
 
-      {/* QUICK-LOAD SITUATIONAL PRESETS */}
-      <div className="glass-card" style={{ padding: '1rem 1.25rem', background: 'rgba(24, 58, 45, 0.75)', border: '1px solid rgba(89, 199, 177, 0.22)' }}>
-        <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#E2A83B', textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '0.5rem' }}>
+      {/* QUICK-LOAD SITUATIONAL PRESETS WITH CHROMATIC ACCENTS */}
+      <div className="glass-card" style={{ padding: '1.1rem 1.35rem', background: 'rgba(24, 58, 45, 0.75)', border: '1px solid rgba(89, 199, 177, 0.22)' }}>
+        <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#FBBF24', textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '0.65rem', fontFamily: 'var(--font-display)' }}>
           🚨 {tr('Quick-Load Situational Stress Presets:')}
         </span>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.65rem' }}>
-          {SITUATIONAL_PRESETS.map(preset => {
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.75rem' }}>
+          {SITUATIONAL_PRESETS.map((preset, idx) => {
             const isSelected = activeSituation === preset.name;
+            const presetColors = ['#FB7185', '#FB923C', '#38BDF8', '#818CF8'];
+            const pColor = presetColors[idx % presetColors.length];
             return (
               <button
                 key={preset.id}
                 onClick={() => applyPreset(preset)}
                 style={{
                   textAlign: 'left',
-                  padding: '0.65rem 0.85rem',
-                  borderRadius: '10px',
-                  background: isSelected ? 'rgba(226, 168, 59, 0.18)' : 'rgba(16, 37, 30, 0.65)',
-                  border: isSelected ? '1.5px solid #E2A83B' : '1px solid rgba(89, 199, 177, 0.18)',
+                  padding: '0.75rem 0.95rem',
+                  borderRadius: '12px',
+                  background: isSelected ? `${pColor}22` : 'rgba(16, 37, 30, 0.65)',
+                  border: isSelected ? `2px solid ${pColor}` : `1px solid ${pColor}33`,
+                  boxShadow: isSelected ? `0 4px 16px ${pColor}44` : 'none',
                   cursor: 'pointer',
                   transition: 'all 0.15s'
                 }}
               >
-                <strong style={{ fontSize: '0.82rem', color: isSelected ? '#E2A83B' : '#F7F1E3', display: 'block', marginBottom: '0.15rem' }}>
+                <strong style={{ fontSize: '0.84rem', color: isSelected ? pColor : '#F7F1E3', display: 'block', marginBottom: '0.2rem', fontFamily: 'var(--font-heading)' }}>
                   {tr(preset.name)}
                 </strong>
-                <p style={{ fontSize: '0.72rem', color: '#B9C6BB', margin: 0, lineHeight: 1.3 }}>
+                <p style={{ fontSize: '0.72rem', color: '#B9C6BB', margin: 0, lineHeight: 1.35 }}>
                   {tr(preset.desc)}
                 </p>
               </button>
@@ -226,26 +242,26 @@ export default function ScenarioLabTab() {
       </div>
 
       {/* SIMULATION SLIDERS & DYNAMIC RESULTS DISPLAY */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '1.25rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
         
         {/* SLIDERS COLUMN */}
         <div className="glass-card" style={{ padding: '1.35rem', display: 'flex', flexDirection: 'column', gap: '1.2rem', background: 'rgba(24, 58, 45, 0.75)', border: '1.5px solid rgba(89, 199, 177, 0.25)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-            <Sliders className="w-4 h-4" style={{ color: '#E2A83B' }} />
-            <h3 style={{ fontSize: '1.05rem', color: '#F7F1E3', margin: 0, fontWeight: 800 }}>
+            <Sliders className="w-4 h-4" style={{ color: '#FB923C' }} />
+            <h3 style={{ fontSize: '1.05rem', color: '#F7F1E3', margin: 0, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
               {tr('Adjust Environmental Parameters')}
             </h3>
           </div>
 
-          {/* 1. Rainfall Deviation Slider */}
-          <div>
+          {/* 1. Rainfall Deviation Slider (Sky Blue) */}
+          <div style={{ background: 'rgba(56, 189, 248, 0.06)', padding: '0.85rem', borderRadius: '12px', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
               <label style={{ fontSize: '0.8rem', color: '#B9C6BB', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Droplets className="w-3.5 h-3.5" style={{ color: '#59C7B1' }} /> {tr('Monsoon Rainfall Deviation:')}
+                <Droplets className="w-3.5 h-3.5" style={{ color: '#38BDF8' }} /> {tr('Monsoon Rainfall Deviation:')}
               </label>
-              <strong style={{ fontSize: '0.9rem', color: rainPercentDelta < 0 ? '#C95A4A' : '#59C7B1' }}>
+              <strong style={{ fontSize: '0.95rem', color: rainPercentDelta < 0 ? '#FB7185' : '#38BDF8', fontFamily: 'var(--font-display)', fontWeight: 800 }}>
                 {rainPercentDelta > 0 ? `+${rainPercentDelta}%` : `${rainPercentDelta}%`}
-                <span style={{ fontSize: '0.74rem', color: '#B9C6BB', marginLeft: '0.3rem' }}>
+                <span style={{ fontSize: '0.74rem', color: '#B9C6BB', marginLeft: '0.3rem', fontWeight: 500 }}>
                   ({simulationResults.simRain} mm)
                 </span>
               </strong>
@@ -257,24 +273,24 @@ export default function ScenarioLabTab() {
               step="5" 
               value={rainPercentDelta} 
               onChange={(e) => { setRainPercentDelta(parseInt(e.target.value)); setActiveSituation('Custom Parameters'); }}
-              style={{ accentColor: '#1E8A78' }}
+              style={{ accentColor: '#38BDF8', width: '100%' }}
             />
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.68rem', color: '#B9C6BB', marginTop: '0.25rem' }}>
-              <span>-50% (Severe Drought)</span>
-              <span>0% (IMD Normal)</span>
-              <span>+100% (Deluge)</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.68rem', color: '#94A3B8', marginTop: '0.25rem' }}>
+              <span style={{ color: '#FB7185' }}>-50% (Severe Drought)</span>
+              <span style={{ color: '#38BDF8' }}>0% (Normal)</span>
+              <span style={{ color: '#818CF8' }}>+100% (Deluge)</span>
             </div>
           </div>
 
-          {/* 2. Temperature Shift Slider */}
-          <div>
+          {/* 2. Temperature Shift Slider (Coral/Pink) */}
+          <div style={{ background: 'rgba(251, 113, 133, 0.06)', padding: '0.85rem', borderRadius: '12px', border: '1px solid rgba(251, 113, 133, 0.2)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
               <label style={{ fontSize: '0.8rem', color: '#B9C6BB', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Thermometer className="w-3.5 h-3.5" style={{ color: '#E2A83B' }} /> {tr('Ambient Temperature Offset:')}
+                <Thermometer className="w-3.5 h-3.5" style={{ color: '#FB7185' }} /> {tr('Ambient Temperature Offset:')}
               </label>
-              <strong style={{ fontSize: '0.9rem', color: tempOffset > 0 ? '#E2A83B' : '#59C7B1' }}>
+              <strong style={{ fontSize: '0.95rem', color: tempOffset > 0 ? '#FB7185' : '#38BDF8', fontFamily: 'var(--font-display)', fontWeight: 800 }}>
                 {tempOffset > 0 ? `+${tempOffset.toFixed(1)}°C` : `${tempOffset.toFixed(1)}°C`}
-                <span style={{ fontSize: '0.74rem', color: '#B9C6BB', marginLeft: '0.3rem' }}>
+                <span style={{ fontSize: '0.74rem', color: '#B9C6BB', marginLeft: '0.3rem', fontWeight: 500 }}>
                   ({simulationResults.simTemp}°C)
                 </span>
               </strong>
@@ -286,22 +302,22 @@ export default function ScenarioLabTab() {
               step="0.5" 
               value={tempOffset} 
               onChange={(e) => { setTempOffset(parseFloat(e.target.value)); setActiveSituation('Custom Parameters'); }}
-              style={{ accentColor: '#E2A83B' }}
+              style={{ accentColor: '#FB7185', width: '100%' }}
             />
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.68rem', color: '#B9C6BB', marginTop: '0.25rem' }}>
-              <span>-4.0°C (Cold Wave)</span>
-              <span>0.0°C (Normal)</span>
-              <span>+6.0°C (Extreme Heat)</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.68rem', color: '#94A3B8', marginTop: '0.25rem' }}>
+              <span style={{ color: '#38BDF8' }}>-4.0°C (Cold Wave)</span>
+              <span style={{ color: '#84CC16' }}>0.0°C (Normal)</span>
+              <span style={{ color: '#FB7185' }}>+6.0°C (Extreme Heat)</span>
             </div>
           </div>
 
-          {/* 3. Sowing Window Shift */}
-          <div>
+          {/* 3. Sowing Window Shift (Orange) */}
+          <div style={{ background: 'rgba(251, 146, 60, 0.06)', padding: '0.85rem', borderRadius: '12px', border: '1px solid rgba(251, 146, 60, 0.2)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
               <label style={{ fontSize: '0.8rem', color: '#B9C6BB', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <Calendar className="w-3.5 h-3.5" style={{ color: '#59C7B1' }} /> {tr('Planned Sowing Window Shift:')}
+                <Calendar className="w-3.5 h-3.5" style={{ color: '#FB923C' }} /> {tr('Planned Sowing Window Shift:')}
               </label>
-              <strong style={{ fontSize: '0.9rem', color: sowingShiftDays === 0 ? '#59C7B1' : '#C95A4A' }}>
+              <strong style={{ fontSize: '0.95rem', color: sowingShiftDays === 0 ? '#84CC16' : '#FB923C', fontFamily: 'var(--font-display)', fontWeight: 800 }}>
                 {sowingShiftDays > 0 ? `+${sowingShiftDays} Days Late` : sowingShiftDays < 0 ? `${sowingShiftDays} Days Early` : 'On-Time (Optimal)'}
               </strong>
             </div>
@@ -312,17 +328,17 @@ export default function ScenarioLabTab() {
               step="2" 
               value={sowingShiftDays} 
               onChange={(e) => { setSowingShiftDays(parseInt(e.target.value)); setActiveSituation('Custom Parameters'); }}
-              style={{ accentColor: '#59C7B1' }}
+              style={{ accentColor: '#FB923C', width: '100%' }}
             />
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.68rem', color: '#B9C6BB', marginTop: '0.25rem' }}>
-              <span>-20d (Premature)</span>
-              <span>0 (Recommended)</span>
-              <span>+30d (Severe Delay)</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.68rem', color: '#94A3B8', marginTop: '0.25rem' }}>
+              <span>-20d (Early)</span>
+              <span style={{ color: '#84CC16' }}>0 (Optimal)</span>
+              <span style={{ color: '#FB7185' }}>+30d (Severe Delay)</span>
             </div>
           </div>
 
           {/* 4. Irrigation Source */}
-          <div>
+          <div style={{ background: 'rgba(132, 204, 22, 0.06)', padding: '0.85rem', borderRadius: '12px', border: '1px solid rgba(132, 204, 22, 0.2)' }}>
             <label style={{ fontSize: '0.8rem', color: '#B9C6BB', fontWeight: 600, display: 'block', marginBottom: '0.35rem' }}>
               {tr('Irrigation & Water Management:')}
             </label>
@@ -332,12 +348,14 @@ export default function ScenarioLabTab() {
               style={{
                 width: '100%',
                 background: 'rgba(16, 37, 30, 0.95)',
-                border: '1px solid rgba(89, 199, 177, 0.3)',
+                border: '1.5px solid rgba(132, 204, 22, 0.4)',
                 borderRadius: '8px',
-                padding: '0.5rem',
+                padding: '0.55rem',
                 color: '#F7F1E3',
                 fontSize: '0.82rem',
-                outline: 'none'
+                outline: 'none',
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700
               }}
             >
               <option value="Canal Irrigation" style={{ background: '#10251E' }}>{tr('Canal Irrigation')}</option>
@@ -352,17 +370,18 @@ export default function ScenarioLabTab() {
         <div className="glass-card" style={{ padding: '1.35rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', background: 'rgba(24, 58, 45, 0.75)', border: '1.5px solid rgba(89, 199, 177, 0.25)' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-              <h3 style={{ fontSize: '1.05rem', color: '#F7F1E3', margin: 0, fontWeight: 800 }}>
+              <h3 style={{ fontSize: '1.05rem', color: '#F7F1E3', margin: 0, fontWeight: 800, fontFamily: 'var(--font-heading)' }}>
                 {tr('Projected Crop Suitability Impact') || tr('Simulated Impact Analysis')}
               </h3>
               <span style={{
                 fontSize: '0.68rem',
-                padding: '0.2rem 0.55rem',
-                borderRadius: '6px',
-                background: 'rgba(226, 168, 59, 0.2)',
-                color: '#E2A83B',
-                border: '1px solid rgba(226, 168, 59, 0.35)',
-                fontWeight: 700
+                padding: '0.2rem 0.6rem',
+                borderRadius: '999px',
+                background: 'rgba(129, 140, 248, 0.18)',
+                color: '#818CF8',
+                border: '1px solid rgba(129, 140, 248, 0.4)',
+                fontWeight: 800,
+                fontFamily: 'var(--font-display)'
               }}>
                 Instant Physics Engine
               </span>
@@ -370,8 +389,8 @@ export default function ScenarioLabTab() {
 
             {/* Suitability Score Box */}
             <div style={{
-              background: 'rgba(16, 37, 30, 0.85)',
-              border: '1px solid rgba(89, 199, 177, 0.2)',
+              background: 'rgba(16, 37, 30, 0.9)',
+              border: '1.5px solid rgba(89, 199, 177, 0.25)',
               borderRadius: '14px',
               padding: '1.1rem',
               display: 'flex',
@@ -380,57 +399,59 @@ export default function ScenarioLabTab() {
               marginBottom: '1rem'
             }}>
               <div>
-                <span style={{ fontSize: '0.76rem', color: '#B9C6BB', display: 'block' }}>{tr('Predicted Suitability')}</span>
+                <span style={{ fontSize: '0.76rem', color: '#B9C6BB', display: 'block', fontWeight: 600 }}>{tr('Predicted Suitability')}</span>
                 <div style={{ 
-                  fontSize: '2.4rem', 
+                  fontSize: '2.5rem', 
                   fontWeight: 900, 
-                  color: simulationResults.scenarioSuitability >= 80 ? '#59C7B1' : simulationResults.scenarioSuitability >= 60 ? '#E2A83B' : '#C95A4A', 
-                  lineHeight: 1 
+                  color: simulationResults.scenarioSuitability >= 80 ? '#84CC16' : simulationResults.scenarioSuitability >= 60 ? '#FBBF24' : '#FB7185', 
+                  lineHeight: 1,
+                  fontFamily: 'var(--font-heading)',
+                  textShadow: '0 0 16px rgba(0,0,0,0.5)'
                 }}>
                   {simulationResults.scenarioSuitability}%
                 </div>
               </div>
 
               <div style={{ textAlign: 'right' }}>
-                <span style={{ fontSize: '0.76rem', color: '#B9C6BB', display: 'block' }}>{tr('Delta vs Baseline') || 'Delta'}</span>
-                <strong style={{ fontSize: '1.3rem', color: simulationResults.suitDelta >= 0 ? '#59C7B1' : '#C95A4A' }}>
+                <span style={{ fontSize: '0.76rem', color: '#B9C6BB', display: 'block', fontWeight: 600 }}>{tr('Delta vs Baseline') || 'Delta'}</span>
+                <strong style={{ fontSize: '1.4rem', color: simulationResults.suitDelta >= 0 ? '#84CC16' : '#FB7185', fontFamily: 'var(--font-heading)' }}>
                   {simulationResults.suitDelta >= 0 ? `+${simulationResults.suitDelta}%` : `${simulationResults.suitDelta}%`}
                 </strong>
               </div>
             </div>
 
             {/* Estimated Yield & Economic Loss */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem', marginBottom: '1rem' }}>
-              <div style={{ background: 'rgba(226, 168, 59, 0.12)', border: '1px solid rgba(226, 168, 59, 0.3)', borderRadius: '10px', padding: '0.75rem' }}>
-                <span style={{ fontSize: '0.7rem', color: '#B9C6BB', display: 'block' }}>{tr('Harvest Yield Expectancy') || tr('Yield Potential Projection')}</span>
-                <strong style={{ fontSize: '1.25rem', color: '#E2A83B' }}>{simulationResults.estimatedYieldPct}%</strong>
-                <span style={{ fontSize: '0.65rem', color: '#F7F1E3', display: 'block' }}>of potential maximum</span>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ background: 'rgba(251, 191, 36, 0.1)', border: '1px solid rgba(251, 191, 36, 0.35)', borderRadius: '12px', padding: '0.85rem' }}>
+                <span style={{ fontSize: '0.7rem', color: '#B9C6BB', display: 'block', fontWeight: 600 }}>{tr('Harvest Yield Expectancy') || tr('Yield Potential Projection')}</span>
+                <strong style={{ fontSize: '1.35rem', color: '#FBBF24', fontFamily: 'var(--font-heading)' }}>{simulationResults.estimatedYieldPct}%</strong>
+                <span style={{ fontSize: '0.66rem', color: '#94A3B8', display: 'block' }}>of potential maximum</span>
               </div>
 
-              <div style={{ background: 'rgba(201, 90, 74, 0.12)', border: '1px solid rgba(201, 90, 74, 0.3)', borderRadius: '10px', padding: '0.75rem' }}>
-                <span style={{ fontSize: '0.7rem', color: '#B9C6BB', display: 'block' }}>{tr('Estimated Financial Risk') || tr('Estimated Financial Impact (₹/Acre)')}</span>
-                <strong style={{ fontSize: '1.25rem', color: '#C95A4A' }}>-₹{simulationResults.estimatedLossRupees.toLocaleString()}</strong>
-                <span style={{ fontSize: '0.65rem', color: '#F7F1E3', display: 'block' }}>Potential loss per acre</span>
+              <div style={{ background: 'rgba(251, 113, 133, 0.1)', border: '1px solid rgba(251, 113, 133, 0.35)', borderRadius: '12px', padding: '0.85rem' }}>
+                <span style={{ fontSize: '0.7rem', color: '#B9C6BB', display: 'block', fontWeight: 600 }}>{tr('Estimated Financial Risk') || tr('Estimated Financial Impact (₹/Acre)')}</span>
+                <strong style={{ fontSize: '1.35rem', color: '#FB7185', fontFamily: 'var(--font-heading)' }}>-₹{simulationResults.estimatedLossRupees.toLocaleString()}</strong>
+                <span style={{ fontSize: '0.66rem', color: '#94A3B8', display: 'block' }}>Potential loss per acre</span>
               </div>
             </div>
 
             {/* Penalty Breakdown Bar */}
-            <div>
-              <span style={{ fontSize: '0.72rem', color: '#B9C6BB', fontWeight: 700, textTransform: 'uppercase', display: 'block', marginBottom: '0.4rem' }}>
+            <div style={{ background: 'rgba(16, 37, 30, 0.6)', padding: '0.75rem', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
+              <span style={{ fontSize: '0.72rem', color: '#B9C6BB', fontWeight: 800, textTransform: 'uppercase', display: 'block', marginBottom: '0.45rem', letterSpacing: '0.04em' }}>
                 {tr('Deduction Breakdown:') || tr('Multi-Factor Stress Breakdown')}
               </span>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.76rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.76rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: '#F7F1E3' }}>🌡️ {tr('Thermal Stress')}</span>
-                  <span style={{ color: '#C95A4A', fontWeight: 700 }}>-{simulationResults.tempPenalty}%</span>
+                  <span style={{ color: '#F7F1E3' }}>🌡️ <span style={{ color: '#FB7185' }}>{tr('Thermal Stress')}</span></span>
+                  <span style={{ color: '#FB7185', fontWeight: 700 }}>-{simulationResults.tempPenalty}%</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: '#F7F1E3' }}>💧 {tr('Water Stress')}</span>
-                  <span style={{ color: '#C95A4A', fontWeight: 700 }}>-{simulationResults.rainPenalty}%</span>
+                  <span style={{ color: '#F7F1E3' }}>💧 <span style={{ color: '#38BDF8' }}>{tr('Water Stress')}</span></span>
+                  <span style={{ color: '#FB7185', fontWeight: 700 }}>-{simulationResults.rainPenalty}%</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: '#F7F1E3' }}>📅 {tr('Planned Sowing Window Shift:')}</span>
-                  <span style={{ color: '#C95A4A', fontWeight: 700 }}>-{simulationResults.sowPenalty}%</span>
+                  <span style={{ color: '#F7F1E3' }}>📅 <span style={{ color: '#FB923C' }}>{tr('Planned Sowing Window Shift:')}</span></span>
+                  <span style={{ color: '#FB7185', fontWeight: 700 }}>-{simulationResults.sowPenalty}%</span>
                 </div>
               </div>
             </div>
@@ -438,8 +459,16 @@ export default function ScenarioLabTab() {
 
           <button
             onClick={() => alert(`Scenario Simulation Saved: ${activeSituation} for ${targetCrop}. Suitability: ${simulationResults.scenarioSuitability}%.`)}
-            className="btn btn-primary"
-            style={{ width: '100%', padding: '0.65rem', fontSize: '0.84rem' }}
+            className="btn"
+            style={{ 
+              width: '100%', 
+              padding: '0.65rem', 
+              fontSize: '0.85rem',
+              background: 'linear-gradient(135deg, #FB923C 0%, #E11D48 100%)',
+              color: '#FFFFFF',
+              fontWeight: 800,
+              boxShadow: '0 4px 16px rgba(251, 146, 60, 0.4)'
+            }}
           >
             <Save className="w-4 h-4" /> {tr('Save Scenario to Decision Portfolio') || tr('Save Scenario')}
           </button>

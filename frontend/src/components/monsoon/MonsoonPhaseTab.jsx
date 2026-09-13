@@ -15,21 +15,21 @@ export default function MonsoonPhaseTab() {
       value: '-0.30 ONI', 
       phase: 'Neutral / Borderline La Niña', 
       status: 'Suppresses subsidence; enhances Southwesterly monsoon core low-level jet over Arabian Sea.', 
-      color: '#1E8A78' 
+      color: '#38BDF8' 
     },
     { 
       name: 'Indian Ocean Dipole (IOD)', 
       value: '+0.42 DMI', 
       phase: 'Positive Phase (Warm Western Pole)', 
       status: 'Accelerates tropical convective moisture pumping towards Central and North Indian agrarian plains.', 
-      color: '#E2A83B' 
+      color: '#FB923C' 
     },
     { 
       name: 'Madden-Julian Oscillation (MJO)', 
       value: 'Phase 3 (Amp 1.28)', 
       phase: 'Convective Envelope in Eastern Indian Ocean', 
       status: 'Triggers cyclonic vortex spin-up in Bay of Bengal; favorable for active monsoon rainfall spells.', 
-      color: '#8067B7' 
+      color: '#818CF8' 
     }
   ];
 
@@ -40,7 +40,7 @@ export default function MonsoonPhaseTab() {
       benchmark: 'vs 0.742 Baseline GFS', 
       delta: '+20.5%', 
       desc: 'Tested on 100% unseen 2024–2025 IMD ground observation test sets across 766 districts.',
-      color: '#1E8A78'
+      color: '#38BDF8'
     },
     { 
       title: 'Regression R² Score', 
@@ -48,7 +48,7 @@ export default function MonsoonPhaseTab() {
       benchmark: 'vs 0.695 Baseline NWP', 
       delta: '+26.9%', 
       desc: 'Variance of daily precipitation intensity accurately explained by teleconnection features.',
-      color: '#59C7B1'
+      color: '#84CC16'
     },
     { 
       title: 'Precipitation MAE', 
@@ -56,7 +56,7 @@ export default function MonsoonPhaseTab() {
       benchmark: 'vs 3.42 mm Baseline Error', 
       delta: '-36.2%', 
       desc: 'Mean Absolute Error in 24h accumulated rainfall vs IMD automated rain gauges.',
-      color: '#E2A83B'
+      color: '#FB923C'
     },
     { 
       title: 'Precipitation RMSE', 
@@ -64,7 +64,7 @@ export default function MonsoonPhaseTab() {
       benchmark: 'vs 5.38 mm Baseline Error', 
       delta: '-36.4%', 
       desc: 'Root Mean Squared Error measuring extreme precipitation peak forecasting precision.',
-      color: '#8067B7'
+      color: '#FB7185'
     }
   ];
 
@@ -79,7 +79,7 @@ export default function MonsoonPhaseTab() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       
-      {/* Header Banner */}
+      {/* Header Banner with Multi-Color Contrast & Multi-Font Typography */}
       <div className="glass-card" style={{ 
         padding: '1.4rem 1.6rem', 
         display: 'flex', 
@@ -87,30 +87,40 @@ export default function MonsoonPhaseTab() {
         alignItems: 'center', 
         flexWrap: 'wrap', 
         gap: '1rem',
-        background: 'linear-gradient(135deg, rgba(30, 138, 120, 0.12) 0%, rgba(24, 58, 45, 0.97) 100%)',
-        border: '1px solid rgba(89, 199, 177, 0.22)'
+        background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(24, 58, 45, 0.95) 50%, rgba(129, 140, 248, 0.1) 100%)',
+        border: '1.5px solid rgba(56, 189, 248, 0.25)',
+        boxShadow: '0 12px 35px rgba(0,0,0,0.5)'
       }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', fontWeight: 700, color: '#59C7B1', background: 'rgba(89, 199, 177, 0.12)', border: '1px solid rgba(89, 199, 177, 0.3)', borderRadius: '999px', padding: '0.2rem 0.65rem' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#59C7B1', display: 'inline-block' }}></span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', fontWeight: 800, color: '#38BDF8', background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.35)', borderRadius: '999px', padding: '0.2rem 0.65rem', fontFamily: 'var(--font-display)' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#38BDF8', display: 'inline-block', boxShadow: '0 0 8px #38BDF8' }}></span>
               {tr('IMD Synoptic Climatology')}
             </span>
-            <span style={{ fontSize: '0.75rem', color: '#7D8D81' }}>
-              Telemetry: {telemetry.dataFreshness}
+            <span style={{ fontSize: '0.75rem', color: '#B9C6BB' }}>
+              Telemetry: <strong style={{ color: '#84CC16' }}>{telemetry.dataFreshness}</strong>
             </span>
           </div>
-          <h2 style={{ fontSize: '1.45rem', margin: 0, fontFamily: 'var(--font-heading)', background: 'linear-gradient(135deg, #59C7B1 0%, #8067B7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            {tr('Hyperlocal Monsoon Phase & Teleconnections Intelligence') || 'Hyperlocal Monsoon Phase & Teleconnections Intelligence'}
+
+          {/* Multi-font & Multi-color Heading */}
+          <h2 style={{ fontSize: '1.6rem', margin: 0, letterSpacing: '-0.02em', display: 'flex', alignItems: 'baseline', gap: '0.45rem', flexWrap: 'wrap' }}>
+            <span style={{ color: '#38BDF8', fontFamily: 'var(--font-display)', fontWeight: 900 }}>
+              Monsoon Phase
+            </span>
+            <span style={{ color: '#7D8D81', fontWeight: 300, fontSize: '1.2rem' }}>&</span>
+            <span style={{ background: 'linear-gradient(135deg, #FB7185 0%, #818CF8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: 'var(--font-sora)', fontWeight: 800 }}>
+              Teleconnections AI
+            </span>
           </h2>
+
           <p style={{ fontSize: '0.84rem', color: '#B9C6BB', margin: '0.25rem 0 0' }}>
             {tr('Multi-scale diagnostics fusing local AWS weather telemetry with global teleconnection indices (ENSO, IOD, MJO).')}
           </p>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(30, 138, 120, 0.18)', border: '1px solid rgba(89, 199, 177, 0.35)', borderRadius: '10px', padding: '0.45rem 0.95rem' }}>
-          <Waves className="w-4 h-4" style={{ color: '#59C7B1' }} />
-          <span style={{ fontSize: '0.84rem', fontWeight: 800, color: '#59C7B1' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(251, 113, 133, 0.15)', border: '1.5px solid rgba(251, 113, 133, 0.35)', borderRadius: '12px', padding: '0.5rem 1rem', boxShadow: '0 4px 14px rgba(251, 113, 133, 0.25)' }}>
+          <Waves className="w-4 h-4" style={{ color: '#FB7185' }} />
+          <span style={{ fontSize: '0.84rem', fontWeight: 800, color: '#FB7185', fontFamily: 'var(--font-display)' }}>
             {tr('Active')}: {tr(telemetry.monsoonPhase)}
           </span>
         </div>
@@ -213,7 +223,7 @@ export default function MonsoonPhaseTab() {
       </div>
 
       {/* TELECONNECTIONS GRID */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
         {teleconnections.map((tc, idx) => (
           <div key={idx} className="glass-card" style={{ padding: '1.35rem', position: 'relative', overflow: 'hidden' }}>
             <div style={{

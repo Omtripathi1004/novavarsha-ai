@@ -291,10 +291,12 @@ export default function OverviewTab() {
               fontSize: '4.8rem',
               fontWeight: 900,
               fontFamily: 'var(--font-heading)',
-              color: '#F7F1E3',
+              background: 'linear-gradient(135deg, #FB7185 0%, #F97316 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
               lineHeight: 1,
               letterSpacing: '-0.03em',
-              filter: 'drop-shadow(0 0 20px rgba(89, 199, 177, 0.4))'
+              filter: 'drop-shadow(0 0 20px rgba(251, 113, 133, 0.35))'
             }}>
               {telemetry.temp}°C
             </span>
@@ -335,13 +337,13 @@ export default function OverviewTab() {
             <span>🌿</span>
             <span>{tr('Active Soil & Vegetative Advisory')}: {activeLocation.district} — {tr('Recommended sowing window open')}.</span>
           </div>
-          <span style={{ fontSize: '0.76rem', opacity: 0.9, color: '#E2A83B' }}>● 85% {tr('Rain Probability')}</span>
+          <span style={{ fontSize: '0.76rem', opacity: 0.9, color: '#84CC16', fontWeight: 800 }}>● 85% {tr('Rain Probability')} ✓</span>
         </div>
 
       </div>
 
       {/* 2. EMBEDDED MAP ON HOME PAGE + MONSOON EARTH TELEMETRY CARDS */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.25rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
         
         {/* EMBEDDED INTERACTIVE FULL-COLOR MAP CARD */}
         <div className="glass-card" style={{ 
@@ -431,57 +433,57 @@ export default function OverviewTab() {
         {/* 4 COLOR-CODED TELEMETRY METRIC CARDS */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.85rem' }}>
           
-          {/* 1. Rainfall (Monsoon Teal & Rain Glow) */}
-          <div className="telemetry-card" style={{ borderLeft: '4px solid #1E8A78', background: 'rgba(24, 58, 45, 0.75)' }}>
-            <div className="telemetry-label" style={{ color: '#59C7B1' }}>
+          {/* 1. Rainfall — Sky Blue */}
+          <div className="telemetry-card" style={{ borderLeft: '4px solid #38BDF8', background: 'rgba(24, 58, 45, 0.75)', borderRadius: '12px', padding: '0.85rem' }}>
+            <div className="telemetry-label" style={{ color: '#38BDF8', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.35rem' }}>
               🌧️ {t('rainfall_metric')}
             </div>
-            <div className="telemetry-value" style={{ color: '#F7F1E3', fontSize: '1.6rem' }}>
+            <div className="telemetry-value" style={{ fontFamily: 'var(--font-heading)', color: '#F7F1E3', fontSize: '1.6rem', fontWeight: 800 }}>
               {telemetry.rainMmToday} / {telemetry.rainMm7d} <span style={{ fontSize: '0.9rem', color: '#B9C6BB' }}>mm</span>
             </div>
-            <div className="telemetry-sub" style={{ color: '#59C7B1' }}>
+            <div className="telemetry-sub" style={{ color: '#38BDF8', fontSize: '0.73rem', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <CloudRain className="w-3.5 h-3.5" />
               <span>{tr('Rain Anomaly')}: <strong style={{ color: '#F7F1E3' }}>{telemetry.rainAnomaly}</strong> vs Normal</span>
             </div>
           </div>
 
-          {/* 2. Soil Moisture (Earth & Rain Glow) */}
-          <div className="telemetry-card" style={{ borderLeft: '4px solid #7A4E35', background: 'rgba(24, 58, 45, 0.75)' }}>
-            <div className="telemetry-label" style={{ color: '#59C7B1' }}>
+          {/* 2. Soil Moisture — Orange */}
+          <div className="telemetry-card" style={{ borderLeft: '4px solid #F97316', background: 'rgba(24, 58, 45, 0.75)', borderRadius: '12px', padding: '0.85rem' }}>
+            <div className="telemetry-label" style={{ color: '#F97316', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.35rem' }}>
               🌱 {t('humidity_soil')}
             </div>
-            <div className="telemetry-value" style={{ color: '#F7F1E3', fontSize: '1.6rem' }}>
+            <div className="telemetry-value" style={{ fontFamily: 'var(--font-heading)', color: '#F7F1E3', fontSize: '1.6rem', fontWeight: 800 }}>
               {telemetry.humidity}% <span style={{ fontSize: '0.9rem', color: '#B9C6BB' }}>/ 32%</span>
             </div>
-            <div className="telemetry-sub" style={{ color: '#B9C6BB' }}>
-              <Droplets className="w-3.5 h-3.5" style={{ color: '#59C7B1' }} />
+            <div className="telemetry-sub" style={{ color: '#B9C6BB', fontSize: '0.73rem', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+              <Droplets className="w-3.5 h-3.5" style={{ color: '#F97316' }} />
               <span>{tr('Soil Moisture')} (0–30cm)</span>
             </div>
           </div>
 
-          {/* 3. Surface Temp & Pressure (Soil Terracotta & Harvest Amber) */}
-          <div className="telemetry-card" style={{ borderLeft: '4px solid #B85C38', background: 'rgba(24, 58, 45, 0.75)' }}>
-            <div className="telemetry-label" style={{ color: '#E2A83B' }}>
+          {/* 3. Surface Temp — Coral/Pink */}
+          <div className="telemetry-card" style={{ borderLeft: '4px solid #FB7185', background: 'rgba(24, 58, 45, 0.75)', borderRadius: '12px', padding: '0.85rem' }}>
+            <div className="telemetry-label" style={{ color: '#FB7185', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.35rem' }}>
               ☀️ {t('surface_temp')}
             </div>
-            <div className="telemetry-value" style={{ color: '#F7F1E3', fontSize: '1.6rem' }}>
+            <div className="telemetry-value" style={{ fontFamily: 'var(--font-heading)', color: '#F7F1E3', fontSize: '1.6rem', fontWeight: 800 }}>
               {telemetry.temp}°C <span style={{ fontSize: '0.9rem', color: '#B9C6BB' }}>/ 1006 hPa</span>
             </div>
-            <div className="telemetry-sub" style={{ color: '#E2A83B' }}>
+            <div className="telemetry-sub" style={{ color: '#FB7185', fontSize: '0.73rem', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <Thermometer className="w-3.5 h-3.5" />
               <span>{tr('Temperature (°C)')} Range</span>
             </div>
           </div>
 
-          {/* 4. Risk & Disaster Watch (Risk Rust & Amber) */}
-          <div className="telemetry-card" style={{ borderLeft: '4px solid #C95A4A', background: 'rgba(24, 58, 45, 0.75)' }}>
-            <div className="telemetry-label" style={{ color: '#C95A4A' }}>
+          {/* 4. Risk — Lime for safe / Coral for risk */}
+          <div className="telemetry-card" style={{ borderLeft: `4px solid ${telemetry.compositeRiskScore > 50 ? '#FB7185' : '#84CC16'}`, background: 'rgba(24, 58, 45, 0.75)', borderRadius: '12px', padding: '0.85rem' }}>
+            <div className="telemetry-label" style={{ color: telemetry.compositeRiskScore > 50 ? '#FB7185' : '#84CC16', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.35rem' }}>
               🚨 {t('composite_risk')}
             </div>
-            <div className="telemetry-value" style={{ color: '#F7F1E3', fontSize: '1.6rem' }}>
-              {telemetry.compositeRiskScore} <span style={{ fontSize: '0.9rem', color: '#E2A83B' }}>/ 100</span>
+            <div className="telemetry-value" style={{ fontFamily: 'var(--font-heading)', color: '#F7F1E3', fontSize: '1.6rem', fontWeight: 800 }}>
+              {telemetry.compositeRiskScore} <span style={{ fontSize: '0.9rem', color: '#FCD34D' }}>/ 100</span>
             </div>
-            <div className="telemetry-sub" style={{ color: '#C95A4A' }}>
+            <div className="telemetry-sub" style={{ color: telemetry.compositeRiskScore > 50 ? '#FB7185' : '#84CC16', fontSize: '0.73rem', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <ShieldAlert className="w-3.5 h-3.5" />
               <span>{telemetry.riskRating} (Safe Sowing)</span>
             </div>
@@ -522,25 +524,25 @@ export default function OverviewTab() {
         </div>
 
         {/* 3 Crop Cards Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
           {top3Crops.map((crop, idx) => {
             const isFocal = idx === 0;
             const rankLabel = isFocal ? '#1 Ranked Best Match' : idx === 1 ? '#2 Strong Runner-Up' : '#3 High-Resilience Alternative';
-            const rankColor = isFocal ? '#E2A83B' : idx === 1 ? '#1E8A78' : '#B85C38';
+            const rankColor = isFocal ? '#FCD34D' : idx === 1 ? '#818CF8' : '#F97316';
 
             return (
               <div
                 key={crop.id}
                 style={{
-                  background: isFocal ? 'rgba(24, 58, 45, 0.95)' : 'rgba(24, 58, 45, 0.7)',
-                  border: isFocal ? `2px solid #E2A83B` : `1.5px solid rgba(89, 199, 177, 0.25)`,
+                  background: isFocal ? 'rgba(252, 211, 77, 0.18)' : 'rgba(24, 58, 45, 0.7)',
+                  border: isFocal ? `2px solid #FCD34D` : `1.5px solid rgba(89, 199, 177, 0.25)`,
                   borderRadius: '16px',
                   padding: '1.25rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   boxShadow: isFocal 
-                    ? `0 12px 32px rgba(0,0,0,0.45), 0 0 20px rgba(226, 168, 59, 0.2)` 
+                    ? `0 12px 32px rgba(0,0,0,0.45), 0 0 20px rgba(252, 211, 77, 0.22)` 
                     : `0 8px 24px rgba(0,0,0,0.3)`,
                   position: 'relative'
                 }}
@@ -556,7 +558,8 @@ export default function OverviewTab() {
                       padding: '0.2rem 0.65rem',
                       borderRadius: '999px',
                       boxShadow: `0 0 10px ${rankColor}55`,
-                      letterSpacing: '0.02em'
+                      letterSpacing: '0.02em',
+                      fontFamily: 'var(--font-heading)'
                     }}>
                       {tr(rankLabel)}
                     </span>
@@ -572,7 +575,7 @@ export default function OverviewTab() {
                       <h4 style={{ fontSize: '1.15rem', color: '#F7F1E3', margin: 0, fontWeight: 800 }}>
                         {tr(crop.name)}
                       </h4>
-                      <strong style={{ fontSize: '0.84rem', color: '#59C7B1' }}>
+                      <strong style={{ fontSize: '0.84rem', color: '#84CC16' }}>
                         {tr(crop.variety)}
                       </strong>
                     </div>
@@ -588,9 +591,9 @@ export default function OverviewTab() {
                       <div style={{
                         height: '100%',
                         width: `${crop.suitability}%`,
-                        background: 'linear-gradient(90deg, #2F6B4F 0%, #1E8A78 50%, #E2A83B 100%)',
+                        background: `linear-gradient(90deg, #818CF8 0%, #38BDF8 50%, #84CC16 100%)`,
                         borderRadius: '999px',
-                        boxShadow: '0 0 8px rgba(226, 168, 59, 0.4)'
+                        boxShadow: '0 0 8px rgba(132, 204, 22, 0.5)'
                       }} />
                     </div>
                   </div>
@@ -742,10 +745,11 @@ export default function OverviewTab() {
         {/* Graph Display Area */}
         {graphMode === '7d' ? (
           /* 7-DAY INTERACTIVE BAR & THERMAL CURVE */
-          <div>
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '0.5rem' }}>
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(7, 1fr)',
+              minWidth: '500px',
               gap: '0.65rem',
               alignItems: 'flex-end',
               height: '210px',
@@ -796,7 +800,7 @@ export default function OverviewTab() {
             </div>
 
             {/* Legend */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '0.85rem', fontSize: '0.76rem', color: '#B9C6BB' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '0.85rem', fontSize: '0.76rem', color: '#B9C6BB', minWidth: '400px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 <span style={{ width: '12px', height: '12px', borderRadius: '3px', background: '#1E8A78' }} />
                 <span>{tr('Forecast Precipitation (mm)')}</span>
@@ -813,10 +817,11 @@ export default function OverviewTab() {
           </div>
         ) : (
           /* 30-DAY SEASONAL CLIMATOLOGY CURVE */
-          <div>
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '0.5rem' }}>
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(5, 1fr)',
+              minWidth: '460px',
               gap: '1rem',
               alignItems: 'flex-end',
               height: '210px',

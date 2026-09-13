@@ -212,7 +212,7 @@ export default function SatelliteTab() {
           border: '1.5px solid rgba(56, 189, 248, 0.25)',
           padding: '1.25rem',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '1.5rem',
           alignItems: 'center'
         }}>

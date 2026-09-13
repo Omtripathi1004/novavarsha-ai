@@ -111,11 +111,11 @@ export default function Navbar() {
             filter: 'drop-shadow(0 0 12px rgba(226, 168, 59, 0.75))'
           }}>⚡</span>
           <div>
-            <div style={{
+            <div className="brand-title" style={{
               fontSize: '1.2rem',
               fontWeight: 800,
               fontFamily: 'var(--font-heading)',
-              background: 'linear-gradient(135deg, #F7F1E3 0%, #E2A83B 45%, #59C7B1 100%)',
+              background: 'linear-gradient(135deg, #F7F1E3 0%, #FCD34D 30%, #FB7185 60%, #818CF8 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               letterSpacing: '-0.025em',
@@ -123,7 +123,7 @@ export default function Navbar() {
             }}>
               NovaVarsha AI
             </div>
-            <div style={{
+            <div className="desktop-only" style={{
               fontSize: '0.62rem',
               color: 'var(--color-rain-glow)',
               letterSpacing: '0.04em',
@@ -142,7 +142,7 @@ export default function Navbar() {
         </div>
 
         {/* Center / Quick Webpage Selector Dropdown */}
-        <div id="page-jump-container" style={{ position: 'relative', flexShrink: 1 }}>
+        <div id="page-jump-container" className="navbar-hide-mobile" style={{ position: 'relative', flexShrink: 1 }}>
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -257,6 +257,7 @@ export default function Navbar() {
           {/* Judge Tour Button */}
           <button
             onClick={() => setIsJudgeTourOpen(true)}
+            className="navbar-hide-mobile"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -281,6 +282,7 @@ export default function Navbar() {
           {/* Architecture Button */}
           <button
             onClick={() => setIsExplainSystemOpen(true)}
+            className="navbar-hide-mobile"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -309,7 +311,7 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.35rem',
-              padding: '0.32rem 0.75rem',
+              padding: '0.32rem 0.65rem',
               background: isAssistantOpen 
                 ? 'linear-gradient(135deg, #1E8A78 0%, #8067B7 100%)' 
                 : 'rgba(128, 103, 183, 0.22)',
@@ -321,16 +323,17 @@ export default function Navbar() {
               cursor: 'pointer',
               transition: 'all 0.18s',
               boxShadow: isAssistantOpen ? '0 0 14px rgba(89, 199, 177, 0.5)' : '0 2px 8px rgba(0, 0, 0, 0.3)',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
             title={lang === 'hi' ? 'नोवावर्षा AI कृषि सलाहकार खोलें' : 'Open NovaVarsha AI Agriculture Assistant'}
           >
             <span style={{ fontSize: '0.9rem' }}>🤖</span>
-            <span>{lang === 'hi' ? 'AI चैट' : 'AI Chat'}</span>
+            <span className="navbar-hide-mobile">{lang === 'hi' ? 'AI चैट' : 'AI Chat'}</span>
           </button>
 
           {/* Language Selector Dropdown (11 Indian Languages) — NEVER HIDDEN */}
-          <div id="lang-selector-container" style={{ position: 'relative' }}>
+          <div id="lang-selector-container" style={{ position: 'relative', flexShrink: 0 }}>
             <button
               id="lang-selector-btn"
               onClick={(e) => {
@@ -338,13 +341,13 @@ export default function Navbar() {
                 setIsLangDropdownOpen(!isLangDropdownOpen);
               }}
               style={{
-                padding: '0.3rem 0.65rem',
+                padding: '0.3rem 0.55rem',
                 borderRadius: '8px',
                 fontSize: '0.74rem',
                 fontWeight: 800,
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.35rem',
+                gap: '0.3rem',
                 border: '1px solid rgba(89, 199, 177, 0.25)',
                 background: 'rgba(24, 58, 45, 0.8)',
                 color: '#F7F1E3',
@@ -355,9 +358,10 @@ export default function Navbar() {
               }}
               title="Select Language / भाषा चुनें (11 Indian Languages)"
             >
-              <Languages className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{activeLangObj.native}</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <Languages className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+              <span className="navbar-hide-mobile">{activeLangObj.native}</span>
+              <span className="mobile-only-inline">{lang.toUpperCase()}</span>
+              <ChevronDown className="w-3 h-3 text-slate-400 flex-shrink-0" />
             </button>
 
             {isLangDropdownOpen && (
@@ -429,6 +433,7 @@ export default function Navbar() {
           {/* User Role Pill */}
           <div
             onClick={() => setIsLoginPage(true)}
+            className="navbar-hide-mobile"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -451,7 +456,8 @@ export default function Navbar() {
 
           {/* Global Search Button */}
           <button
-            onClick={() => setIsCommandPaletteOpen(true)}
+            className="navbar-hide-mobile"
+          onClick={() => setIsCommandPaletteOpen(true)}
             style={{
               background: 'rgba(255, 255, 255, 0.06)',
               border: '1px solid rgba(255, 255, 255, 0.12)',
@@ -516,6 +522,7 @@ export default function Navbar() {
         {/* Left Scroll Button */}
         <button
           onClick={() => scrollNav('left')}
+          className="navbar-hide-mobile"
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             border: '1px solid rgba(255, 255, 255, 0.12)',
@@ -548,6 +555,7 @@ export default function Navbar() {
             scrollBehavior: 'smooth',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch',
             flex: 1,
             padding: '0.1rem 0',
             whiteSpace: 'nowrap'
@@ -613,6 +621,7 @@ export default function Navbar() {
         {/* Right Scroll Button */}
         <button
           onClick={() => scrollNav('right')}
+          className="navbar-hide-mobile"
           style={{
             background: 'rgba(255, 255, 255, 0.08)',
             border: '1px solid rgba(255, 255, 255, 0.12)',

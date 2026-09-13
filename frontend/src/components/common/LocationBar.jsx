@@ -6,7 +6,7 @@ import { getLgdHierarchyForDistrict } from '../../data/lgdHierarchy';
 
 export default function LocationBar() {
   const { activeHub, switchHub, activeLocation, setActiveLocation, setTelemetry, lang, t } = useApp();
-  const [isManualOpen, setIsManualOpen] = useState(true); // Open by default for easy access
+  const [isManualOpen, setIsManualOpen] = useState(() => typeof window !== 'undefined' ? window.innerWidth > 900 : false);
   const [gpsLoading, setGpsLoading] = useState(false);
   const [gpsMsg, setGpsMsg] = useState('');
 
@@ -130,34 +130,35 @@ export default function LocationBar() {
       backdropFilter: 'blur(20px)',
       WebkitBackdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border-cyan)',
-      padding: '0.55rem 1.25rem',
+      padding: '0.45rem 0.85rem',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      gap: '0.85rem',
+      gap: '0.65rem',
       flexWrap: 'wrap',
       boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)'
     }}>
       {/* Left: Active Location Pin & Live GPS Button & 4-Tier Manual Dropdowns */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
         
         {/* Active Georeferenced Location Chip */}
         <div style={{
-          background: 'rgba(0, 240, 255, 0.12)',
-          border: '1px solid var(--border-cyan)',
+          background: 'rgba(56, 189, 248, 0.14)',
+          border: '1.5px solid rgba(56, 189, 248, 0.35)',
           borderRadius: '10px',
-          padding: '0.35rem 0.75rem',
+          padding: '0.35rem 0.65rem',
           display: 'flex',
           alignItems: 'center',
           gap: '0.45rem',
-          color: 'var(--neon-cyan)',
+          color: '#38BDF8',
           fontSize: '0.78rem',
-          fontWeight: 700,
-          fontFamily: 'var(--font-heading)'
+          fontWeight: 800,
+          fontFamily: 'var(--font-heading)',
+          boxShadow: '0 2px 10px rgba(56, 189, 248, 0.15)'
         }}>
-          <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+          <MapPin className="w-3.5 h-3.5" style={{ color: '#FB7185' }} />
           <span>{activeLocation.district}, {activeLocation.state}</span>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginLeft: '0.2rem' }} className="font-mono">
+          <span style={{ fontSize: '0.68rem', color: '#94A3B8', marginLeft: '0.2rem' }} className="font-mono desktop-only">
             ({activeLocation.lat ? activeLocation.lat.toFixed(2) : '26.85'}°N, {activeLocation.lng ? activeLocation.lng.toFixed(2) : '80.95'}°E)
           </span>
         </div>
@@ -315,8 +316,8 @@ export default function LocationBar() {
       </div>
 
       {/* Right: Verified Agro-Climatic Hubs Quick Selector */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', overflowX: 'auto', padding: '0.1rem 0' }}>
-        <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 800, marginRight: '0.2rem', whiteSpace: 'nowrap' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', overflowX: 'auto', maxWidth: '100%', WebkitOverflowScrolling: 'touch', padding: '0.1rem 0' }}>
+        <span style={{ fontSize: '0.7rem', color: '#FBBF24', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 800, marginRight: '0.2rem', whiteSpace: 'nowrap', fontFamily: 'var(--font-display)', flexShrink: 0 }}>
           Agro-Hubs:
         </span>
         {AGRO_HUBS.map(hub => {
@@ -328,22 +329,24 @@ export default function LocationBar() {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.3rem',
-                padding: '0.25rem 0.6rem',
+                gap: '0.35rem',
+                padding: '0.3rem 0.65rem',
                 borderRadius: '999px',
-                border: isActive ? `1.5px solid ${hub.color}` : '1px solid rgba(255, 255, 255, 0.08)',
-                background: isActive ? `${hub.color}22` : 'rgba(255, 255, 255, 0.03)',
-                color: isActive ? '#ffffff' : '#94a3b8',
-                fontSize: '0.72rem',
-                fontWeight: isActive ? 800 : 500,
+                border: isActive ? `2px solid ${hub.color}` : `1px solid ${hub.color}44`,
+                background: isActive ? `${hub.color}33` : 'rgba(24, 58, 45, 0.6)',
+                color: isActive ? '#FFFFFF' : '#E2E8F0',
+                fontSize: '0.74rem',
+                fontWeight: isActive ? 800 : 600,
+                fontFamily: 'var(--font-display)',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                boxShadow: isActive ? `0 0 12px ${hub.color}66` : 'none'
               }}
             >
               <span>{hub.icon}</span>
               <span>{hub.name.split(' (')[0]}</span>
-              {isActive && <CheckCircle2 className="w-3 h-3 text-emerald-400" />}
+              {isActive && <CheckCircle2 className="w-3.5 h-3.5" style={{ color: '#84CC16' }} />}
             </button>
           );
         })}

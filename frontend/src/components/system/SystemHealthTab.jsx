@@ -146,7 +146,7 @@ export default function SystemHealthTab() {
           {tr('Authoritative Upstream Providers & Telemetry SLA')}
         </h3>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
           {upstreamProviders.map((p, idx) => (
             <div key={idx} style={{ background: 'rgba(5, 8, 17, 0.55)', padding: '1.1rem', borderRadius: '12px', border: '1px solid var(--border-subtle)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.35rem' }}>
