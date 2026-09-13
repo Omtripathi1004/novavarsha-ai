@@ -86,6 +86,63 @@ const MULTILINGUAL_CHAT_KNOWLEDGE = {
   }
 };
 
+// Transliteration helper for Odia to Devanagari phonetics (for Hindi/Indic TTS fallback)
+function odiaToDevanagari(str) {
+  if (!str) return '';
+  return str.replace(/[\u0B00-\u0B7F]/g, (char) => {
+    const code = char.charCodeAt(0);
+    if (code === 0x0B71) return '\u0935'; // Odia Wa -> Devanagari Va
+    if (code === 0x0B5F) return '\u092F'; // Odia Ya with dot -> Devanagari Ya
+    if (code === 0x0B5C) return '\u095C'; // Odia Dda with dot -> Devanagari Rra
+    if (code === 0x0B5D) return '\u095D'; // Odia Ddha with dot -> Devanagari Rrha
+    return String.fromCharCode(code - 0x0200);
+  });
+}
+
+// Romanized transliteration for Odia when only English voices exist on client device
+const romanBase = {
+  'क': 'k', 'ख': 'kh', 'ग': 'g', 'घ': 'gh', 'ङ': 'ng',
+  'च': 'ch', 'छ': 'chh', 'ज': 'j', 'झ': 'jh', 'ञ': 'ny',
+  'ट': 't', 'ठ': 'th', 'ड': 'd', 'ढ': 'dh', 'ण': 'n',
+  'त': 't', 'थ': 'th', 'द': 'd', 'ध': 'dh', 'न': 'n',
+  'प': 'p', 'फ': 'ph', 'ब': 'b', 'भ': 'bh', 'म': 'm',
+  'य': 'y', 'र': 'r', 'ल': 'l', 'व': 'v', 'श': 'sh', 'ष': 'sh', 'स': 's', 'ह': 'h',
+  'ळ': 'l', 'ड़': 'r', 'ढ़': 'rh'
+};
+const matraMap = {
+  'ा': 'a', 'ि': 'i', 'ी': 'ee', 'ु': 'u', 'ू': 'u', 'ृ': 'ri',
+  'े': 'e', 'ै': 'ai', 'ो': 'o', 'ौ': 'au'
+};
+const vowelMap = {
+  'अ': 'a', 'आ': 'aa', 'इ': 'i', 'ई': 'ee', 'उ': 'u', 'ऊ': 'oo', 'ऋ': 'ri',
+  'ए': 'e', 'ऐ': 'ai', 'ओ': 'o', 'औ': 'au', 'ं': 'n', 'ः': 'h', 'ँ': 'n', '।': '.'
+};
+function odiaToRoman(str) {
+  if (!str) return '';
+  const dev = odiaToDevanagari(str);
+  let res = '';
+  for (let i = 0; i < dev.length; i++) {
+    const ch = dev[i];
+    const next = dev[i + 1];
+    if (romanBase[ch]) {
+      if (next === '्') {
+        res += romanBase[ch];
+        i++;
+      } else if (matraMap[next]) {
+        res += romanBase[ch] + matraMap[next];
+        i++;
+      } else {
+        res += romanBase[ch] + 'a ';
+      }
+    } else if (vowelMap[ch]) {
+      res += vowelMap[ch];
+    } else {
+      res += ch;
+    }
+  }
+  return res.replace(/\s+/g, ' ').trim();
+}
+
 export default function AssistantDrawer() {
   const { 
     isAssistantOpen, setIsAssistantOpen, 
@@ -224,6 +281,7 @@ export default function AssistantDrawer() {
       const voices = window.speechSynthesis.getVoices();
       let voiceToUse = null;
       let targetLang = voiceLangs[lang] || 'hi-IN';
+      let spokenText = text;
 
       const isNonEnglish = (v) => {
         const l = (v.lang || '').toLowerCase();
@@ -254,6 +312,42 @@ export default function AssistantDrawer() {
           if (indicVoice) voiceToUse = indicVoice;
           targetLang = 'hi-IN';
         }
+      } else if (lang === 'or') {
+        const odiaVoice = voices.find(v => 
+          isNonEnglish(v) && (
+            v.lang.toLowerCase().startsWith('or') || 
+            v.name.toLowerCase().includes('odia') || 
+            v.name.toLowerCase().includes('oriya')
+          )
+        );
+        if (odiaVoice) {
+          voiceToUse = odiaVoice;
+          targetLang = odiaVoice.lang;
+          spokenText = text;
+        } else {
+          const indicVoice = voices.find(v => 
+            isNonEnglish(v) && (
+              v.lang.toLowerCase().startsWith('hi') || 
+              v.name.toLowerCase().includes('hindi') || 
+              v.name.toLowerCase().includes('kalpana') ||
+              v.name.toLowerCase().includes('hemant') ||
+              v.name.toLowerCase().includes('swara') ||
+              v.name.toLowerCase().includes('madhur')
+            )
+          );
+          if (indicVoice) {
+            voiceToUse = indicVoice;
+            targetLang = 'hi-IN';
+            spokenText = odiaToDevanagari(text);
+          } else {
+            const enVoice = voices.find(v => v.lang.toLowerCase().startsWith('en-in')) || 
+                            voices.find(v => v.lang.toLowerCase().startsWith('en')) || 
+                            voices[0];
+            if (enVoice) voiceToUse = enVoice;
+            targetLang = enVoice?.lang || 'en-IN';
+            spokenText = odiaToRoman(text);
+          }
+        }
       } else if (lang !== 'en') {
         const matched = voices.find(v => isNonEnglish(v) && v.lang.toLowerCase().startsWith(targetLang.slice(0, 2).toLowerCase()));
         if (matched) voiceToUse = matched;
@@ -266,7 +360,7 @@ export default function AssistantDrawer() {
         if (enVoice) voiceToUse = enVoice;
       }
 
-      const utterance = new SpeechSynthesisUtterance(text);
+      const utterance = new SpeechSynthesisUtterance(spokenText);
       utterance.lang = targetLang;
       if (voiceToUse) utterance.voice = voiceToUse;
       utterance.onend = () => setIsSpeaking(false);

@@ -195,6 +195,45 @@ Dooji fasal: ${crop2.name}, variety ${crop2.variety}, dhukvaan pan ${crop2.suita
 Teeji fasal: ${crop3.name}, variety ${crop3.variety}, sarkari samarthan mul ${crop3.mspPerQuintal}. 
 Salah: Nakasi naaliya saaf rakho ate bijaayi da kam poora karo. Dhanwaad!`;
 
+  // Helper to transliterate Odia Unicode script to Devanagari phonetics for Hindi/Indic TTS engines
+  const odiaToDevanagari = (str) => {
+    if (!str) return '';
+    return str.replace(/[\u0B00-\u0B7F]/g, (char) => {
+      const code = char.charCodeAt(0);
+      if (code === 0x0B71) return '\u0935'; // Odia Wa -> Devanagari Va
+      if (code === 0x0B5F) return '\u092F'; // Odia Ya with dot -> Devanagari Ya
+      if (code === 0x0B5C) return '\u095C'; // Odia Dda with dot -> Devanagari Rra
+      if (code === 0x0B5D) return '\u095D'; // Odia Ddha with dot -> Devanagari Rrha
+      return String.fromCharCode(code - 0x0200);
+    });
+  };
+
+  // Phonetic Odia script for Indic TTS fallback when browser/OS lacks native or-IN Odia voice
+  const odiaPhoneticScript = `नमस्कार चाषी भाई ओ भउणीमाने। नोभावर्षा एआई जातीय कृषि-पाणीपाग ध्वनि बुलेटिनकु स्वागत। 
+स्थान: ${odiaToDevanagari(districtName) || districtName}, ${odiaToDevanagari(stateName) || stateName}। 
+पाणीपाग पूर्वानुमाना: आजिर तापमान ${telemetry.tempC || 29} डिग्री सेल्सियस एवं आर्द्रता ${telemetry.humidity || 78} प्रतिशत। 
+वर्षा पूर्वानुमाना: आजि ${telemetry.rainMmToday || 14} मिलीमीटर एवं आगामी 7 दिनरे मोट ${telemetry.rainMm7d || 128} मिलीमीटर वर्षा हेबार संभावना अछि। 
+माटिर आर्द्रता: माटिरे ${telemetry.soilMoisture || 72} प्रतिशत आर्द्रता उपलब्ध अछि, याहा बुणाई पाईं अनुकूल। 
+मानसून स्थिति: मानसून पूर्ण रूपे सक्रिय अछि। 
+आपणंक अंचल पाईं शीर्ष 3टी फसल: 
+प्रथम फसल: ${odiaToDevanagari(tr(crop1.name)) || crop1.name} (${crop1.variety}), उपयुक्तता ${crop1.suitability} प्रतिशत, अवधि ${crop1.durationDays} दिन। 
+द्वितीय फसल: ${odiaToDevanagari(tr(crop2.name)) || crop2.name} (${crop2.variety}), उपयुक्तता ${crop2.suitability} प्रतिशत। 
+तृतीय फसल: ${odiaToDevanagari(tr(crop3.name)) || crop3.name} (${crop3.variety}), सहायक मूल्य ${crop3.mspPerQuintal}। 
+परामर्श: जमिरे जल निष्कासन नाली प्रस्तुत रखन्तु। धन्यवाद।`;
+
+  // Romanized Odia script for guaranteed authentic spoken Odia on English-only Windows/macOS/Linux TTS
+  const odiaRomanizedScript = `Namaskar chasi bhai o bhaunimane! NovaVarsha AI jatiya krushi-panipaga dhwani bulletinku swagata. 
+Sthan: ${districtName}, ${stateName}. 
+Panipaga purbanumana: Aji taapmatra ${telemetry.tempC || 29} degree celsius ebong aadrata ${telemetry.humidity || 78} pratishat. 
+Barsha purbanumana: Aji ${telemetry.rainMmToday || 14} millimeter ebong agami saat dinare mot ${telemetry.rainMm7d || 128} millimeter barsha hebaara sambhabana achhi. 
+Matira aadrata: Matire ${telemetry.soilMoisture || 72} pratishat aadrata uplabdha achhi, jaha bunai pain anukula. 
+Monsoon sthiti: Monsoon purna rupe sakriya achhi. 
+Apananka anchala pain shirsha tinoti fasala: 
+Prathama fasala: ${crop1.name}, variety ${crop1.variety}, upayuktata ${crop1.suitability} pratishat, abadhi ${crop1.durationDays} dina. 
+Dwitiya fasala: ${crop2.name}, variety ${crop2.variety}, upayuktata ${crop2.suitability} pratishat. 
+Trutiya fasala: ${crop3.name}, variety ${crop3.variety}, sahayaka mulya ${crop3.mspPerQuintal}. 
+Paramarsha: Jamire jala nishkasana nali prastuta rakhantu. Dhanyabad!`;
+
   // Pre-load and cache browser voices to prevent empty voices on initial play
   const [availableVoices, setAvailableVoices] = useState([]);
 
@@ -258,7 +297,6 @@ Salah: Nakasi naaliya saaf rakho ate bijaayi da kam poora karo. Dhanwaad!`;
         spokenScript = currentScript;
       } else {
         // 2. Fallback to genuine Hindi/Indic voice with Devanagari Punjabi phonetics
-        // Strictly excludes Microsoft Heera / English (India)
         const indicVoice = voices.find(v => 
           isNonEnglish(v) && (
             v.lang.toLowerCase().startsWith('hi') || 
@@ -283,6 +321,48 @@ Salah: Nakasi naaliya saaf rakho ate bijaayi da kam poora karo. Dhanwaad!`;
           if (enVoice) voiceToUse = enVoice;
           targetLangTag = enVoice?.lang || 'en-IN';
           spokenScript = punjabiRomanizedScript;
+        }
+      }
+    } else if (lang === 'or') {
+      // 1. Search for native Odia voice
+      const odiaVoice = voices.find(v => 
+        isNonEnglish(v) && (
+          v.lang.toLowerCase().startsWith('or') || 
+          v.name.toLowerCase().includes('odia') || 
+          v.name.toLowerCase().includes('oriya')
+        )
+      );
+
+      if (odiaVoice) {
+        voiceToUse = odiaVoice;
+        targetLangTag = odiaVoice.lang;
+        spokenScript = currentScript;
+      } else {
+        // 2. Fallback to genuine Hindi/Indic voice with Devanagari Odia phonetics
+        const indicVoice = voices.find(v => 
+          isNonEnglish(v) && (
+            v.lang.toLowerCase().startsWith('hi') || 
+            v.name.toLowerCase().includes('hindi') || 
+            v.name.toLowerCase().includes('kalpana') ||
+            v.name.toLowerCase().includes('hemant') ||
+            v.name.toLowerCase().includes('swara') ||
+            v.name.toLowerCase().includes('madhur')
+          )
+        );
+
+        if (indicVoice) {
+          voiceToUse = indicVoice;
+          targetLangTag = 'hi-IN';
+          spokenScript = odiaPhoneticScript;
+        } else {
+          // 3. Fallback for Windows/Edge installations with ONLY English voices:
+          // Use Romanized Odia script so English TTS speaks authentic Odia words
+          const enVoice = voices.find(v => v.lang.toLowerCase().startsWith('en-in')) || 
+                          voices.find(v => v.lang.toLowerCase().startsWith('en')) || 
+                          voices[0];
+          if (enVoice) voiceToUse = enVoice;
+          targetLangTag = enVoice?.lang || 'en-IN';
+          spokenScript = odiaRomanizedScript;
         }
       }
     } else {
