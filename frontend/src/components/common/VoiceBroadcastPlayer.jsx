@@ -182,6 +182,37 @@ Agronomic Directive: Maintain furrow drainage channels in case of heavy downpour
 तीजा फसल: ${tr(crop3.name)} (${crop3.variety}), घट्टो-घट्ट समर्थन मुल्ल ${crop3.mspPerQuintal}। 
 सलाह: नकासी नालियां साफ रखो अते बिजाई दा कम पूरा करो। धन्यवाद।`;
 
+  // Romanized Punjabi script for guaranteed authentic spoken Punjabi on English-only Windows/macOS/Linux TTS
+  const punjabiRomanizedScript = `Sat Sri Akal kisaan veero! NovaVarsha AI rashtri kheti baadi mausam voice bulletin vich tuhada swagat hai. 
+Sthaan: ${districtName}, ${stateName}. 
+Mausam bhavikhbaani: Aaj da taapmaan ${telemetry.tempC || 29} degree celsius ate nami ${telemetry.humidity || 78} feesadi hai. 
+Meenh da anumaan: Aaj ${telemetry.rainMmToday || 14} millimeter ate agle sat dina vich kul ${telemetry.rainMm7d || 128} millimeter meenh di sambhaavna hai. 
+Mitti di nami: Mitti vich ${telemetry.soilMoisture || 72} feesadi nami maujood hai, jo bijaayi layi bahut dhukvi hai. 
+Monsoon sthiti: Monsoon poori tarah sargarram hai. 
+Tuhade layi pramukh tin sabh toh vadiya fasla: 
+Pehli fasal: ${crop1.name}, variety ${crop1.variety}, dhukvaan pan ${crop1.suitability} feesadi, samay ${crop1.durationDays} din. 
+Dooji fasal: ${crop2.name}, variety ${crop2.variety}, dhukvaan pan ${crop2.suitability} feesadi. 
+Teeji fasal: ${crop3.name}, variety ${crop3.variety}, sarkari samarthan mul ${crop3.mspPerQuintal}. 
+Salah: Nakasi naaliya saaf rakho ate bijaayi da kam poora karo. Dhanwaad!`;
+
+  // Pre-load and cache browser voices to prevent empty voices on initial play
+  const [availableVoices, setAvailableVoices] = useState([]);
+
+  useEffect(() => {
+    if (!('speechSynthesis' in window)) return;
+    const updateVoices = () => {
+      const v = window.speechSynthesis.getVoices();
+      if (v && v.length > 0) setAvailableVoices(v);
+    };
+    updateVoices();
+    window.speechSynthesis.onvoiceschanged = updateVoices;
+    return () => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = null;
+      }
+    };
+  }, []);
+
   const currentScript = scriptTemplates[lang] || scriptTemplates['hi'];
 
   // Handle SpeechSynthesis Playback with multi-tier regional voice resolution
@@ -200,17 +231,25 @@ Agronomic Directive: Maintain furrow drainage channels in case of heavy downpour
 
     window.speechSynthesis.cancel();
 
-    const voices = window.speechSynthesis.getVoices();
+    const voices = (availableVoices.length > 0) ? availableVoices : window.speechSynthesis.getVoices();
     let voiceToUse = null;
     let spokenScript = currentScript;
     let targetLangTag = getSpeechLangCode(lang);
 
+    const isNonEnglish = (v) => {
+      const l = (v.lang || '').toLowerCase();
+      const n = (v.name || '').toLowerCase();
+      return !l.startsWith('en') && !n.includes('english');
+    };
+
     if (lang === 'pa') {
       // 1. Search for native Punjabi voice
       const punjabiVoice = voices.find(v => 
-        v.lang.toLowerCase().startsWith('pa') || 
-        v.name.toLowerCase().includes('punjabi') || 
-        v.name.toLowerCase().includes('panjabi')
+        isNonEnglish(v) && (
+          v.lang.toLowerCase().startsWith('pa') || 
+          v.name.toLowerCase().includes('punjabi') || 
+          v.name.toLowerCase().includes('panjabi')
+        )
       );
 
       if (punjabiVoice) {
@@ -218,34 +257,50 @@ Agronomic Directive: Maintain furrow drainage channels in case of heavy downpour
         targetLangTag = punjabiVoice.lang;
         spokenScript = currentScript;
       } else {
-        // 2. Fallback to Indic voice with authentic spoken Punjabi phonetics
-        // Prevents browser from dropping into an English US accent
+        // 2. Fallback to genuine Hindi/Indic voice with Devanagari Punjabi phonetics
+        // Strictly excludes Microsoft Heera / English (India)
         const indicVoice = voices.find(v => 
-          v.lang.toLowerCase().startsWith('hi') || 
-          v.name.toLowerCase().includes('hindi') || 
-          v.name.toLowerCase().includes('india') ||
-          v.lang.toLowerCase().includes('-in')
+          isNonEnglish(v) && (
+            v.lang.toLowerCase().startsWith('hi') || 
+            v.name.toLowerCase().includes('hindi') || 
+            v.name.toLowerCase().includes('kalpana') ||
+            v.name.toLowerCase().includes('hemant') ||
+            v.name.toLowerCase().includes('swara') ||
+            v.name.toLowerCase().includes('madhur')
+          )
         );
+
         if (indicVoice) {
           voiceToUse = indicVoice;
-          targetLangTag = indicVoice.lang;
-        } else {
           targetLangTag = 'hi-IN';
+          spokenScript = punjabiPhoneticScript;
+        } else {
+          // 3. Fallback for Windows/Edge installations with ONLY English voices:
+          // Use Romanized Punjabi script so English TTS actually speaks authentic Punjabi words
+          const enVoice = voices.find(v => v.lang.toLowerCase().startsWith('en-in')) || 
+                          voices.find(v => v.lang.toLowerCase().startsWith('en')) || 
+                          voices[0];
+          if (enVoice) voiceToUse = enVoice;
+          targetLangTag = enVoice?.lang || 'en-IN';
+          spokenScript = punjabiRomanizedScript;
         }
-        spokenScript = punjabiPhoneticScript;
       }
     } else {
-      // Find matching regional voice
-      const matchedVoice = voices.find(v => v.lang.toLowerCase().startsWith(targetLangTag.slice(0, 2).toLowerCase()));
-      if (matchedVoice) {
-        voiceToUse = matchedVoice;
-      } else if (lang !== 'en') {
-        const indicVoice = voices.find(v => 
-          v.lang.toLowerCase().startsWith('hi') || 
-          v.name.toLowerCase().includes('india') ||
-          v.lang.toLowerCase().includes('-in')
-        );
-        if (indicVoice) voiceToUse = indicVoice;
+      // Find matching regional voice for other Indic languages
+      if (lang !== 'en') {
+        const matchedVoice = voices.find(v => isNonEnglish(v) && v.lang.toLowerCase().startsWith(targetLangTag.slice(0, 2).toLowerCase()));
+        if (matchedVoice) {
+          voiceToUse = matchedVoice;
+        } else {
+          const hindiVoice = voices.find(v => isNonEnglish(v) && (v.lang.toLowerCase().startsWith('hi') || v.name.toLowerCase().includes('hindi')));
+          if (hindiVoice) {
+            voiceToUse = hindiVoice;
+            targetLangTag = 'hi-IN';
+          }
+        }
+      } else {
+        const enVoice = voices.find(v => v.lang.toLowerCase().startsWith('en'));
+        if (enVoice) voiceToUse = enVoice;
       }
     }
 

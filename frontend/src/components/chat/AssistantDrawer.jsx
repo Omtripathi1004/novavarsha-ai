@@ -225,27 +225,45 @@ export default function AssistantDrawer() {
       let voiceToUse = null;
       let targetLang = voiceLangs[lang] || 'hi-IN';
 
+      const isNonEnglish = (v) => {
+        const l = (v.lang || '').toLowerCase();
+        const n = (v.name || '').toLowerCase();
+        return !l.startsWith('en') && !n.includes('english');
+      };
+
       if (lang === 'pa') {
         const punjabiVoice = voices.find(v => 
-          v.lang.toLowerCase().startsWith('pa') || 
-          v.name.toLowerCase().includes('punjabi') || 
-          v.name.toLowerCase().includes('panjabi')
+          isNonEnglish(v) && (
+            v.lang.toLowerCase().startsWith('pa') || 
+            v.name.toLowerCase().includes('punjabi') || 
+            v.name.toLowerCase().includes('panjabi')
+          )
         );
         if (punjabiVoice) {
           voiceToUse = punjabiVoice;
           targetLang = punjabiVoice.lang;
         } else {
           const indicVoice = voices.find(v => 
-            v.lang.toLowerCase().startsWith('hi') || 
-            v.name.toLowerCase().includes('hindi') || 
-            v.name.toLowerCase().includes('india')
+            isNonEnglish(v) && (
+              v.lang.toLowerCase().startsWith('hi') || 
+              v.name.toLowerCase().includes('hindi') || 
+              v.name.toLowerCase().includes('kalpana') ||
+              v.name.toLowerCase().includes('swara')
+            )
           );
           if (indicVoice) voiceToUse = indicVoice;
           targetLang = 'hi-IN';
         }
-      } else {
-        const matched = voices.find(v => v.lang.toLowerCase().startsWith(targetLang.slice(0, 2).toLowerCase()));
+      } else if (lang !== 'en') {
+        const matched = voices.find(v => isNonEnglish(v) && v.lang.toLowerCase().startsWith(targetLang.slice(0, 2).toLowerCase()));
         if (matched) voiceToUse = matched;
+        else {
+          const indicVoice = voices.find(v => isNonEnglish(v) && v.lang.toLowerCase().startsWith('hi'));
+          if (indicVoice) voiceToUse = indicVoice;
+        }
+      } else {
+        const enVoice = voices.find(v => v.lang.toLowerCase().startsWith('en'));
+        if (enVoice) voiceToUse = enVoice;
       }
 
       const utterance = new SpeechSynthesisUtterance(text);
