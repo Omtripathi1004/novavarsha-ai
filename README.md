@@ -6,6 +6,11 @@
 [![Architecture: Clean Room Rebuild](https://img.shields.io/badge/Architecture-Clean%20Room%20Rebuild-8b5cf6?style=flat-square)](#)
 [![Status: Production Ready](https://img.shields.io/badge/Build-Passing%20100%25-10b981?style=flat-square)](#)
 
+**🌐 Live Production Link:** **[https://novavarsha-ai.vercel.app](https://novavarsha-ai.vercel.app)**  
+**Alternative Deployment Link:** [https://novavarsha.vercel.app](https://novavarsha.vercel.app) | [https://novavarsha-lenovo.vercel.app](https://novavarsha-lenovo.vercel.app)  
+**Direct Public Bypass:** [https://frontend-xi-khaki-78.vercel.app](https://frontend-xi-khaki-78.vercel.app)  
+**GitHub Repository:** [https://github.com/Omtripathi1004/novavarsha-ai](https://github.com/Omtripathi1004/novavarsha-ai)
+
 > **"Observe → Understand → Predict → Explain → Recommend → Simulate → Act"**
 >
 > NovaVarsha AI is not another generic weather dashboard. It is an **India-first, sovereign-compliant, explainable climate-to-crop decision intelligence platform** built for Lenovo Hackathon 2026.
